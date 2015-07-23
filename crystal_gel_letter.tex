@@ -1,5 +1,5 @@
-\documentclass[twocolumn,superscriptaddress,showpacs,preprintnumbers,
-amsmath,amssymb,prl]{revtex4-1}
+%\documentclass[twocolumn,superscriptaddress,showpacs,preprintnumbers,amsmath,amssymb,prl]{revtex4-1}
+\documentclass[twocolumn,showpacs,amsmath,amssymb,pre,superscriptaddress]{revtex4}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}% Include figure files
 \usepackage{amsmath}
@@ -13,7 +13,9 @@ amsmath,amssymb,prl]{revtex4-1}
 
 \begin{document}
 
-\title{Mechanism of crystal-gel formation}
+%\title{``Colloidal rain'', an alternative route to gelation during viscoelastic phase separation}
+%\title{Colloidal rain: a novel crystallization pathway following viscoelastic phase separation}
+\title{Novel crystallization pathway\\and formation of ``colloidal rain'' during viscoelastic phase separation}
 \author{Hideyo Tsurusawa}
 \affiliation{Institute of Industrial Science, University of Tokyo, 4-6-1 Komaba, Meguro-ku, Tokyo 153-8505, Japan}
 \author{John Russo}
@@ -30,14 +32,15 @@ amsmath,amssymb,prl]{revtex4-1}
 
 \begin{abstract}
 {
-Colloidal gels are usually formed by viscoelastic phase separation and its dynamical arrest by glass transition \cite{tanaka1999colloid,tanaka2000viscoelastic,foffi2002,lu2008gelation,zaccarelli2008gelation,testard2011}.
-% Thus, the dynamical arrests of colloidal gels and glasses have been believed to originate from a dynamical transition to the same non-ergodic disordered glass state, i.e., vitrification. The only difference comes from the fact that the former is formed by densification induced by phase separation and thus is spatially heterogeneous whereas the latter is formed by homogeneous densification and thus spatially homogeneous.
-With confocal measurements of a PMMA colloid and polymer mixture, we experimentally access the formation of \emph{crystal-gels}, a novel arrested phase in which the dense branches of a gel are replaced by crystal aggregates~\cite{fortini2008crystallization,perez2011pathways,sabin2012}. 
-For the first time we are able to observe the formation mechanism of crystal-gels at a single-particle level, giving experimental access to the elementary process of this novel route to gelation, in which phase separation is not arrested by slow dynamics but by crystallization.
-The formation of the crystal gel  involves a new kinetic pathway, in which crystal seeds form inside the liquid branches of the spinodal aggregate, but then grow by direct condensation from the gas phase.
-We argue that crystal gels can form as the result of the gas-liquid phase separation of crystallizable components, such as monoatomic and molecular systems, whose dynamics is slow enough to induce viscoelastic phase separation, but fast enough to prevent immediate vitrification.
-% , which is necessary to form a network structure of a minority liquid phase in a majority gas phase, and at the same time fast enough to prevent immediate vitrification.
-For example, our experiment provides a colloidal model of the Bergeron process (or ``cold-rain process''), which regulates ice crystal growth that occurs in mixed phase clouds containing a mixture of supercooled water and ice~\cite{glickman2000glossary}.
+With confocal measurements of a PMMA colloid and polymer mixture, we experimentally access the formation of a novel arrested state,
+in which the dense branches of a gel are replaced by crystal aggregates~\cite{fortini2008crystallization,perez2011pathways,sabin2012}, which then grow into droplets by direct condensation of the gas phase on the surface of the crystals.
+We call this new state \emph{colloidal rain}, as it represents the colloidal analogue of rain formation from ice crystals that occurs in mixed phase clouds (the Bergeron process)~\cite{glickman2000glossary}.
+For the first time we are able to observe the dynamics of the system at single-particle level, giving full experimental access to the entire kinetic
+pathway of droplet formation. The formation of colloidal rain occurs at low polymer concentrations, close to the metastable critical point~\cite{ten1997enhancement}, where
+the strength of the interparticle attractions is low enough to allow bond reorganization and nucleation. For high polymer concentrations the system
+forms colloidal gels~\cite{lu2008gelation}, 
+where viscoelastic phase separation is interrupted by the glass transition.
+We thus argue that similar states can form as the result of the gas-liquid phase separation of crystallizable components, such as monoatomic and molecular systems, whose dynamics is slow enough to induce viscoelastic phase separation, but fast enough to prevent immediate vitrification.
 }
 \end{abstract}
  
@@ -73,8 +76,15 @@ For colloidal systems, we can in principle access structural evolution in real t
 study on the process of crystal-gel formation. The main difficulty consists in the preparation protocol, where a colloidal-polymer mixture undergoes
 shaking or shear before observation of its dynamics. This introduces turbolent flows at the beginning of the process, and also does not allow the
 observation of the first stages of crystallization.
-In our experiments we instead succeed in building a novel setup that allows the formation mechanism of crystal-gels to be observed directly
+In our experiments we instead succeed in building a novel setup that allows the time evolution of the system to be observed directly
 under the confocal microscope from the very early stages and without introducing fluid flows.
+
+Our results show that, for low polymer concentration, the system can undergo a novel crystallization pathway that leads to the formation
+of crystalline droplets. These droplets originate from crystal seeds that form inside the liquid branches of the spinodal aggregate, but then grow by direct condensation from the gas phase. The process is analogous to the Bergeron process of ice formation in mixed phase clouds, where ice droplets grow at the
+expense of the supercooled liquid droplets due to their lower saturated vapour pressure. In our colloidal system, we then call this process ``colloidal rain''
+formation.
+
+\subsection{Experiments}
 
 In our experimental setup, the sample cell is put in contact with a reservoir of a salt solution through a semi-permeable membrane.
 At $t=0$, the increase in the concentration of salt ions progressively screens the Coulombic repulsion between colloidal particles,
@@ -83,59 +93,61 @@ In the following we discuss all the stages of the formation of the crystal gels:
 The experimental data is taken at two different volume fractions ($\phi=0.10$ and $\phi=0.25$) and for different values
 of the polymer concentration, $c_p=0.38,0.48,0.57,1.07$ for $\phi=0.25$ and $c_p=0.82,1.36$ for $\phi=0.10$.
 For each state points, scans at early times (every $10s$) and at the late stage (every $30s$) of the gelation process.
+{\color{blue}We need more details of the experiments here}.
 
-\subsection*{Phase separation}
-
-In Fig.~\ref{fig:gel}a we show the cluster size distribution for all state points at their gelation point. The decay of the distribution
-follows different power laws $n(s)\sim s^\tau$, where $\tau$ is the Fisher exponent \cite{family2012kinetics}.
-For state points with $\phi=0.25$ the decay is well described by the three dimensional (3D) random percolation exponent $\tau=2.18$ \cite{family2012kinetics}.
-For state points with $\phi=0.10$, on the other hand, the decay appears to be slower, close to the diffusion limited cluster aggregation (DLCA) 
-exponent $\tau=1.8$ \cite{family2012kinetics}. While it is plausible that gelation at lower volume fraction occurs through cluster aggregation, especially given 
-the high polymer concentration of these state points, we have to warn that the cluster size distribution is very sensitive to
-experimental conditions and statistical noise (which is high in our case since the distributions are extracted from a single frame).
-Other measures of fractal dimensions (see below) will in fact suggest that also the $\phi=0.10$ states belong to the random gel universality class.
-
-Next we show in Fig.~\ref{fig:gel}b the radius of gyration $R_{\rm g}$ for the clusters of size $s$ at the gel point. All clusters, irrespective
-of the state point, follow the power-law: $R_{\rm g}\sim s^{2/D}$, with $D=2.53$ the fractal dimension in the random gelation
-universality class \cite{family2012kinetics}. So far, we have thus proven that, in the initial stages of phase separation, the liquid branch is
-formed by colloidal particles that aggregate to form a random gel.
-
-Even after a gel is formed, the system keeps evolving.
-However, since a gel has an elasticity due to its space-spanning connectivity, the process should be markedly different from 
-ordinary fluid phase separation. Now we consider this unique feature of the coarsening of a gel network.  
-
-\subsection*{Stress-driven ageing}
-
-Previous simulation results~\cite{tanaka2000,tanaka2007spontaneous,furukawa2010key} have suggested that hydrodynamic interactions play
-a key role in the process of colloidal gelation. Without hydrodynamic interactions, particles have the tendency to
-aggregate in compact structures and subsequently form thick network structures. This also limits the possibility to
-form arrested gel states only at relatively high volume fractions. With hydrodynamic interactions, particles first form
-a transient gel even at very low volume fractions, and only later they increase the number of
-nearest neighbours to minimize the energy of the structure. 
-Thus, hydrodynamic interactions lead to the formation of gels that are very far from equilibrium and under a strong thermodynamic driving force 
-towards more stable compact structures. 
-The resulting transition from open to more compact networks occurs only through
-the breaking of the bonds that have accumulated more stress. The process was called stress-driven ageing~\cite{tanaka2007spontaneous}, 
-which is characteristic of viscoelastic phase separation \cite{tanaka2000viscoelastic}. 
-Below we provide the first experimental proof of this process.
-
-In Fig.~\ref{fig:stress}a, we plot the fraction of liquid and gas particles as a function of time during phase separation
-at the state points of $\phi=0.10$. We observe that at high polymer concentration ($c_p=1.36$, dashed lines) both the
-liquid and gas branch change monotonically with time as the phase separation proceeds. At low polymer concentration
-($c_p=0.82$, continuous lines), on the other hand, we find a non-monotonic evolution of both the liquid and gas branches, which is signalling
-a structural reorganization of the network. To prove that this is indeed a stress-driven ageing process, in Fig.~\ref{fig:stress}b 
-we plot the average number of bond-breaking events for the low-polymer concentration state point. The figure clearly shows that
-the network restructuring follows a peak in the number of bond-breaking events. We have thus found direct evidence of the
-stress-driven ageing process in colloidal gels that is a direct consequence of the formation of a thin network with the help of hydrodynamic interactions in the first stages
-of the aggregation process.
-
-In Fig.~\ref{fig:stress}c we plot the time evolution of the structure factor, $S(q)$, for the state point
-undergoing network reorganization $\phi=0.10$ and $c_p=0.82$. The time of network reorganization as found in Fig.~\ref{fig:stress}a and b
-corresponds to a steep increase of the low wavenumber scattering from the network, that signals the coarsening of the network structure. 
-
-The same conclusions also hold for the state point at $\phi=0.25$. We observe network restructuring only for the state point
-at lower polymer concentration, $c_p=0.38$. Interestingly, this is also the only state point that undergoes crystallization,
-meaning that the coarsening of the network of the dense liquid phase and the resulting formation of a wider liquid branch is a necessary condition for crystallization. 
+%
+%\subsection*{Phase separation}
+%
+%In Fig.~\ref{fig:gel}a we show the cluster size distribution for all state points at their gelation point. The decay of the distribution
+%follows different power laws $n(s)\sim s^\tau$, where $\tau$ is the Fisher exponent \cite{family2012kinetics}.
+%For state points with $\phi=0.25$ the decay is well described by the three dimensional (3D) random percolation exponent $\tau=2.18$ \cite{family2012kinetics}.
+%For state points with $\phi=0.10$, on the other hand, the decay appears to be slower, close to the diffusion limited cluster aggregation (DLCA) 
+%exponent $\tau=1.8$ \cite{family2012kinetics}. While it is plausible that gelation at lower volume fraction occurs through cluster aggregation, especially given 
+%the high polymer concentration of these state points, we have to warn that the cluster size distribution is very sensitive to
+%experimental conditions and statistical noise (which is high in our case since the distributions are extracted from a single frame).
+%Other measures of fractal dimensions (see below) will in fact suggest that also the $\phi=0.10$ states belong to the random gel universality class.
+%
+%Next we show in Fig.~\ref{fig:gel}b the radius of gyration $R_{\rm g}$ for the clusters of size $s$ at the gel point. All clusters, irrespective
+% of the state point, follow the power-law: $R_{\rm g}\sim s^{2/D}$, with $D=2.53$ the fractal dimension in the random gelation
+% universality class \cite{family2012kinetics}. So far, we have thus proven that, in the initial stages of phase separation, the liquid branch is
+% formed by colloidal particles that aggregate to form a random gel.
+% 
+% Even after a gel is formed, the system keeps evolving.
+% However, since a gel has an elasticity due to its space-spanning connectivity, the process should be markedly different from 
+% ordinary fluid phase separation. Now we consider this unique feature of the coarsening of a gel network.  
+% 
+% \subsection*{Stress-driven ageing}
+% 
+% Previous simulation results~\cite{tanaka2000,tanaka2007spontaneous,furukawa2010key} have suggested that hydrodynamic interactions play
+% a key role in the process of colloidal gelation. Without hydrodynamic interactions, particles have the tendency to
+% aggregate in compact structures and subsequently form thick network structures. This also limits the possibility to
+% form arrested gel states only at relatively high volume fractions. With hydrodynamic interactions, particles first form
+% a transient gel even at very low volume fractions, and only later they increase the number of
+% nearest neighbours to minimize the energy of the structure. 
+% Thus, hydrodynamic interactions lead to the formation of gels that are very far from equilibrium and under a strong thermodynamic driving force 
+% towards more stable compact structures. 
+% The resulting transition from open to more compact networks occurs only through
+% the breaking of the bonds that have accumulated more stress. The process was called stress-driven ageing~\cite{tanaka2007spontaneous}, 
+% which is characteristic of viscoelastic phase separation \cite{tanaka2000viscoelastic}. 
+% Below we provide the first experimental proof of this process.
+% 
+% In Fig.~\ref{fig:stress}a, we plot the fraction of liquid and gas particles as a function of time during phase separation
+% at the state points of $\phi=0.10$. We observe that at high polymer concentration ($c_p=1.36$, dashed lines) both the
+% liquid and gas branch change monotonically with time as the phase separation proceeds. At low polymer concentration
+% ($c_p=0.82$, continuous lines), on the other hand, we find a non-monotonic evolution of both the liquid and gas branches, which is signalling
+% a structural reorganization of the network. To prove that this is indeed a stress-driven ageing process, in Fig.~\ref{fig:stress}b 
+% we plot the average number of bond-breaking events for the low-polymer concentration state point. The figure clearly shows that
+% the network restructuring follows a peak in the number of bond-breaking events. We have thus found direct evidence of the
+% stress-driven ageing process in colloidal gels that is a direct consequence of the formation of a thin network with the help of hydrodynamic interactions in the first stages
+% of the aggregation process.
+% 
+% In Fig.~\ref{fig:stress}c we plot the time evolution of the structure factor, $S(q)$, for the state point
+% undergoing network reorganization $\phi=0.10$ and $c_p=0.82$. The time of network reorganization as found in Fig.~\ref{fig:stress}a and b
+% corresponds to a steep increase of the low wavenumber scattering from the network, that signals the coarsening of the network structure. 
+% 
+% The same conclusions also hold for the state point at $\phi=0.25$. We observe network restructuring only for the state point
+% at lower polymer concentration, $c_p=0.38$. Interestingly, this is also the only state point that undergoes crystallization,
+% meaning that the coarsening of the network of the dense liquid phase and the resulting formation of a wider liquid branch is a necessary condition for crystallization. 
 
 \subsection*{Crystallization and arrest}
 
@@ -161,7 +173,7 @@ meaning that the coarsening of the network of the dense liquid phase and the res
 \end{figure}
 
 After the creation of the spinodal liquid branch, crystallization events start occurring for the state point $\phi=0.25$ and $c_p=0.38$, which has the lowest
-polymer concentration of all state points. This is shown in Fig.~\ref{fig:crystals}a where the black line indicates the average size of the crystallites,
+polymer concentration of all state points. This is shown in Fig.~\ref{fig:statepoints}a where the black line indicates the average size of the crystallites,
 while the red line the average number of crystallites as a function of time. The number of crystallites first rapidly increases as nucleation events
 start occurring inside the liquid branches, but eventually starts decreasing as the different crystallites grow and merge with each other.
 %The average size of the crystals shows an interesting linear growth regime for $100<t<600$. This linear growth regime goes past the time
