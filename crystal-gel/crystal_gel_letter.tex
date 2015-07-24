@@ -33,14 +33,15 @@
 \begin{abstract}
 {
 With confocal measurements of a PMMA colloid and polymer mixture, we experimentally access the formation of a novel arrested state,
-in which the dense branches of a gel are replaced by crystal aggregates~\cite{fortini2008crystallization,perez2011pathways,sabin2012}, which then grow into droplets by direct condensation of the gas phase on the surface of the crystals.
+formed by crystal droplets nucleating inside the dense branches of a gel, and growing by direct condensation of the gas phase on the surface of the crystals.
+% in which the dense branches of a gel are replaced by crystal aggregates~\cite{fortini2008crystallization,perez2011pathways,sabin2012}, which then grow into droplets by direct condensation of the gas phase on the surface of the crystals.
 We call this new state \emph{colloidal rain}, as it represents the colloidal analogue of rain formation from ice crystals that occurs in mixed phase clouds (the Bergeron process)~\cite{glickman2000glossary}.
-For the first time we are able to observe the dynamics of the system at single-particle level, giving full experimental access to the entire kinetic
+We observe the dynamics of the system at single-particle level, giving for the first time full experimental access to the kinetic
 pathway of droplet formation. The formation of colloidal rain occurs at low polymer concentrations, close to the metastable critical point~\cite{ten1997enhancement}, where
-the strength of the interparticle attractions is low enough to allow bond reorganization and nucleation. For high polymer concentrations the system
+the strength of the interparticle attractions is low enough to allow bond reorganization and nucleation. For high polymer concentrations, instead, the system
 forms colloidal gels~\cite{lu2008gelation}, 
 where viscoelastic phase separation is interrupted by the glass transition.
-We thus argue that similar states can form as the result of the gas-liquid phase separation of crystallizable components, such as monoatomic and molecular systems, whose dynamics is slow enough to induce viscoelastic phase separation, but fast enough to prevent immediate vitrification.
+We thus argue that states similar to colloidal rain can form as the result of the gas-liquid phase separation of crystallizable components, such as monoatomic and molecular systems, whose dynamics is slow enough to induce viscoelastic phase separation, but fast enough to prevent immediate vitrification.
 }
 \end{abstract}
  
@@ -48,7 +49,6 @@ We thus argue that similar states can form as the result of the gas-liquid phase
 Gels and glasses are two important non-ergodic disordered states, which are very important 
 in our life and nature~\cite{anderson2002insights,lekkerkerker2011colloids}.
 The dynamical arrest of colloidal gels and glasses is believed to originate from a dynamical transition to the same non-ergodic disordered glass state, i.e., vitrification. The only difference comes from the fact that the former is formed by densification induced by phase separation and thus is spatially heterogeneous, whereas the latter is formed by uniform densification and is thus spatially homogeneous.
-
 Gels are distinct from glasses because of their heterogeneous network structure, which gives them properties intermediate between
 those of a solid and a fluid phase, and allows the coexistence of two properties usually incompatible with each other, 
 elasticity and fluid transport. 
@@ -82,16 +82,22 @@ under the confocal microscope from the very early stages and without introducing
 Our results show that, for low polymer concentration, the system can undergo a novel crystallization pathway that leads to the formation
 of crystalline droplets. These droplets originate from crystal seeds that form inside the liquid branches of the spinodal aggregate, but then grow by direct condensation from the gas phase. The process is analogous to the Bergeron process of ice formation in mixed phase clouds, where ice droplets grow at the
 expense of the supercooled liquid droplets due to their lower saturated vapour pressure. In our colloidal system, we then call this process ``colloidal rain''
-formation.
+formation. Due to the difference in the nucleation and growth processes, the droplets display different scaling laws depending on their
+size. For small nuclei, the droplets have the same fractal dimension of the embedding gel network. But during the growth process, droplets
+grow with an integer fractal dimension due to direct condensation of gas particles. This is in contrast to the standard crystal-gel scenario, where crystals nucleate and grow inside the dense branches of the gel, becoming dynamically arrested. We also observe that increasing the strength of the interparticle attraction
+(by increasing the polymer concentration), instead of forming colloidal rain, the system undergoes the classical gelation process, in which
+phase separation is interrupted by vitrification~\cite{lu2008gelation}.
 
-\subsection{Experiments}
+
+\subsection*{Experiments}
 
 In our experimental setup, the sample cell is put in contact with a reservoir of a salt solution through a semi-permeable membrane.
 At $t=0$, the increase in the concentration of salt ions progressively screens the Coulombic repulsion between colloidal particles,
 which are then subject to attractive depletion forces, making the system thermodynamically unstable and leading to phase separation (see Methods).
-In the following we discuss all the stages of the formation of the crystal gels: phase separation, stress-driven agein and crystallization.
+%In the following we discuss all the stages of the formation of the crystal gels: phase separation, stress-driven agein and crystallization.
 The experimental data is taken at two different volume fractions ($\phi=0.10$ and $\phi=0.25$) and for different values
 of the polymer concentration, $c_p=0.38,0.48,0.57,1.07$ for $\phi=0.25$ and $c_p=0.82,1.36$ for $\phi=0.10$.
+In Fig.XXX we superimpose the state points with the phase diagram calculated from the YYY equation of state.
 For each state points, scans at early times (every $10s$) and at the late stage (every $30s$) of the gelation process.
 {\color{blue}We need more details of the experiments here}.
 
@@ -149,18 +155,79 @@ For each state points, scans at early times (every $10s$) and at the late stage 
 % at lower polymer concentration, $c_p=0.38$. Interestingly, this is also the only state point that undergoes crystallization,
 % meaning that the coarsening of the network of the dense liquid phase and the resulting formation of a wider liquid branch is a necessary condition for crystallization. 
 
-\subsection*{Crystallization and arrest}
+\subsection*{Results}
 
-\begin{figure}
+
+\begin{figure*}[!t]
  \centering
- \framebox{Phase diagram\hfill}
- \includegraphics[width=8cm]{oldfig/fig3b}
- \includegraphics[width=8cm]{oldfig/fig3c}
- % crystal_size.eps: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=(atend)
- \caption{{\bf Two types of arrest mechanism leading to gel formation.} \textbf{a,} Phase diagram \textbf{b,} Local volume fraction around a colloidal particle, as a function of the number of nearest neighbours of the particle.
- Different lines represent the different state points. {\bf c,} Structure factors for the late stages of the gelation process.} 
- \label{fig:statepoints}
-\end{figure}
+ \includegraphics[width=8cm]{./oldfig/fig1b.pdf}
+ \includegraphics[width=8cm]{./oldfig/fig1b.pdf}
+ \includegraphics[width=8cm]{./oldfig/fig3c}
+ \includegraphics[width=8cm]{./oldfig/fig3b}
+ % fig1b.pdf: 687x479 pixel, 72dpi, 24.24x16.90 cm, bb=0 0 687 479
+ \caption{{\bf Different routes of viscoelastic phase separation.}
+ \textbf{a,} {\color{blue}Phase diagram.}
+ \textbf{b,} Radius of gyration ($R_g$) as a function of cluster size ($s$) for all state points at percolation. The
+ dashed line represents the exponent of the random gelation universality class.
+ \textbf{c,} Structure factors for the late stages of the gelation process. Calculation of the structure factor is done with the Hanning window function,  to minimize boundary effects.
+ \textbf{d,} Local volume fraction around a colloidal particle, as a function of the number of nearest neighbours of the particle.
+ Different lines represent the different state points.
+ }
+ \label{fig:phase_separation}
+\end{figure*}
+
+All samples share the same early time stages of spinodal decomposition. First the colloidal particles start aggregating,
+eventually forming a percolating network. Then liquid-gas phase separation takes place, in which a dense network (liquid)
+coexists with freely diffusing monomers (gas). The topology of the network is similar to all our samples at the initial stages.
+This is shown for example in Fig.~\ref{fig:phase_separation}b, where we plot the radius of gyration of colloidal clusters ($R_g$)
+as a function of the cluster size ($s$) at the percolation point. Two particles belong to the same cluster if their distance is
+within the first peak of the radial distribution function. All samples show the same scaling law, which is compatible with
+the random gelation universality class exponent ($D=2.53$) as shown by the dashed line in Fig.~\ref{fig:phase_separation}b.
+
+While sharing similar structural properties at early times, the samples differ during the later stages of the phase separation process.
+To examin this in more detail, we plot in Fig.~\ref{fig:phase_separation}c the structure factor for the final stages of the gelation process for all state points.
+Calculation of the structure factor is done with the Hanning window function, to minimize boundary effects.
+The figure shows that at low wavenumber $q$, the structure factor displays fractal scaling compatible with Guinier law, $S(q)\sim q^{-D}$.
+But a difference
+in the fractal dimension $D$ between the $\phi=0.25$ and $c_p=0.38$ state point and other state points starts to become visible. In fact, while states
+with high polymer concentration retain the exponent $D=2.53$,
+which is the random gel universality class exponent we also observed in the early stages of the gelation process (see Fig.~\ref{fig:phase_separation}b),
+the state point with low polymer concentration ($\phi=0.25$ and $c_p=0.38$) displays the biggest deviation from that exponent. In the figure we also
+plot the exponent $D=3$, which corresponds to volume growth, which we'll show in the following analysis to be the correct exponent for this state.
+The difference is due to the onset of crystallization in the low-polymer concentration sample. This is already evident in the high $q$ behaviour of
+the structure factors (Fig.~\ref{fig:phase_separation}c), where the diffraction planes appear as sharper peaks for $\phi=0.25$ and $c_p=0.38$.
+
+To gain additional insight, in Fig.~\ref{fig:phase_separation}d we plot the average local volume fraction, computed
+through Voronoi diagrams, as a function of the number of neighbours. For all state points, we can see that the average volume fraction of a colloidal
+particle increases with its number of neighbours. Approaching close packing (12 neighbours), we clearly see two family of curves. The state point
+at $\phi=0.25$ and $c_p=0.38$ reaches close packing at a volume fraction of around $\sim 60\%$, which is in reasonable agreement with the
+volume fraction of the stable crystal phase. All other state point, instead, reach close packing at volume fraction $\sim 55\%$, which is
+close to the volume fraction of the glass state. 
+%(\textbf{the absolute values of these volume fraction are not totally convincing, probably because of a not optimal estimate of the size of the colloids. We should run the code of Mathieau with size detection}). 
+The figure then clearly shows that the state point at $\phi=0.25$ and $c_p=0.38$ follows a different arrest mechanism, in which phase separation
+is arrested by crystallization and not glassiness. Although our estimation of the absolute volume fraction may involves errors of a few \%, the trend should be robust.
+
+
+% 
+%  REINTREGRARE
+% while the crystallizing state point shows a scaling compatible with $D=3$, which
+% signals compact crystalline nuclei. At high $q$, the first signals from diffraction planes are also evident in the $\phi=0.25$ and $c_p=0.38$ state
+% point. This suggests that the space filling network is composed of crystalline aggregates, differently from the fractal branches which characterize the
+% spinodal liquid. Also this suggests that the growth mechanism of the crystal is not simply due to filling of the spinodal liquid network, as was
+% instead observed in Ref.~\cite{fortini2008crystallization,perez2011pathways} for brownian dynamics simulations.
+
+% 
+% 
+% \begin{figure}
+%  \centering
+%  \framebox{Phase diagram\hfill}
+%  \includegraphics[width=8cm]{oldfig/fig3b}
+%  \includegraphics[width=8cm]{oldfig/fig3c}
+%  % crystal_size.eps: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=(atend)
+%  \caption{{\bf Two types of arrest mechanism leading to gel formation.} \textbf{a,} Phase diagram \textbf{b,} Local volume fraction around a colloidal particle, as a function of the number of nearest neighbours of the particle.
+%  Different lines represent the different state points. {\bf c,} Structure factors for the late stages of the gelation process.} 
+%  \label{fig:statepoints}
+% \end{figure}
 
 
 \begin{figure}[!t]
@@ -172,8 +239,8 @@ For each state points, scans at early times (every $10s$) and at the late stage 
  \label{fig:crystals}
 \end{figure}
 
-After the creation of the spinodal liquid branch, crystallization events start occurring for the state point $\phi=0.25$ and $c_p=0.38$, which has the lowest
-polymer concentration of all state points. This is shown in Fig.~\ref{fig:statepoints}a where the black line indicates the average size of the crystallites,
+To confirm the formation of crystalline seeds we adopt bond orientational analysis to detect which particles are in crystalline environments~\cite{russo2012microscopic}. With this analysis we confirm that crystallization events start occurring for the state point $\phi=0.25$ and $c_p=0.38$, which has the lowest
+polymer concentration of all state points. This is shown in Fig.~\ref{fig:crystals}a where the black line indicates the average size of the crystallites,
 while the red line the average number of crystallites as a function of time. The number of crystallites first rapidly increases as nucleation events
 start occurring inside the liquid branches, but eventually starts decreasing as the different crystallites grow and merge with each other.
 %The average size of the crystals shows an interesting linear growth regime for $100<t<600$. This linear growth regime goes past the time
@@ -182,37 +249,22 @@ start occurring inside the liquid branches, but eventually starts decreasing as 
 % \item diffusive growth of the nuclei, which scales like $t^{1/2}$
 % \item coalescence growth, which should scale faster than $t$, maybe $t^2?$
 %\end{itemize}
-All other state points show also signs of crystallization, but in negligible amounts. In particular, for state points with $\phi=0.25$, increasing
+All other state points show only negligible signs of crystallization. In particular, for state points with $\phi=0.25$, increasing
 polymer concentration drastically reduces the amount of crystals. This is in agreement with the
 idea of enhanced crystallization rates near metastable critical points~\cite{ten1997enhancement,olmsted1998spinodal} and the
 results of Ref.~\cite{fortini2008crystallization,perez2011pathways},
 which speculated two different arrest mechanism: crystallization at low polymer concentration, and dynamic arrest at high polymer concentrations.
 
-To show the presence of two different arrest mechanisms, we show in Fig.~\ref{fig:crystals}b the average local volume fraction, computed
-through Voronoi diagrams, as a function of the number of neighbours. For all state points, we can see that the average volume fraction of a colloidal
-particle increases with its number of neighbours. Approaching close packing (12 neighbours), we clearly see two family of curves. The state point
-at $\phi=0.25$ and $c_p=0.38$ reaches close packing at a volume fraction of around $\sim 60\%$, which is in reasonable agreement with the
-volume fraction of the stable crystal phase. All other state point, instead, reach close packing at volume fraction $\sim 55\%$, which is
-close to the volume fraction of the glass state. 
-%(\textbf{the absolute values of these volume fraction are not totally convincing, probably because of a not optimal estimate of the size of the colloids. We should run the code of Mathieau with size detection}). 
-The figure then clearly shows that the state point at $\phi=0.25$ and $c_p=0.38$ follows a different arrest mechanism, in which phase separation
-is arrested by crystallization and not glassiness. Although our estimation of the absolute volume fraction may involves errors of a few \%, the trend should be robust. 
-
-To confirm the different arrest mechanisms, crystallization and vitrification, we compute the structure factor for the final stages of the gelation process for all state points,
-as shown in Fig.~\ref{fig:crystals}c. Calculation of the structure factor is done with the Hanning window function, to minimize boundary effects.
-The figure shows that at low wavenumber $q$, the structure factor displays fractal scaling compatible with Guinier law, $S(q)\sim q^{-D}$. But a difference
-in the fractal dimension $D$ between the $\phi=0.25$ and $c_p=0.38$ state point and other state points is visible. Non-crystallizing state
-points have $D=2.53$, of the random gel universality class, while the crystallizing state point shows a scaling compatible with $D=3$, which
-signals compact crystalline nuclei. At high $q$, the first signals from diffraction planes are also evident in the $\phi=0.25$ and $c_p=0.38$ state
-point. This suggests that the space filling network is composed of crystalline aggregates, differently from the fractal branches which characterize the
-spinodal liquid. Also this suggests that the growth mechanism of the crystal is not simply due to filling of the spinodal liquid network, as was
-instead observed in Ref.~\cite{fortini2008crystallization,perez2011pathways} for brownian dynamics simulations.
-
-To investigate this process in more detail, we plot in Fig.~\ref{fig:crystals}c the gyration radius of individual crystalline nuclei for the state point
+While nucleation always occurs inside the liquid branches of the phase separating network, we suggest here the presence of a new growth channel
+which was not observed before. In the following we will show that the growth mechanism of the crystal is not only due to filling of the spinodal liquid network, as was observed in Ref.~\cite{fortini2008crystallization,perez2011pathways} for brownian dynamics simulations, but involves direct condensation of the gas phase
+on the crystalline seeds.
+To investigate this process, we plot in Fig.~\ref{fig:crystals}c the gyration radius of individual crystalline nuclei for the state point
 $\phi=0.25$ and $c_p=0.38$. The results show that the crystal growth follows two different scaling laws: at small crystalline sizes it scales with
-the dimension of random percolation $D=2.53$, while at large sizes it scales as $D=3$ of compact crystal growth. The figure thus shows that
-small crystalline nuclei are nucleated inside the phase-separated liquid branches; but once they reach the transverse size of the liquid branch, the growth is continued
-by direct addition of colloidal particles from the gas.
+the dimension of random percolation $D=2.53$, while at large sizes it scales as $D=3$ of compact crystal growth. This demonstrates that, while
+small crystalline nuclei are nucleated inside the phase-separated liquid branches, once they reach the transverse size of the liquid branch, the growth
+follows a volume expansion with the formation of isotropic droplets (colloidal rain). The same scaling law was suggested in the analysis of the
+structure factors, Fig.~\ref{fig:phase_separation}c, but it is shown directly by the analys of the gyration radius.
+
 
 \begin{figure*}
  \centering
@@ -231,7 +283,8 @@ by direct addition of colloidal particles from the gas.
  \label{fig:transitions}
 \end{figure*}
 
-Now we show in Fig.~\ref{fig:transitions}a slabs of 10 particle diameter thickness for configurations at $\phi=0.25$ and $c_p=0.38$ at different times.
+In the next section we demonstrate that the volume growth is due to direct condensation of the gas phase on the crystalline seeds.
+First we show in Fig.~\ref{fig:transitions}a slabs of 10 particle diameter thickness for configurations at $\phi=0.25$ and $c_p=0.38$ at different times.
 Particles are coloured according to their phase. Green: HCP; Red: FCC; blue: BCC; white: liquid or gas. The figure shows the first nucleation
 events inside the liquid network (left panel); then these crystalline nuclei grow directly from the gas phase (middle panel), and finally
 the different nuclei coalesce (right panel). 
@@ -269,19 +322,19 @@ crystalline nuclei have outgrown the liquid regions in which they form.
 
 \subsection*{Discussion and conclusions}
 The first stages of gelation always involve spinodal decomposition with the formation
-of a fractal network corresponding to the liquid phase.
-Due to hydrodynamic interaction, the network is locally stretched, and the accumulation of mechanical stress on some bonds causes some
-of them to break and the network to reorganize in a more compact and larger structure. This occurs only at low polymer concentration,
-while at high polymer concentrations the bonds are too strong to break. This will eventually dictate which arrest mechanism
-is available to the system.
+of a fractal network and gas-liquid phase separation.
+% Due to hydrodynamic interaction, the network is locally stretched, and the accumulation of mechanical stress on some bonds causes some
+% of them to break and the network to reorganize in a more compact and larger structure. This occurs only at low polymer concentration,
+% while at high polymer concentrations the bonds are too strong to break. This will eventually dictate which arrest mechanism
+% is available to the system.
 Depending on the polymer concentration, there are two possible arrest mechanisms.
 (i) Crystallization, observed at $\phi=0.25$ and $c_p=0.38$, small crystalline nuclei appear inside the liquid, reach the surface
- of the liquid branches, and then grow by addition of particles from the gas phase. The final structure is a network of crystal aggregates,
+ of the liquid branches, and then grow by addition of particles from the gas phase. The final structure is a network of crystal droplets,
  as confirmed by the fractal dimension of the branches, the volume fraction of the particles within the branches, and bond orientational analysis.
 (ii) Dynamic arrest, particle arrest when the dynamics inside the liquid branch becomes slow, which should happen at the intersection of the
  glass line with the liquid side of the coexistence curve.
 
-The process of crystal-gel formation is akin to the Bergeron process which is the primary mechanism for the formation of raindrops in clouds~\cite{glickman2000glossary}.
+The process we observed is akin to the Bergeron process which is the primary mechanism for the formation of raindrops in clouds~\cite{glickman2000glossary}.
 In clouds there is a mixture of ice crystals and supercooled water. The vapor phase is in coexistence with the liquid phase, but is supersaturated
 with respect to the ice crystals. This causes the water droplets to evaporate and sublimate directly on the ice crystals. Our system can then
 be regarded as a colloidal analogue for this important process, which can now be studied at the single-particle level.
