@@ -1,7 +1,7 @@
 \begin{tikzpicture}
 \pgfplotscreateplotcyclelist{samples}{%
-black,mark=square,\\%
-black,mark=square*\\%
+blue,mark=square,\\%
+blue,mark=square*\\%
 red!30!yellow, thick, mark=o\\%
 red!65!yellow, mark=otimes\\%
 red, mark=otimes*\\%
@@ -26,7 +26,7 @@ red!65!black, mark=oplus*\\%
 	\addplot coordinates {(0.25, 0.48)};
 	\addplot coordinates {(0.25, 0.57)};
 	\addplot coordinates {(0.25, 1.07)};
-	\addplot+[blue, no marks] file {gasliquid_sg.phd} node[diamond, fill] at (current plot begin){};
+	\addplot+[black, no marks] file {gasliquid_sg.phd} node[diamond, fill] at (current plot begin){};
 
 \nextgroupplot
 \nextgroupplot[
@@ -40,7 +40,7 @@ red!65!black, mark=oplus*\\%
 	\addplot file{data/fig3c_3.dat};
 	\addplot+[clip mode=individual] file{data/fig3c_4.dat};
 	\addplot+[clip mode=individual] file{data/fig3c_5.dat};
-	\addplot[blue, ultra thick, domain=0.1:3] {2*x^(-3)} node[pos=0.92,left] {-3};
+	\addplot[black, ultra thick, domain=0.1:3] {2*x^(-3)} node[pos=0.92,left] {-3};
 	\addplot[gray, ultra thick, domain=0.1:3] {4*x^(-2.53)} node [pos=0.8, above right] {-2.53};
 
 \nextgroupplot[
