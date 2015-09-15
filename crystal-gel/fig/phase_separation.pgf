@@ -22,8 +22,8 @@ red!65!black, mark=oplus*\\%
 ]
 \nextgroupplot[
 	xlabel={$\phi$}, ylabel={$c_p$ (\si{\gram\per\litre})},
-	xmin=0,
-	ymin=0
+	xmin=0,xmax=0.74,
+	ymin=0, ymax=2,
 	]
 	\addplot coordinates {(0.1, 0.82)};
 	\addplot coordinates {(0.1, 1.36)};
@@ -31,7 +31,11 @@ red!65!black, mark=oplus*\\%
 	\addplot coordinates {(0.25, 0.48)};
 	\addplot coordinates {(0.25, 0.57)};
 	\addplot coordinates {(0.25, 1.07)};
-	\addplot+[black, no marks] file {gasliquid_sg.phd} node[diamond, fill] at (current plot begin){};
+	\addplot[black, no marks] file {gasliquid_sg.phd} node[diamond, fill] at (current plot begin){};
+	%\addplot[black, no marks] file {gasliquid_sl.phd};
+	\addplot[black, no marks, dashed] file {fluidcrystal_f.phd} node[above right] at (rel axis cs:0,0) {Fluid};
+	\addplot[black, no marks, dashed] file {fluidcrystal_x.phd} node[above left] (x) at (rel axis cs:1,0.1) {Crystal};
+	\draw[->] (x.base) --(rel axis cs:0.98,0.01);
 
 \nextgroupplot[
 	xlabel={$s$}, ylabel={$R_g$},
@@ -77,6 +81,12 @@ red!65!black, mark=oplus*\\%
 		%{$\phi=0.25, c_p=0.38$}, {$\phi=0.25, c_p=0.48$}, {$\phi=0.25, c_p=0.57$},
 		%}
 \end{groupplot}
-\draw (g c1r1.outer north west) rectangle +(\linewidth,-\textheight);
+%\draw (g c1r1.outer north west) rectangle +(\linewidth,-\textheight);
+\begin{scope}[every node/.style={anchor=north east}]
+	\node at (g c1r1.north east) {(a)};
+	\node at (g c2r1.north east) {(b)};
+	\node at (g c1r2.north east) {(c)};
+	\node at (g c2r2.north east) {(d)};
+\end{scope}
 \end{tikzpicture}
 \end{figure*}
