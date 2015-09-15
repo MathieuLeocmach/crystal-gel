@@ -17,7 +17,11 @@ if isfile('phasediag.txt'):
 else:
     GL = Liu().all_GL(q, maxpiv=3500)
     np.savetxt('phasediag.txt', GL)
-
+if isfile('phasediagFS.txt'):
+    FS = np.loadtxt('phasediagFS.txt')
+else:
+    FS = all_coexistence(q, Liu(), Hall(), maxpiv=3500)
+    np.savetxt('phasediagFS.txt', FS)
 
 
 fig = figure('experimental phase diagram')
@@ -45,11 +49,16 @@ for x in np.arange(1,10)/10.:
     phi = x*phiG+(1-x)*phiL
     cp = piv2y(GL[:,0], q) * alpha(vf2f(phi), qR)
     plot(phi, cp * cpov, '-', color=(0.5,0.5,0.5))
+    
+#draw fluid-crystal
+for f in FS.T[1:]:
+    cp = piv2y(FS[:,0], q) * alpha(f, qR)
+    plot(f2vf(f), cp * cpov, 'k.')
 
 ylabel(r'$c_p$ (g/L)')
 xlabel(r'$\phi$ (%)')
 ylim(0,2)
-xlim(0,0.65)
+xlim(0,0.75)
 draw()
 savefig('phasediag.pdf')
 
@@ -61,7 +70,14 @@ for f,l in zip(GL.T[1:], ['bg', 'bl', 'sg', 'sl']):
         np.column_stack((f2vf(f), cp * cpov)),
         header='phi\tcp',
         )
-
+#save fluid-crystal
+for f,l in zip(FS.T[1:], ['f', 'x']):
+    cp = piv2y(FS[:,0], q) * alpha(f, qR)
+    np.savetxt(
+        'fluidcrystal_%s.phd'%l,
+        np.column_stack((f2vf(f), cp * cpov)),
+        header='phi\tcp',
+        )
 
 fig = figure('theoretical phase diagram')
 clf()
