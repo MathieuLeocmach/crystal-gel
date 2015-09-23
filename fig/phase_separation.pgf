@@ -19,6 +19,7 @@ red!65!black, mark=oplus*\\%
 		},
 	cycle list name=samples,
 	width=0.5\textwidth,
+	height=0.375\linewidth,
 ]
 \nextgroupplot[
 	xlabel={$\phi$}, ylabel={$c_p$ (\si{\gram\per\litre})},
