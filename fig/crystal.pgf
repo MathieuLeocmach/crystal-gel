@@ -1,0 +1,50 @@
+\begin{figure*}
+\begin{tikzpicture}
+\let\imw\relax
+\newlength\imw
+\setlength{\imw}{0.33\linewidth}
+\begin{groupplot}[%
+			group style={
+				group name=g, group size=2 by 1,
+				horizontal sep=4em,
+				},
+		width=0.5\linewidth,
+		height=0.375\linewidth,
+		xlabel={$t/\tau_B$}, 
+		xmin=0, xmax=6300, ymin=0,
+		extra x ticks={1080, 2880, 6200}, extra x tick style={grid=major, xmajorticks=false}, extra x tick labels={},
+		legend style={cells={anchor=west}},
+	]
+	\nextgroupplot[
+		ylabel=$N_i/N$, ymax=1,
+		no marks,
+		]
+		\addplot+[red!50!black] file{data/crystals_all.dat};
+		\addplot+[yellow!33!red] table[x expr={\thisrowno{0}/4.5}]{data/fig4a_4.dat};
+		\addplot+[yellow!66!red] table[x expr={\thisrowno{0}/4.5}]{data/fig4a_5.dat};
+		\addplot+[red!25!blue] table[x expr={\thisrowno{0}/4.5}]{data/fig4a_6.dat};
+		\legend{crystal, surface, liquid, gas};
+	\nextgroupplot[
+		ylabel=$P$, ymax=0.6,
+		legend columns=2, 
+		]
+		\addplot[yellow!66!red, mark=*] table[x expr={\thisrowno{0}/4.5}]{data/fig4b_1.dat};
+		\addplot[yellow!66!red, mark=o] table[x expr={\thisrowno{0}/4.5}]{data/fig4b_2.dat};
+		\addplot[blue, mark=square*] table[x expr={\thisrowno{0}/4.5}]{data/fig4b_3.dat};
+		\addplot[blue, mark=square] table[x expr={\thisrowno{0}/4.5}]{data/fig4b_4.dat};
+		\legend{liquid$\rightarrow$crystal\hspace{1em}~, liquid$\rightarrow$gas, gas$\rightarrow$crystal, gas$\rightarrow$liquid,};
+\end{groupplot}
+\matrix[matrix of nodes, inner xsep=0, nodes={inner xsep=0}, column sep=0.005\linewidth, anchor=south west] (m) at (g c1r1.outer north west){
+$t=1080\tau_B$ & $t=2880\tau_B$ & $t=6200\tau_B$\\
+\includegraphics[width=\imw]{data/slice_t120.png}&
+\includegraphics[width=\imw]{data/slice_t390.png}&
+\includegraphics[width=\imw]{data/slice_t890.png}\\
+};
+%\draw (m.north west) rectangle +(\linewidth, -\textheight);
+\begin{scope}[every node/.style={anchor=north west}]
+	\node at (m.north west) {(a)};
+	\node at (g c1r1.north west) {(b)};
+	\node at (g c2r1.north west) {(c)};
+\end{scope}
+\end{tikzpicture}
+\end{figure*}
