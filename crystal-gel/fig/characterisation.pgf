@@ -1,0 +1,32 @@
+\begin{figure}
+\begin{tikzpicture}
+\begin{groupplot}[%
+			group style={
+				group name=g, group size=1 by 2,
+				vertical sep=4em,
+				},
+		width=\linewidth,
+		height=0.75\linewidth,
+	]
+	\nextgroupplot[
+		xlabel={$t/\tau_B$}, ylabel=\#,
+		xmin=0, ymin=0,
+		no marks,
+		legend style={cells={anchor=base west}},
+		]
+	\addplot table[x expr={\thisrowno{0}/4.5}]{data/fig3a_1.dat};
+	\addplot table[x expr={\thisrowno{0}/4.5}]{data/fig3a_2.dat};
+	\legend{average size, average number};
+
+	\nextgroupplot[
+		xlabel={$n$}, ylabel=$R_g(n)$,
+		xmode=log, ymode=log,
+		domain=1:5e2,
+		]
+	\addplot[only marks, red!30!yellow, thick, mark=o] file{data/fig3d_1.dat};
+	\addplot[black, ultra thick] {33.9903*x^(2/3)} node[pos=0.92,below right] {$D=3$};
+	\addplot[gray, ultra thick] {22.6127*x^(2/2.53)} node[pos=0.08,below right] {$D=2.53$};
+\end{groupplot}
+%\draw (g c1r1.outer north west) rectangle +(\linewidth, -\textheight);
+\end{tikzpicture}
+\end{figure}
