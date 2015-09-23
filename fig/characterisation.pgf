@@ -28,5 +28,9 @@
 	\addplot[gray, ultra thick] {22.6127*x^(2/2.53)} node[pos=0.08,below right] {$D=2.53$};
 \end{groupplot}
 %\draw (g c1r1.outer north west) rectangle +(\linewidth, -\textheight);
+\begin{scope}[every node/.style={anchor=north west}]
+	\node at (g c1r1.north west) {(a)};
+	\node at (g c1r2.north west) {(b)};
+\end{scope}
 \end{tikzpicture}
 \end{figure}
