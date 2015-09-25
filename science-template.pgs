@@ -1,0 +1,64 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{scicite}
+
+
+
+
+
+\topmargin 0.0cm
+\oddsidemargin 0.2cm
+\textwidth 16cm 
+\textheight 21cm
+\footskip 1.0cm
+
+
+
+
+
+%\documentclass[twocolumn,superscriptaddress,showpacs,preprintnumbers,amsmath,amssymb,prl]{revtex4-1}
+\usepackage{siunitx}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,backgrounds, calc, positioning, topaths,chains, intersections, decorations.markings, shapes.geometric, matrix,patterns,mindmap,fit,lindenmayersystems}
+%\usetikzlibrary{positioning, patterns,topaths,chains,matrix}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.9}
+\usepgfplotslibrary{groupplots}
+\usepackage{pgfplotstable}
+
+%science wants Helvetica in figures
+\usepackage{helvet}
+\usepackage{sansmath}
+%\usepackage[eulergreek]{sansmath}
+\renewcommand{\familydefault}{\sfdefault}
+\sansmath
+%\tikzset{every node/.append style={font=\sffamily},}
+\pgfplotsset{
+  tick label style = {font=\sansmath\sffamily\footnotesize},
+  every axis label = {font=\sansmath\sffamily\small},
+  legend style = {font=\sansmath\sffamily\footnotesize},
+  label style = {font=\sansmath\sffamily\small}
+}
+
+
+\definecolor{Main}{rgb}{1, 0.57, 0}
+\definecolor{Accent1}{rgb}{1,0.28,0}
+\definecolor{Accent2}{rgb}{1,0.74,0}
+
+\usepackage[active,pdftex,tightpage]{preview}
+\PreviewEnvironment[]{tikzpicture}
+\PreviewEnvironment[]{pgfpicture}
+\begin{document}
+\pgfplotscreateplotcyclelist{earthy}{%
+red!40!black,
+red!60!black,
+red!80!black,
+red,
+red!80!yellow,
+red!60!yellow,
+red!40!yellow,
+}
+<>
+\end{document}
