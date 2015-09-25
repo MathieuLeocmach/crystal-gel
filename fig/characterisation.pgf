@@ -23,7 +23,7 @@
 		xmode=log, ymode=log,
 		domain=1:5e2,
 		]
-	\addplot[only marks, red!30!yellow, thick, mark=o] file{data/fig3d_1.dat};
+	\addplot[only marks, red, thick, mark=*] file{data/fig3d_1.dat};
 	\addplot[black, ultra thick] {33.9903*x^(2/3)} node[pos=0.92,below right] {$D=3$};
 	\addplot[gray, ultra thick] {22.6127*x^(2/2.53)} node[pos=0.08,below right] {$D=2.53$};
 \end{groupplot}
