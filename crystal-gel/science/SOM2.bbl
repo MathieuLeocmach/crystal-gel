@@ -1,0 +1,42 @@
+\begin{thebibliography}{3}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname bibnamefont\endcsname\relax
+  \def\bibnamefont#1{#1}\fi
+\expandafter\ifx\csname bibfnamefont\endcsname\relax
+  \def\bibfnamefont#1{#1}\fi
+\expandafter\ifx\csname citenamefont\endcsname\relax
+  \def\citenamefont#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{\citenamefont{Leocmach and Tanaka}(2013)}]{Leocmach2013}
+\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Leocmach}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{H.}~\bibnamefont{Tanaka}},
+  \bibinfo{journal}{Soft Matter}  (\bibinfo{year}{2013}), ISSN
+  \bibinfo{issn}{1744-683X}.
+
+\bibitem[{\citenamefont{Royall et~al.}(2007)\citenamefont{Royall, Louis, and
+  Tanaka}}]{Royall2007}
+\bibinfo{author}{\bibfnamefont{C.~P.} \bibnamefont{Royall}},
+  \bibinfo{author}{\bibfnamefont{A.~A.} \bibnamefont{Louis}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{H.}~\bibnamefont{Tanaka}},
+  \bibinfo{journal}{J. Chem. Phys.} \textbf{\bibinfo{volume}{127}},
+  \bibinfo{pages}{044507} (\bibinfo{year}{2007}), ISSN
+  \bibinfo{issn}{0021-9606},
+  \urlprefix\url{http://www.ncbi.nlm.nih.gov/pubmed/17672707}.
+
+\bibitem[{\citenamefont{Lu et~al.}(2008)\citenamefont{Lu, Zaccarelli, Ciulla,
+  Schofield, Sciortino, and Weitz}}]{lu2008gelation}
+\bibinfo{author}{\bibfnamefont{P.~J.} \bibnamefont{Lu}},
+  \bibinfo{author}{\bibfnamefont{E.}~\bibnamefont{Zaccarelli}},
+  \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Ciulla}},
+  \bibinfo{author}{\bibfnamefont{A.~B.} \bibnamefont{Schofield}},
+  \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Sciortino}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{D.~A.} \bibnamefont{Weitz}},
+  \bibinfo{journal}{Nature} \textbf{\bibinfo{volume}{453}},
+  \bibinfo{pages}{499} (\bibinfo{year}{2008}).
+
+\end{thebibliography}
