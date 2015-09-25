@@ -11,9 +11,9 @@ for t in [120, 390, 890]:
     crystals = Union(*[
         Sphere( (x,y,z), 5)
         for x,y,z in pos[phase<3]
-        ]+[Texture(Pigment(color=(0.5,0,0)))])
+        ]+[Texture(Pigment(color=(0.33,0,0)))])
     f.write(crystals)
-    for i, c in zip([3,4,5], [(1,0.33,0), (1,0.66,0), (0.5,0,1)]):
+    for i, c in zip([3,4,5], [(0.66,0.33,0), (1,0.66,0.1), (0.75,0.75,1)]):
         f.write(Union(*[
             Sphere( (x,y,z), 5)
             for x,y,z in pos[phase==i]
