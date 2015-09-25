@@ -19,10 +19,10 @@
 		ylabel=$N_i/N$, ymax=1,
 		no marks,
 		]
-		\addplot+[red!50!black] file{data/crystals_all.dat};
+		\addplot+[red!50!black, thick] file{data/crystals_all.dat};
 		\addplot+[yellow!33!red] table[x expr={\thisrowno{0}/4.5}]{data/fig4a_4.dat};
-		\addplot+[yellow!66!red] table[x expr={\thisrowno{0}/4.5}]{data/fig4a_5.dat};
-		\addplot+[red!25!blue] table[x expr={\thisrowno{0}/4.5}]{data/fig4a_6.dat};
+		\addplot+[yellow!66!red, dashed] table[x expr={\thisrowno{0}/4.5}]{data/fig4a_5.dat};
+		\addplot+[blue, dotted] table[x expr={\thisrowno{0}/4.5}]{data/fig4a_6.dat};
 		\legend{crystal, surface, liquid, gas};
 	\nextgroupplot[
 		ylabel=$P$, ymax=0.6,
