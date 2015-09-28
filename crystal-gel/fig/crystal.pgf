@@ -10,28 +10,28 @@
 				},
 		width=0.5\linewidth,
 		%height=0.4\linewidth,
-		xlabel={$t/\tau_B$}, 
-		xmin=0, xmax=6300, ymin=0,
-		extra x ticks={1080, 2880, 6200}, extra x tick style={grid=major, xmajorticks=false}, extra x tick labels={},
-		legend style={draw=none, cells={anchor=west}},
+		xlabel={$t/10^3\tau_B$}, 
+		xmin=0, xmax=6.300, ymin=0,
+		extra x ticks={1.080, 2.880, 6.200}, extra x tick style={grid=major, xmajorticks=false}, extra x tick labels={},
+		legend style={draw=none, fill=none, cells={anchor=west}},
 	]
 	\nextgroupplot[
 		ylabel=$N_i/N$, ymax=1,
 		no marks,
 		]
-		\addplot+[red!50!black, thick] file{data/crystals_all.dat};
-		\addplot+[yellow!33!red] table[x expr={\thisrowno{0}/4.5}]{data/fig4a_4.dat};
-		\addplot+[yellow!66!red, dashed] table[x expr={\thisrowno{0}/4.5}]{data/fig4a_5.dat};
-		\addplot+[blue, dotted] table[x expr={\thisrowno{0}/4.5}]{data/fig4a_6.dat};
+		\addplot+[red!50!black, thick] table[x expr={\thisrowno{0}/1000}]{data/crystals_all.dat};
+		\addplot+[yellow!33!red] table[x expr={\thisrowno{0}/4.5e3}]{data/fig4a_4.dat};
+		\addplot+[yellow!66!red, dashed] table[x expr={\thisrowno{0}/4.5e3}]{data/fig4a_5.dat};
+		\addplot+[blue, dotted] table[x expr={\thisrowno{0}/4.5e3}]{data/fig4a_6.dat};
 		\legend{crystal, surface, liquid, gas};
 	\nextgroupplot[
 		ylabel=$P$, ymax=0.6,
 		legend columns=2, 
 		]
-		\addplot[yellow!66!red, mark=*] table[x expr={\thisrowno{0}/4.5}]{data/fig4b_1.dat};
-		\addplot[yellow!66!red, mark=o] table[x expr={\thisrowno{0}/4.5}]{data/fig4b_2.dat};
-		\addplot[blue, mark=square*] table[x expr={\thisrowno{0}/4.5}]{data/fig4b_3.dat};
-		\addplot[blue, mark=square] table[x expr={\thisrowno{0}/4.5}]{data/fig4b_4.dat};
+		\addplot[yellow!66!red, mark=*] table[x expr={\thisrowno{0}/4.5e3}]{data/fig4b_1.dat};
+		\addplot[yellow!66!red, mark=o] table[x expr={\thisrowno{0}/4.5e3}]{data/fig4b_2.dat};
+		\addplot[blue, mark=square*] table[x expr={\thisrowno{0}/4.5e3}]{data/fig4b_3.dat};
+		\addplot[blue, mark=square] table[x expr={\thisrowno{0}/4.5e3}]{data/fig4b_4.dat};
 		\legend{liquid$\rightarrow$crystal\hspace{0.5em}~, liquid$\rightarrow$gas, gas$\rightarrow$crystal, gas$\rightarrow$liquid,};
 \end{groupplot}
 \matrix[matrix of nodes, inner xsep=0, nodes={inner xsep=0, inner ysep=2pt}, column sep=0.005\linewidth, anchor=south west] (m) at (g c1r1.outer north west){
