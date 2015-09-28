@@ -19,7 +19,7 @@
 	\legend{average size, average number};
 
 	\nextgroupplot[
-		xlabel={$s$}, ylabel=$R_g(n)$,
+		xlabel={$s$}, ylabel=$R_g$,
 		xmode=log, ymode=log,
 		domain=1:5e2,
 		]
