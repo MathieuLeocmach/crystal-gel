@@ -9,13 +9,13 @@
 		%height=0.375\linewidth,
 	]
 	\nextgroupplot[
-		xlabel={$t/\tau_B$}, ylabel=\#,
-		xmin=0, xmax=6300, ymin=0,
+		xlabel={$t/10^3\tau_B$}, ylabel=\#,
+		xmin=0, xmax=6.300, ymin=0,
 		no marks,
 		legend style={cells={anchor=base west}},
 		]
-	\addplot table[x expr={\thisrowno{0}/4.5}]{data/fig3a_1.dat};
-	\addplot table[x expr={\thisrowno{0}/4.5}]{data/fig3a_2.dat};
+	\addplot table[x expr={\thisrowno{0}/4.5e3}]{data/fig3a_1.dat};
+	\addplot table[x expr={\thisrowno{0}/4.5e3}]{data/fig3a_2.dat};
 	\legend{average size, average number};
 
 	\nextgroupplot[
