@@ -1,15 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{lu2008gelation}
-P.~J. Lu, {\it et~al.\/}, {\it Nature\/} {\bf 453}, 499 (2008).
-
-\bibitem{glickman2000glossary}
-T.~S. Glickman, W.~Zenk, {\it Glossary of meteorology\/} (American
-  Meteorological Society, 2000).
-
-\bibitem{tanaka2000viscoelastic}
-H.~Tanaka, {\it J. Phys.: Condens. Matter\/} {\bf 12}, R207 (2000).
-
 \bibitem{anderson2002insights}
 V.~J. Anderson, H.~N.~W. Lekkerkerker, {\it Nature\/} {\bf 416}, 811 (2002).
 
@@ -19,6 +9,19 @@ H.~N.~W. Lekkerkerker, R.~Tuinier, {\it Colloids and the depletion
 
 \bibitem{tanaka1999colloid}
 H.~Tanaka, {\it Phys. Rev. E\/} {\bf 59}, 6842 (1999).
+
+\bibitem{tanaka2000viscoelastic}
+H.~Tanaka, {\it J. Phys.: Condens. Matter\/} {\bf 12}, R207 (2000).
+
+\bibitem{krall1998internal}
+A.~Krall, D.~Weitz, {\it Phys. Rev. Lett.\/} {\bf 80}, 778 (1998).
+
+\bibitem{solomon2001dynamic}
+M.~J. Solomon, P.~Varadan, {\it Phys. Rev. E\/} {\bf 63}, 051402 (2001).
+
+\bibitem{romer2000sol}
+S.~Romer, F.~Scheffold, P.~Schurtenberger, {\it Physical Review Letters\/} {\bf
+  85}, 4980 (2000).
 
 \bibitem{pusey1993dynamics}
 P.~Pusey, A.~Pirie, W.~Poon, {\it Physica A: Statistical Mechanics and its
@@ -36,8 +39,15 @@ N.~A.~M. Verhaegh, D.~Asnaghi, H.~N.~W. Lekkerkerker, M.~Giglio, L.~Cipelletti,
 \bibitem{foffi2002}
 G.~Foffi, {\it et~al.\/}, {\it Phys, Rev. E\/} {\bf 65}, 031407 (2002).
 
+\bibitem{buzzaccaro2007sticky}
+S.~Buzzaccaro, R.~Rusconi, R.~Piazza, {\it Phys. Rev. Lett.\/} {\bf 99}, 098301
+  (2007).
+
 \bibitem{zaccarelli2007}
 E.~Zaccarelli, {\it J. Phys.: Condens. Matter\/} {\bf 19}, 323101 (2007).
+
+\bibitem{lu2008gelation}
+P.~J. Lu, {\it et~al.\/}, {\it Nature\/} {\bf 453}, 499 (2008).
 
 \bibitem{zaccarelli2008gelation}
 E.~Zaccarelli, P.~J. Lu, F.~Ciulla, D.~A. Weitz, F.~Sciortino, {\it Journal of
@@ -69,8 +79,9 @@ J.~Sabin, A.~E. Bailey, G.~Espinosa, B.~J. Frisken, {\it Phys. Rev. Lett.\/}
 C.~P. Royall, A.~A. Louis, H.~Tanaka, {\it J. Chem. Phys.\/} {\bf 127}, 044507
   (2007).
 
-\bibitem{russo2012microscopic}
-J.~Russo, H.~Tanaka, {\it Scientific reports\/} {\bf 2} (2012).
+\bibitem{russo2013interplay}
+J.~Russo, A.~C. Maggs, D.~Bonn, H.~Tanaka, {\it Soft Matter\/} {\bf 9}, 7369
+  (2013).
 
 \bibitem{ten1997enhancement}
 P.~R. ten Wolde, D.~Frenkel, {\it Science\/} {\bf 277}, 1975 (1997).
@@ -78,5 +89,12 @@ P.~R. ten Wolde, D.~Frenkel, {\it Science\/} {\bf 277}, 1975 (1997).
 \bibitem{olmsted1998spinodal}
 P.~D. Olmsted, W.~C. Poon, T.~McLeish, N.~Terrill, A.~Ryan, {\it Physical
   Review Letters\/} {\bf 81}, 373 (1998).
+
+\bibitem{glickman2000glossary}
+T.~S. Glickman, W.~Zenk, {\it Glossary of meteorology\/} (American
+  Meteorological Society, 2000).
+
+\bibitem{morrison2012resilience}
+H.~Morrison, {\it et~al.\/}, {\it Nature Geoscience\/} {\bf 5}, 11 (2012).
 
 \end{thebibliography}
