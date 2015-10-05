@@ -6,7 +6,7 @@
 \usepackage{amssymb}
 \usepackage{color}
 \usepackage{comment}
-\usepackage{siunitx}
+%\usepackage{siunitx}
 %\usepackage{dcolumn}% Align table columns on decimal point
 %\usepackage{bm}% bold math
 
@@ -334,14 +334,14 @@ and industrial applications, although they have not attracted much attention so 
 
 \section*{Methods}
 
-\paragraph*{Experimental}
-We use \textsc{pmma} (poly(methyl methacrylate)) colloids sterically stabilized with methacryloxypropyl terminated \textsc{pdms}(poly(dimethyl siloxane)) and fluorescently labelled with rhodamine isothiocyanate chemically bonded to the \textsc{pmma}. We disperse the particles in refractive index and density matching mixture of cis-decalin (Tokyo Kasei) and bromocyclohexane (Sigma-Aldrich).
-
-To induce short-ranged depletion attraction, we use polystyrene (TOSOH) of molecular weight \SI{3.8}{\mega\dalton} as non-adsorbing polymer. Experiments are conducted at \SI{27}{\celsius}, some \SI{80}{\celsius} above the theta temperature in this solvents mixture~\cite{Royall2007}. A Flory scaling of the measurements of~\cite{lu2008gelation} yields a radius of gyration $R_g=\SI{76}{\nano\metre}$.
-
-In the absence of salt, the Debye length is expected to reach several \si{\micro\metre} and the (weakly) charged colloids experience a long range electrostatic repulsion. We confirm that colloids never come close enough to feel the short-ranged attraction. Screening by tetrabutylammonium bromide (Fluka) at saturated concentration brings down the Debye length to about \SI{100}{\nano\metre}, practically discarding the repulsion.
-
-The data are collected on a Leica SP5 confocal microscope, using \SI{532}{\nano\metre} laser excitation. We assess that the size distribution of our particle is Gaussian with a polydispersity below 5\% via direct confocal measurements~\cite{Leocmach2013}. The mean diameter is $\sigma=\SI{2.1}{\micro\metre}$ XXX to be checked XXX yielding a size ratio $q_R=2R_g/\sigma=0.07$. The Brownian time is $\tau_B \approx \SI{4.5}{\second}$. To be able to follow individual trajectories, we perform a 3D scan every \SI{10}{\second} at early time and every \SI{30}{\second} later.
+% \paragraph*{Experimental}
+% We use \textsc{pmma} (poly(methyl methacrylate)) colloids sterically stabilized with methacryloxypropyl terminated \textsc{pdms}(poly(dimethyl siloxane)) and fluorescently labelled with rhodamine isothiocyanate chemically bonded to the \textsc{pmma}. We disperse the particles in refractive index and density matching mixture of cis-decalin (Tokyo Kasei) and bromocyclohexane (Sigma-Aldrich).
+% 
+% To induce short-ranged depletion attraction, we use polystyrene (TOSOH) of molecular weight \SI{3.8}{\mega\dalton} as non-adsorbing polymer. Experiments are conducted at \SI{27}{\celsius}, some \SI{80}{\celsius} above the theta temperature in this solvents mixture~\cite{Royall2007}. A Flory scaling of the measurements of~\cite{lu2008gelation} yields a radius of gyration $R_g=\SI{76}{\nano\metre}$.
+% 
+% In the absence of salt, the Debye length is expected to reach several \si{\micro\metre} and the (weakly) charged colloids experience a long range electrostatic repulsion. We confirm that colloids never come close enough to feel the short-ranged attraction. Screening by tetrabutylammonium bromide (Fluka) at saturated concentration brings down the Debye length to about \SI{100}{\nano\metre}, practically discarding the repulsion.
+% 
+% The data are collected on a Leica SP5 confocal microscope, using \SI{532}{\nano\metre} laser excitation. We assess that the size distribution of our particle is Gaussian with a polydispersity below 5\% via direct confocal measurements~\cite{Leocmach2013}. The mean diameter is $\sigma=\SI{2.1}{\micro\metre}$ XXX to be checked XXX yielding a size ratio $q_R=2R_g/\sigma=0.07$. The Brownian time is $\tau_B \approx \SI{4.5}{\second}$. To be able to follow individual trajectories, we perform a 3D scan every \SI{10}{\second} at early time and every \SI{30}{\second} later.
 
 %\paragraph*{State points studied}
 %The experimental data is taken at two different volume fractions ($\phi=0.10$ and $\phi=0.25$) and for different values
@@ -351,13 +351,13 @@ The data are collected on a Leica SP5 confocal microscope, using \SI{532}{\nano\
 %We will consider two particles bonded if their center-to-center distance is within $12$ pixels. The radius of a colloidal
 %particle is $5.365$ pixels.
 
-\paragraph*{Structural analysis}
-To account for imprecision in particle localisation close to contact, we consider two particles bonded if their center-to-center distance is within $\SI{2.3}{\micro\metre}>\sigma+2R_g$.
-
-To detect percolation, two different methods have been employed. In the first one we detect percolation
-by looking at which frame the cluster size distribution has a more extended power-law decay. In the second technique,
-we simply measure the spatial extent of the largest cluster and consider it percolating when it is comparable to the
-size of the field of view of the microscope. Both methods lead to essentially identical percolation time for each state point.
+% \paragraph*{Structural analysis}
+% To account for imprecision in particle localisation close to contact, we consider two particles bonded if their center-to-center distance is within $\SI{2.3}{\micro\metre}>\sigma+2R_g$.
+% 
+% To detect percolation, two different methods have been employed. In the first one we detect percolation
+% by looking at which frame the cluster size distribution has a more extended power-law decay. In the second technique,
+% we simply measure the spatial extent of the largest cluster and consider it percolating when it is comparable to the
+% size of the field of view of the microscope. Both methods lead to essentially identical percolation time for each state point.
 
 Crystalline phases are detected through bond orientational analysis~\cite{russo2012microscopic}, they are mainly FCC and HCP in comparable proportions. Surface particles are particles with at least two crystalline neighbours; liquid particles have at least 4 neighbours; gas particles are particles with less than 4 nearest neighbours.
 
@@ -376,8 +376,3 @@ Crystalline phases are detected through bond orientational analysis~\cite{russo2
 
 
 \end{document}
-
-
-
-\section{Future things to do}
-Is the absence of network restructuring that is preventing crystallization?
