@@ -3,7 +3,7 @@ from colloids.phase import *
 from os.path import isfile
 
 qR = 0.071
-cpov = 1
+cpov = 2.8
 q = qR2q(qR)
 
 #experimental points
@@ -35,8 +35,8 @@ scatter(f2vf(fc), piv2y(pivc, q) * alpha(fc, qR) * cpov, c='r', marker='o')
 
 #draw binodal and spinodals
 for f,l in zip(GL.T[1:], ['--']*2+['-']*2):
-    cp = piv2y(GL[:,0], q) * alpha(f, qR)
-    plot(f2vf(f), cp * cpov, 'k'+l)
+    y = piv2y(GL[:,0], q) * alpha(f, qR)
+    plot(f2vf(f), y * cpov, 'k'+l)
 #draw tie lines
 for piv, fG, fL in GL[[50,60,70,80,85,88]+range(90,98),:3]:
     cpG = piv2y(piv, q) * alpha(fG, qR) * cpov
@@ -55,7 +55,7 @@ for f in FS.T[1:]:
     cp = piv2y(FS[:,0], q) * alpha(f, qR)
     plot(f2vf(f), cp * cpov, 'k.')
 
-ylabel(r'$c_p$ (g/L)')
+ylabel(r'$c_p$ (mg/g)')
 xlabel(r'$\phi$ (%)')
 ylim(0,2)
 xlim(0,0.75)
@@ -64,18 +64,18 @@ savefig('phasediag.pdf')
 
 #save binodal and spinodal
 for f,l in zip(GL.T[1:], ['bg', 'bl', 'sg', 'sl']):
-    cp = piv2y(GL[:,0], q) * alpha(f, qR)
+    y = piv2y(GL[:,0], q) * alpha(f, qR)
     np.savetxt(
         'gasliquid_%s.phd'%l,
-        np.column_stack((f2vf(f), cp * cpov)),
+        np.column_stack((f2vf(f), y * cpov)),
         header='phi\tcp',
         )
 #save fluid-crystal
 for f,l in zip(FS.T[1:], ['f', 'x']):
-    cp = piv2y(FS[:,0], q) * alpha(f, qR)
+    y = piv2y(FS[:,0], q) * alpha(f, qR)
     np.savetxt(
         'fluidcrystal_%s.phd'%l,
-        np.column_stack((f2vf(f), cp * cpov)),
+        np.column_stack((f2vf(f), y * cpov)),
         header='phi\tcp',
         )
 
