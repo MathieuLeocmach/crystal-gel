@@ -41,18 +41,18 @@ red!65!black, mark=o\\%
 	\draw[->] (x.base) --(rel axis cs:0.98,0.01);
 
 \nextgroupplot[
-	xlabel={$s$}, ylabel={$R_g$},
+	xlabel={$s$}, ylabel={$R_g/\sigma$},
 	xmin=1, xmax=4e3,
-	ymin=40, ymax=2e4,
+	ymin=0.5, ymax=30,
 	xmode=log, ymode=log, 
 	clip mode=individual,
 	]
-	\addplot file{data/fig1b_1.dat};
-	\addplot file{data/fig1b_2.dat};
-	\addplot file{data/fig1b_3.dat};
-	\addplot file{data/fig1b_4.dat};
-	\addplot file{data/fig1b_5.dat};
-	\addplot[gray, ultra thick, domain=1:4e3] {49.2874*x^(2/2.53)} node [left] at (rel axis cs:1,0.7){$D=2.53$};
+	\addplot file{data/fig1b_sqrt_1.dat};
+	\addplot file{data/fig1b_sqrt_2.dat};
+	\addplot file{data/fig1b_sqrt_3.dat};
+	\addplot file{data/fig1b_sqrt_4.dat};
+	\addplot file{data/fig1b_sqrt_5.dat};
+	\addplot[gray, ultra thick, domain=1:4e3] {0.654*x^(1/2.53)} node [left] at (rel axis cs:1,0.6){$D=2.53$};
 
 \nextgroupplot[
 	xlabel={$q\sigma$}, ylabel={$S(q)$},
