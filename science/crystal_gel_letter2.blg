@@ -1,8 +1,8 @@
-This is BibTeX, Version 0.99c (Web2C 7.5.6)
+This is BibTeX, Version 0.99d (Web2C 2010)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: crystal_gel_letter2.aux
 The style file: Science.bst
 Database file #1: biblio.bib
-Warning--I didn't find a database entry for ""
 You've used 27 entries,
             2300 wiz_defined-function locations,
             899 strings with 10267 characters,
@@ -44,4 +44,3 @@ warning$ -- 0
 while$ -- 51
 width$ -- 29
 write$ -- 216
-(There was 1 warning)
