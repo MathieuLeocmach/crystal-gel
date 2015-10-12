@@ -28,17 +28,21 @@ red!65!black, mark=o\\%
 	xmin=0,xmax=0.74,
 	ymin=0, ymax=1.5,
 	]
-	\addplot coordinates {(0.1, 0.82)};
-	\addplot coordinates {(0.1, 1.36)};
-	\addplot coordinates {	(0.25, 0.38)};
-	\addplot coordinates {(0.25, 0.48)};
-	\addplot coordinates {(0.25, 0.57)};
-	\addplot coordinates {(0.25, 1.07)};
+	\addplot coordinates {(0.153, 0.82)};
+	\addplot coordinates {(0.145, 1.36)};
+	\addplot coordinates {	(0.357, 0.38)};
+	\addplot coordinates {(0.348, 0.48)};
+	\addplot coordinates {(0.336, 0.57)};
+	\addplot coordinates {(0.381, 1.07)};
 	\addplot[black, no marks] file {gasliquid_sg.phd} node[diamond, fill] at (current plot begin){};
 	%\addplot[black, no marks] file {gasliquid_sl.phd};
 	\addplot[black, no marks, dashed] file {fluidcrystal_f.phd} node[above right] at (rel axis cs:0,0) {Fluid};
 	\addplot[black, no marks, dashed] file {fluidcrystal_x.phd} node[above left] (x) at (rel axis cs:1,0.1) {Crystal};
 	\draw[->] (x.base) --(rel axis cs:0.98,0.01);
+	\addplot[only marks, mark=triangle] coordinates {
+		(0.162, 0.25) (0.162, 0.48) (0.159, 0.57) (0.096, 0.76)
+		(0.351, 0.28) (0.353, 0.34)
+		};
 
 \nextgroupplot[
 	xlabel={$s$}, ylabel={$R_g/\sigma$},
