@@ -28,20 +28,20 @@ red!65!black, mark=o\\%
 	xmin=0,xmax=0.74,
 	ymin=0, ymax=1.5,
 	]
-	\addplot coordinates {(0.153, 0.82)};
-	\addplot coordinates {(0.145, 1.36)};
-	\addplot coordinates {	(0.357, 0.38)};
-	\addplot coordinates {(0.348, 0.48)};
-	\addplot coordinates {(0.336, 0.57)};
-	\addplot coordinates {(0.381, 1.07)};
+	\addplot coordinates {(0.135, 0.82)};
+	\addplot coordinates {(0.126, 1.36)};
+	\addplot coordinates {	(0.313, 0.38)};
+	\addplot coordinates {(0.305, 0.48)};
+	\addplot coordinates {(0.294, 0.57)};
+	\addplot coordinates {(0.333, 1.07)};
 	\addplot[black, no marks] file {gasliquid_sg.phd} node[diamond, fill] at (current plot begin){};
 	%\addplot[black, no marks] file {gasliquid_sl.phd};
 	\addplot[black, no marks, dashed] file {fluidcrystal_f.phd} node[above right] at (rel axis cs:0,0) {Fluid};
 	\addplot[black, no marks, dashed] file {fluidcrystal_x.phd} node[above left] (x) at (rel axis cs:1,0.1) {Crystal};
 	\draw[->] (x.base) --(rel axis cs:0.98,0.01);
 	\addplot[only marks, mark=triangle] coordinates {
-		(0.162, 0.25) (0.162, 0.48) (0.159, 0.57) (0.096, 0.76)
-		(0.351, 0.28) (0.353, 0.34)
+		(0.141, 0.25) (0.141, 0.48) (0.139, 0.57) (0.084, 0.76)
+		(0.307, 0.28) (0.309, 0.34)
 		};
 
 \nextgroupplot[
@@ -56,7 +56,7 @@ red!65!black, mark=o\\%
 	\addplot file{data/fig1b_sqrt_3.dat};
 	\addplot file{data/fig1b_sqrt_4.dat};
 	\addplot file{data/fig1b_sqrt_5.dat};
-	\addplot[gray, ultra thick, domain=1:4e3] {0.654*x^(1/2.53)} node [left] at (rel axis cs:1,0.6){$D=2.53$};
+	\addplot[gray, ultra thick, domain=1:4e3] {0.629*x^(1/2.53)} node [left] at (rel axis cs:1,0.6){$D=2.53$};
 
 \nextgroupplot[
 	xlabel={$q\sigma$}, ylabel={$S(q)$},
@@ -74,15 +74,15 @@ red!65!black, mark=o\\%
 
 \nextgroupplot[
 	xlabel={\# neighbours}, ylabel={$\phi$ [\%]},
-	xmin=0, ymin=0, ytick={0,20,40},
-	extra y ticks={55, 60}, extra y tick style={grid=major}, extra y tick label={},
+	xmin=0, ymin=0, ytick={0,10,30,50},
+	extra y ticks={64, 68}, extra y tick style={grid=major}, extra y tick label={},
 	legend pos=north west, legend style={font=\footnotesize},
 	]
-	\addplot table[y expr={100*\thisrowno{1}}]{data/fig3b_1.dat};
-	\addplot table[y expr={100*\thisrowno{1}}]{data/fig3b_2.dat};
-	\addplot table[y expr={100*\thisrowno{1}}]{data/fig3b_3.dat};
-	\addplot table[y expr={100*\thisrowno{1}}]{data/fig3b_4.dat};
-	\addplot table[y expr={100*\thisrowno{1}}]{data/fig3b_5.dat};
+	\addplot table[y expr={1.149*100*\thisrowno{1}}]{data/fig3b_1.dat};
+	\addplot table[y expr={1.149*100*\thisrowno{1}}]{data/fig3b_2.dat};
+	\addplot table[y expr={1.149*100*\thisrowno{1}}]{data/fig3b_3.dat};
+	\addplot table[y expr={1.149*100*\thisrowno{1}}]{data/fig3b_4.dat};
+	\addplot table[y expr={1.149*100*\thisrowno{1}}]{data/fig3b_5.dat};
 	%\legend{
 		%{$\phi=0.10, c_p=0.82$}, {$\phi=0.10, c_p=1.36$},
 		%{$\phi=0.25, c_p=0.38$}, {$\phi=0.25, c_p=0.48$}, {$\phi=0.25, c_p=0.57$},
