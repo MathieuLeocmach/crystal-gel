@@ -1,11 +1,8 @@
-This is BibTeX, Version 0.99d (Web2C 2010)
-Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+This is BibTeX, Version 0.99c (Web2C 7.5.6)
 The top-level auxiliary file: SOM2.aux
 The style file: apsrev.bst
-Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: biblio.bib
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated wiz_functions (elt_size=4) to 6800 items from 3400.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 472446405560.
 You've used 3 entries,
             3411 wiz_defined-function locations,
             1177 strings with 10661 characters,
