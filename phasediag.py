@@ -3,6 +3,10 @@ from colloids.phase import *
 from os.path import isfile
 from scipy.constants import N_A
 
+def xp2th(cp, phi, qR=0.1, cpov=1.):
+    """Converts experimental polymer concentration in osmotic pressure"""
+    return y2piv(cp/cpov/alpha(vf2f(phi), qR2q(qR)), qR)
+
 #radius of gyration in nm
 R = 82.
 #Molecular weight (Dalton or g/mol)
@@ -15,7 +19,7 @@ d = 1.24
 qR = 2*R/sigma
 cpov = 1000 * (3 * Mw)/(4 * np.pi * (R*1e-9)**3 * N_A * d*1e6)
 q = qR2q(qR)
-print 'qR = %0.3f, q = %0.3f, Cov = %0.3f mg/g'%(qR, q, cpov)
+print('qR = %0.3f, q = %0.3f, Cov = %0.3f mg/g'%(qR, q, cpov))
 
 #experimental points
 phixpG = np.array([0.069, 0.128, 0.135, 0.126, 0.333, 0.313, 0.294, 0.305])
@@ -25,7 +29,7 @@ cpxpF = np.array([0.25,0.48,0.57, 0.76, 0.28, 0.34])
 
 #load or compute theoretical phase diagram
 fc, pivc = Liu().critical_point(q)
-print 'At critical point colloid volume fraction is %0.3f and osmotic insertion work is %0.3f kT'%(f2vf(fc), pivc)
+print('At critical point colloid volume fraction is %0.3f and osmotic insertion work is %0.3f kT'%(f2vf(fc), pivc))
 if isfile('phasediag.txt'):
     GL = np.loadtxt('phasediag.txt')
 else:
@@ -58,10 +62,25 @@ for f,l,ph in zip(GL.T[1:], ['--']*2+['-']*2, ['bg', 'bl', 'sg', 'sl']):
         header='phi\tcp',
         )
 #draw tie lines
-for piv, fG, fL in GL[[50,60,70,80,85,88]+range(90,98),:3]:
+for piv, fG, fL in GL[[50,60,70,80,85,88]+list(range(90,98)),:3]:
     cpG = piv2y(piv, qR) * alpha(fG, q) * cpov
     cpL = piv2y(piv, qR) * alpha(fL, q) * cpov
     plot(f2vf(np.array([fG,fL])), [cpG, cpL], '-', color=(0.5,0.5,0.5))
+    
+#FS tie line for the crystal-gel experimental point
+piv = xp2th(cpxpG, phixpG, qR, cpov)[-3]
+Delta_muS_0 = Hall().mu_of_U(np.log(1/1.185-1/f_cp), 0, q) - Liu().mu_of_U(np.log(1/0.970-1/f_cp), 0, q)
+piv0, fG0, fS0 = FS[np.where(FS[:,0]>piv)[0][0]]
+print('tie line Gas-Solid')
+for f in coexistence(piv, q, Liu(), Hall(), guess=[fG0, fS0], Delta_muS_0=Delta_muS_0):
+    print(f2vf(f), piv2y(piv, qR) * alpha(f, q) * cpov)
+    
+#GL tie line for the crystal-gel experimental point
+piv = xp2th(cpxpG, phixpG, qR, cpov)[-3]
+fG0, fL0 = GL[np.where(GL[:,0]>piv)[0][0], 1:3]
+print('tie line Gas-Liquid')
+for f in np.exp(Liu().binodalGL(piv, q, np.log([fG0, fL0]))):
+    print(f2vf(f), piv2y(piv, qR) * alpha(f, q) * cpov)
 
 #draw equicomposition lines
 for x in np.arange(1,10)/10.:
@@ -90,9 +109,7 @@ savefig('phasediag.pdf')
 fig = figure('theoretical phase diagram')
 clf()
 
-def xp2th(cp, phi, qR=0.1, cpov=1.):
-    """Converts experimental polymer concentration in osmotic pressure"""
-    return y2piv(cp/cpov/alpha(vf2f(phi), qR2q(qR)), qR)
+
 
 #draw experimental points
 scatter(phixpG, xp2th(cpxpG, phixpG, qR, cpov), marker='s')
