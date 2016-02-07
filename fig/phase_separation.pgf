@@ -35,9 +35,13 @@ red!65!black, mark=o\\%
 	\addplot coordinates {(0.294, 0.57)};
 	\addplot coordinates {(0.333, 1.07)};
 	\addplot[black, no marks] file {gasliquid_sg.phd} node[diamond, fill] at (current plot begin){};
-	%\addplot[black, no marks] file {gasliquid_sl.phd};
+	%\addplot[black, no marks] file {gasliquid_bl.phd};
+	%\addplot[black, no marks] file {gasliquid_bg.phd};
 	\addplot[black, no marks, dashed] file {fluidcrystal_f.phd} node[above right] at (rel axis cs:0,0) {Fluid};
 	\addplot[black, no marks, dashed] file {fluidcrystal_x.phd} node[above left] (x) at (rel axis cs:1,0.1) {Crystal};
+	%\draw[gray] (axis cs:0.371290311343, 0.12299370925) -- (axis cs:0.680497991395,0.0372636873433);
+	\draw[gray, dotted] (axis cs:3.40152108798e-05,0.624739653238) -- (axis cs:
+0.722831684246, 0.0726528862772);
 	\draw[->] (x.base) --(rel axis cs:0.98,0.01);
 	\addplot[only marks, mark=triangle] coordinates {
 		(0.141, 0.25) (0.141, 0.48) (0.139, 0.57) (0.084, 0.76)
@@ -108,11 +112,11 @@ red!65!black, mark=o\\%
 % 	\addplot table[y expr={\thisrowno{1}+4}]{data/fig3c_5s.dat};
 % \end{axis}
 %\draw (g c1r1.outer north west) rectangle +(\linewidth,-\textheight);
-\begin{scope}[every node/.style={anchor=north east, font=\bf}]
-	\node at (g c1r1.north east) {A};
-	\node at (g c2r1.north east) {B};
-	\node at (g c1r2.north east) {C};
-	\node at (g c2r2.north east) {D};
+\begin{scope}[every node/.style={anchor=north west, font=\bf}]
+	\node at (g c1r1.left of north west) {a};
+	\node at (g c2r1.left of north west) {b};
+	\node at (g c1r2.left of north west) {c};
+	\node at (g c2r2.left of north west) {d};
 \end{scope}
 \end{tikzpicture}
 \end{figure*}
