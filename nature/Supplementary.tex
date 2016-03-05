@@ -1,37 +1,176 @@
-%\documentclass[12pt]{article}
-\documentclass[12pt,onecolumn]{revtex4-1}
-%\documentstyle[aps,multicol,eincludegraphics]{revtex}
-%\documentclass[twocolumn]{revtex4}
+% %\documentclass[12pt]{article}
+% \documentclass[12pt,onecolumn]{revtex4-1}
+% %\documentstyle[aps,multicol,eincludegraphics]{revtex}
+% %\documentclass[twocolumn]{revtex4}
+% \usepackage{graphicx}
+% %\usepackage{scicite}
+% % \usepackage{epstopdf}
+% \usepackage{amsmath}
+% %\usepackage{times}
+% 
+% \topmargin 0.0cm
+% \oddsidemargin 0.2cm
+% \textwidth 16cm 
+% \textheight 21cm
+% \footskip 1.0cm
+% 
+% 
+% 
+% 
+% \begin{document}
+% 
+% 
+% \noindent
+% {\bf Supplementary Information}
+
+\documentclass[preprint,superscriptaddress]{revtex4-1}
 \usepackage{graphicx}
-%\usepackage{scicite}
-% \usepackage{epstopdf}
+\usepackage{epstopdf}
 \usepackage{amsmath}
-%\usepackage{times}
+% \usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{color}
 
-\topmargin 0.0cm
-\oddsidemargin 0.2cm
-\textwidth 16cm 
-\textheight 21cm
-\footskip 1.0cm
+\setlength{\tabcolsep}{10pt}
 
+\newenvironment{sistema}%
+  {\left\lbrace\begin{array}{@{}l@{}}}%
+  {\end{array}\right.}
 
+\renewcommand{\figurename}{Fig.} 
+\renewcommand{\thefigure}{S\arabic{figure}} 
 
+% \setcounter {figure} {S}
+% \usecounter{figure}
 
 \begin{document}
 
+\centerline{\bf \large Supplementary Information for}
+\centerline{\bf \large``A novel route to the spontaneous formation of porous crystals via}
+\centerline{\bf \large viscoelastic phase separation''}
+\vspace{0.5cm}
 
-\noindent
-{\bf Supplementary Information}
+\centerline{Hideyo Tsurusawa$^1$, John Russo$^{1,2}$, Mathieu Leocmach$^3$ and Hajime Tanaka$^1$} 
+\centerline{$^1${\it Institute of Industrial Science, University of Tokyo}}
+\centerline{ {\it 4-6-1 Komaba, Meguro-ku, Tokyo 153-8505, Japan} }
+\centerline{$^2$ {\it School of Mathematics, University of Bristol, Bristol BS8 1TW, United Kingdom}}
+\centerline{$^3$ {\it Institut Lumière Matière, CNRS UMR 5306, Université Claude Bernard Lyon 1,}}
+\centerline{ {\it Université de Lyon, Lyon, 69622 Villeurbanne Cedex, France}}
+% \centerline{ {\it Oxford, OX1 3QZ, United Kingdom}}
 
-\vspace{5mm}
-\noindent
-\emph{\bf Supplementary Movie 1}. This movie shows the early stage of gelation process of $\phi\approx 0.30$ and $c_p=0.38$ mg/g, from the original confocal images at the same z-position as Fig.~3a. Total duration is 1160 s (530~$\tau$). We quickly started scanning the sample after exchanging the salt-reservoir with the solvent including salt. At the beginning, salt had not reached the scanning volume and colloids were dispersed by electrostatic repulsion. At 0:02 in the movie, salt diffused into the scanning volume and screened the surface charges of colloids. Then, colloids immediately initiated phase separation by short-ranged attractions.
 
-\vspace{5mm}
-\noindent
-\emph{\bf Supplementary Movie 2}.
+
+
+\section*{Supplementary Movie 1}
+This movie shows the early stage of gelation process of $\phi\approx 0.30$ and $c_p=0.38$ mg/g, from the original confocal images at the same z-position as Fig.~3a. Total duration is 1160 s (530~$\tau$). We quickly started scanning the sample after exchanging the salt-reservoir with the solvent including salt. At the beginning, salt had not reached the scanning volume and colloids were dispersed by electrostatic repulsion. At 0:02 in the movie, salt diffused into the scanning volume and screened the surface charges of colloids. Then, colloids immediately initiated phase separation by short-ranged attractions.
+
+\section*{Supplementary Movie 2}
 This movie shows the late stage after Supplemental Movie 1 with scanning duration of 27000~s (12300~$\tau$). 
 Please note that there is a large difference in the frame rate between Movie 1 and 2. 
+
+\section*{Definition of states}
+The configurations obtained by tracking the position of the colloids in the samples
+are analyzed in order to determine whether a colloidal particles is in the
+crystal, surface, liquid or gas state. In the following we describe the classification
+criteria
+
+\subsection*{Crystal}
+In order to detect crystalline particle we use bond orientational analysis,
+as described in Ref.~\cite{russo2013interplay}.
+A $(2l+1)$ dimensional complex vector ($\mathbf{q}_l$) is defined for each
+particle $i$ as $q_{lm}(i)=\frac{1}{N_b(i)}\sum_{j=1}^{N_b(i)}
+Y_{lm}(\mathbf{\hat{r}_{ij}})$, where we set $l=12$, and $m$ is an integer that
+runs from $m=-l$ to $m=l$. The functions $Y_{lm}$ are the spherical harmonics
+and $\mathbf{\hat{r}_{ij}}$ is the normalised vector from the oxygen of
+molecule $i$ to the one of molecule $j$.  The sum goes over the first
+$N_b(i)=12$ neighbours of molecule $i$. This choice accounts for
+the first coordination shell of close packed crystals (fcc or hcp).
+The scalar product between $q_{6,m}$ of two particles
+is defined as $\mathbf{q}_{6}(i)\cdot\mathbf{q}_{6}(j)=\sum_m q_{6,m}(i)q_{6,m}(j)$.
+For each pair $i$ and $j$ of neighbouring particles we define a \emph{connection}
+if the scalar product $(\mathbf{q}_{6}(i)/|\mathbf{q}_{6}(i)|)\cdot(\mathbf{q}_{6}(j)/|\mathbf{q}_{6}(j)|)>0.7$.
+A molecule is then identified as crystalline if it has at least $7$ connected neighbours.
+
+The criteria outlined above are commonly used to identify crystalline arrangements in hard sphere systems.
+
+\subsection*{Surface, gas and liquid particles}
+
+\begin{figure}[!t]
+ \centering
+ \includegraphics[width=10cm]{./fractions.pdf}
+ % fractions.pdf: 681x503 pixel, 72dpi, 24.02x17.74 cm, bb=0 0 681 503
+ \caption{{\bf Fraction of particles for each phase at $\phi\approx 0.30$ and $c_p=0.38$ mg/g}. The liquid
+ fraction is depicted as a dashed black line, the gas fraction as a dotted-dashed green line, the surface
+ fraction as a double-dotted-dashed blue line, while the crystal with a continuous red line.}
+ \label{fig:fractions}
+\end{figure}
+
+Surface, gas and liquid particles are identified from the subset of non-crystalline particles depending
+on their neighbouring particles. A particle with at least two neighbouring crystal particle is classified as
+\emph{surface}. A particle that is neither solid or surface, and has at least four neighbouring particles
+is classified as \emph{liquid}. A particle which is neither solid, surface or liquid is classified as \emph{gas}.
+Fig.~\ref{fig:fractions} plots the fraction of each state for the state point at $\phi\approx 0.30$ and $c_p=0.38$ mg/g
+
+The distinction between gas and liquid phases is consistent with the analysis of volume fraction and composition
+of the gas and liquid phases just after phase separation (and before crystallization). To analyse the fraction
+of liquid and gas after phase separation we convert the position of particles into a contiunous field smearing
+the position of each particle with a gaussian field of variance $5$ pixels, and then mapping the field
+to a cubic grid with $10$ pixels spacing. In this way liquid and gas regions can be identified by
+an appropriate threshold of the field.
+
+\begin{figure}[!t]
+ \centering
+ \includegraphics[width=10cm]{./field.pdf}
+ % field.pdf: 681x483 pixel, 72dpi, 24.02x17.04 cm, bb=0 0 681 483
+ \caption{{\bf Distribution function of the gaussian field at $t=490\,\tau_B$.} The gaussian field is applied to
+ a configuration just after phase separation and before crystallization. The vertical dashed line represents the
+ field threshold $f=0.06$ used to distinguish between gas and liquid particles.}
+ \label{fig:field}
+\end{figure}
+
+Fig.~\ref{fig:field} shows the probability distribution of the field, where two peaks clearly indicate the presence
+of gas/liquid coexistence. By choosing a threshold over the field of $f=0.06$ (dashed line) we compute the fraction
+of particles in the solid and gas phases at $t=490\,\tau_B$, just after phase separation. The results are consistent
+with Fig.~\ref{fig:fractions}, where the number fraction of particles in the liquid state accounts for more than
+$90\%$ of the particles after phase separation.
+
+\section*{Transition probabilities}
+\begin{figure}[!t]
+ \centering
+ \includegraphics[width=14cm]{./sfig1.pdf}
+ % sfig1.pdf: 1398x1026 pixel, 72dpi, 49.32x36.19 cm, bb=0 0 1398 1026
+ \caption{{\bf Transition probabilities during the formation of the crystal-gel.}
+ {\bf a,} Transition probabilities from the liquid state;
+ {\bf b,} Transition probabilities from the gas state;
+ {\bf c,} Transition probabilities from the surface state;
+ {\bf d,} Transition probabilities from the crystal state. In all panels the possible
+ transition states are surface (blue), liquid (black), gas (green) and crystal (red).
+ See the text for a definition of the states.
+ }
+ \label{fig:probabilities}
+\end{figure}
+
+In Fig.~\ref{fig:probabilities} we plot the transition probabilities between the gas, liquid, crystal
+and surface states, as defined in the previous Section. Each panel represents the transition probability
+of a different state: {\bf a} for the liquid state, {\bf b} for the gas state, {\bf c} for the surface state,
+and {\bf d} for the crystal state. The results indicate that the liquid phase preferentially transforms into
+the surface state (as a precursor to crystallization), which accounts for the \emph{direct crystallization channel}
+that was described in the main text. A high percentage of liquid transforms also in the gas phase. The gas phase itself
+transforms back into liquid or into surface particles, a process which
+is linked to the \emph{Bergeron process}. These results support the idea that both channels are active
+crystallization pathways. Direct transformation of either liquid or gas into crystalline states is almost absent,
+indicating that our surface state indeed captures the precursor particles that attach to nuclei and later crystallize.
+Surface particles in fact, first transform preferentially into the liquid state, but at later time instead transform
+more prominently into the crystal state. The transformation of crystals into surface state, represents the first
+step of the \emph{Ostwald process}, but this channel is limited by the small rate of conversion of surface particles
+into the gas state.
+
+
+
+
+\bibliographystyle{naturemag2}
+\bibliography{biblio}
+
 
 
 \end{document}
