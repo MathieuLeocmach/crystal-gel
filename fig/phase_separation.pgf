@@ -26,27 +26,35 @@ red!65!black, mark=o\\%
 \nextgroupplot[
 	xlabel={$\phi$}, ylabel={$c_p$ (\si{\milli\gram/\gram})},
 	xmin=0,xmax=0.74,
-	ymin=0, ymax=1.5,
+	ymin=0, ymax=1.7,
+	mark options={solid}
 	]
-	\addplot coordinates {(0.135, 0.82)};
-	\addplot coordinates {(0.126, 1.36)};
-	\addplot coordinates {	(0.313, 0.38)};
-	\addplot coordinates {(0.305, 0.48)};
-	\addplot coordinates {(0.294, 0.57)};
-	\addplot coordinates {(0.333, 1.07)};
+	%\addplot coordinates {(0.135, 0.82)};
+% 	\addplot coordinates {(0.126, 1.36)};
+% 	\addplot coordinates {	(0.313, 0.38)};
+% 	\addplot coordinates {(0.305, 0.48)};
+% 	\addplot coordinates {(0.294, 0.57)};
+% 	\addplot coordinates {(0.333, 1.07)};
+	\begin{scope}[dotted, mark repeat=2,mark phase=2]
+	\addplot file {data/phase_gaussian25_sample0.txt};
+	\addplot+[mark repeat=1] file {data/phase_gaussian25_sample1.txt};
+	\addplot file {data/phase_gaussian25_sample2.txt};
+	\addplot file {data/phase_gaussian25_sample3.txt};
+	\addplot file {data/phase_gaussian25_sample4.txt};
+	\addplot file {data/phase_gaussian25_sample5.txt};
+	\end{scope}
 	\addplot[black, no marks] file {gasliquid_sg.phd} node[diamond, fill] at (current plot begin){};
 	%\addplot[black, no marks] file {gasliquid_bl.phd};
 	%\addplot[black, no marks] file {gasliquid_bg.phd};
 	\addplot[black, no marks, dashed] file {fluidcrystal_f.phd} node[above right] at (rel axis cs:0,0) {Fluid};
-	\addplot[black, no marks, dashed] file {fluidcrystal_x.phd} node[above left] (x) at (rel axis cs:1,0.1) {Crystal};
+	\addplot[black, no marks, dashed] file {fluidcrystal_x.phd} node[above left] (x) at (rel axis cs:1,0.5) {Crystal};
 	%\draw[gray] (axis cs:0.371290311343, 0.12299370925) -- (axis cs:0.680497991395,0.0372636873433);
-	\draw[gray, dotted] (axis cs:3.40152108798e-05,0.624739653238) -- (axis cs:
-0.722831684246, 0.0726528862772);
+	%\draw[gray, dotted] (axis cs:3.40152108798e-05,0.624739653238) -- (axis cs:0.722831684246, 0.0726528862772);
 	\draw[->] (x.base) --(rel axis cs:0.98,0.01);
-	\addplot[only marks, mark=triangle] coordinates {
-		(0.141, 0.25) (0.141, 0.48) (0.139, 0.57) (0.084, 0.76)
-		(0.307, 0.28) (0.309, 0.34)
-		};
+	\addplot[only marks, mark=triangle] file{data/triangles25.txt};
+		
+	%\addplot table[x=phiG, y=cpG] {data/phase_gaussian25.txt};
+	%\addplot table[x=phiL, y=cpL] {data/phase_gaussian25.txt};
 
 \nextgroupplot[
 	xlabel={$s$}, ylabel={$R_g/\sigma$},
