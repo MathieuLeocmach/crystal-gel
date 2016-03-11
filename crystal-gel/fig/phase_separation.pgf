@@ -22,6 +22,7 @@ red!65!black, mark=o\\%
 	cycle list name=samples,
 	width=0.5\textwidth,
 	height=0.4\linewidth,
+	axis on top,
 ]
 \nextgroupplot[
 	xlabel={$\phi$}, ylabel={$c_p$ (\si{\milli\gram/\gram})},
@@ -29,13 +30,7 @@ red!65!black, mark=o\\%
 	ymin=0, ymax=1.9,
 	mark options={solid}
 	]
-	%\addplot coordinates {(0.135, 0.82)};
-% 	\addplot coordinates {(0.126, 1.36)};
-% 	\addplot coordinates {	(0.313, 0.38)};
-% 	\addplot coordinates {(0.305, 0.48)};
-% 	\addplot coordinates {(0.294, 0.57)};
-% 	\addplot coordinates {(0.333, 1.07)};
-	\begin{scope}[dotted, mark repeat=2,mark phase=2]
+	\begin{scope}[dotted, mark repeat=2,mark phase=2,<->]
 	\addplot file {sample0.phd};
 	\addplot file {sample1.phd};
 	\addplot file {sample2.phd};
@@ -43,11 +38,12 @@ red!65!black, mark=o\\%
 	\addplot file {sample4.phd};
 	\addplot file {sample5.phd};
 	\end{scope}
-	\addplot[black, no marks] file {gasliquid_sg.phd} node[diamond, fill] at (current plot begin){};
-	%\addplot[black, no marks] file {gasliquid_bl.phd};
-	%\addplot[black, no marks] file {gasliquid_bg.phd};
-	\addplot[black, no marks, dashed] file {fluidcrystal_f.phd} node[above right] at (rel axis cs:0,0) {Fluid};
-	\addplot[black, no marks, dashed] file {fluidcrystal_x.phd} node[above left] (x) at (rel axis cs:1,0.5) {Crystal};
+	\addplot[black, no marks] file {gasliquid_sg.phd} node[diamond, fill, inner sep=2pt] at (current plot begin){};
+	\addplot[black, no marks] file {gasliquid_sl.phd};
+	\addplot[black, dashed, no marks] file {gasliquid_bl.phd};
+	\addplot[black, dashed, no marks] file {gasliquid_bg.phd};
+	\addplot[fill=lightgray!50, no marks, draw=none] file {fluidcrystal_f.phd} node[above right] at (rel axis cs:0,0) {Fluid} -- (rel axis cs:0,0) \closedcycle;
+	\addplot[fill=lightgray!50, no marks, draw=none] file {fluidcrystal_x.phd} node[above left] (x) at (rel axis cs:1,0.5) {Crystal}  -| (rel axis cs:1,0) \closedcycle;
 	%\draw[gray] (axis cs:0.371290311343, 0.12299370925) -- (axis cs:0.680497991395,0.0372636873433);
 	%\draw[gray, dotted] (axis cs:3.40152108798e-05,0.624739653238) -- (axis cs:0.722831684246, 0.0726528862772);
 	\draw[->] (x.base) --(rel axis cs:0.98,0.01);
