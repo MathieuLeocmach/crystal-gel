@@ -26,7 +26,7 @@ red!65!black, mark=o\\%
 \nextgroupplot[
 	xlabel={$\phi$}, ylabel={$c_p$ (\si{\milli\gram/\gram})},
 	xmin=0,xmax=0.74,
-	ymin=0, ymax=1.7,
+	ymin=0, ymax=1.9,
 	mark options={solid}
 	]
 	%\addplot coordinates {(0.135, 0.82)};
@@ -36,12 +36,12 @@ red!65!black, mark=o\\%
 % 	\addplot coordinates {(0.294, 0.57)};
 % 	\addplot coordinates {(0.333, 1.07)};
 	\begin{scope}[dotted, mark repeat=2,mark phase=2]
-	\addplot file {data/phase_gaussian25_sample0.txt};
-	\addplot+[mark repeat=1] file {data/phase_gaussian25_sample1.txt};
-	\addplot file {data/phase_gaussian25_sample2.txt};
-	\addplot file {data/phase_gaussian25_sample3.txt};
-	\addplot file {data/phase_gaussian25_sample4.txt};
-	\addplot file {data/phase_gaussian25_sample5.txt};
+	\addplot file {sample0.phd};
+	\addplot file {sample1.phd};
+	\addplot file {sample2.phd};
+	\addplot file {sample3.phd};
+	\addplot file {sample4.phd};
+	\addplot file {sample5.phd};
 	\end{scope}
 	\addplot[black, no marks] file {gasliquid_sg.phd} node[diamond, fill] at (current plot begin){};
 	%\addplot[black, no marks] file {gasliquid_bl.phd};
@@ -51,7 +51,7 @@ red!65!black, mark=o\\%
 	%\draw[gray] (axis cs:0.371290311343, 0.12299370925) -- (axis cs:0.680497991395,0.0372636873433);
 	%\draw[gray, dotted] (axis cs:3.40152108798e-05,0.624739653238) -- (axis cs:0.722831684246, 0.0726528862772);
 	\draw[->] (x.base) --(rel axis cs:0.98,0.01);
-	\addplot[only marks, mark=triangle] file{data/triangles25.txt};
+	\addplot[only marks, mark=triangle] file{fluid_samples.phd};
 		
 	%\addplot table[x=phiG, y=cpG] {data/phase_gaussian25.txt};
 	%\addplot table[x=phiL, y=cpL] {data/phase_gaussian25.txt};
@@ -89,13 +89,14 @@ red!65!black, mark=o\\%
 	xmin=0, ymin=0, ytick={0,10,30,50},
 	extra y ticks={64, 72}, extra y tick style={grid=major}, extra y tick label={},
 	legend pos=north west, legend style={font=\footnotesize},
+	no markers,
 	/pgfplots/error bars/y dir=both, /pgfplots/error bars/y explicit,
 	]
-	\addplot table[y expr={1.149*100*\thisrowno{1}}, y error expr={1.149*100*\thisrowno{2}}]{data/vol_err_phi_0.10_cp_0.82};
-	\addplot table[y expr={1.149*100*\thisrowno{1}}, y error expr={1.149*100*\thisrowno{2}}]{data/vol_err_phi_0.10_cp_1.36};
-	\addplot table[y expr={1.149*100*\thisrowno{1}}, y error expr={1.149*100*\thisrowno{2}}]{data/vol_err_phi_0.25_cp_0.38};
-	\addplot table[y expr={1.149*100*\thisrowno{1}}, y error expr={1.149*100*\thisrowno{2}}]{data/vol_err_phi_0.25_cp_0.48};
-	\addplot table[y expr={1.149*100*\thisrowno{1}}, y error expr={1.149*100*\thisrowno{2}}]{data/vol_err_phi_0.25_cp_0.57};
+	\addplot table[y error=err]{data/vol_err_phi_0.10_cp_0.82.scaled};
+	\addplot table[y error=err]{data/vol_err_phi_0.10_cp_1.36.scaled};
+	\addplot table[y error=err]{data/vol_err_phi_0.25_cp_0.38.scaled};
+	\addplot table[y error=err]{data/vol_err_phi_0.25_cp_0.48.scaled};
+	\addplot table[y error=err]{data/vol_err_phi_0.25_cp_0.57.scaled};
 	%\legend{
 		%{$\phi=0.10, c_p=0.82$}, {$\phi=0.10, c_p=1.36$},
 		%{$\phi=0.25, c_p=0.38$}, {$\phi=0.25, c_p=0.48$}, {$\phi=0.25, c_p=0.57$},

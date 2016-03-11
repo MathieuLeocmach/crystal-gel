@@ -8,11 +8,11 @@ def xp2th(cp, phi, qR=0.1, cpov=1.):
     return y2piv(cp/cpov/alpha(vf2f(phi), qR2q(qR)), qR)
 
 #radius of gyration in nm
-R = 82.
+R = 87.#82.
 #Molecular weight (Dalton or g/mol)
 Mw = 3.6e6
 #colloid diameter in nm
-sigma = 2200.
+sigma = 2100.#2200.
 #density of the solvent in g/mL
 d = 1.24
 
