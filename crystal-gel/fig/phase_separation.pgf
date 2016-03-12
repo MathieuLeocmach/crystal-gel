@@ -38,10 +38,10 @@ red!65!black, mark=o\\%
 	\addplot file {sample4.phd};
 	\addplot file {sample5.phd};
 	\end{scope}
-	\addplot[black, no marks] file {gasliquid_sg.phd} node[diamond, fill, inner sep=2pt] at (current plot begin){};
-	\addplot[black, no marks] file {gasliquid_sl.phd};
-	\addplot[black, dashed, no marks] file {gasliquid_bl.phd};
-	\addplot[black, dashed, no marks] file {gasliquid_bg.phd};
+	\addplot[black, dashed,no marks] file {gasliquid_sg.phd};% node[diamond, fill, inner sep=2pt] at (current plot begin){};
+	\addplot[black, dashed,no marks] file {gasliquid_sl.phd};
+	\addplot[black, no marks] file {gasliquid_bl.phd};
+	\addplot[black, no marks] file {gasliquid_bg.phd};
 	\addplot[fill=lightgray!50, no marks, draw=none] file {fluidcrystal_f.phd} node[above right] at (rel axis cs:0,0) {Fluid} -- (rel axis cs:0,0) \closedcycle;
 	\addplot[fill=lightgray!50, no marks, draw=none] file {fluidcrystal_x.phd} node[above left] (x) at (rel axis cs:1,0.5) {Crystal}  -| (rel axis cs:1,0) \closedcycle;
 	%\draw[gray] (axis cs:0.371290311343, 0.12299370925) -- (axis cs:0.680497991395,0.0372636873433);
