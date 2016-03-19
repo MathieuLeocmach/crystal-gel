@@ -1,0 +1,31 @@
+\begin{figure*}
+\begin{tikzpicture}[
+	every axis/.style={
+	xlabel absolute, every axis x label/.append style={anchor=base, yshift=-1em},
+	ylabel absolute, every axis y label/.append style={anchor=base, yshift=-0.5em}
+	}]
+\pgfplotscreateplotcyclelist{samples}{%
+blue,mark=square*,\\%
+cyan,mark=square\\%
+red, thick, mark=*\\%
+red!65!yellow, mark=otimes\\%
+red!30!yellow, mark=oplus\\%
+red!65!black, mark=o\\%
+}
+\begin{axis}[
+	cycle list name=samples,
+	width=0.5\textwidth,
+	height=0.4\linewidth,
+	xlabel=$t/10^3\tau_B$, ylabel={$\phi$ [\%]},
+	xmin=0, %xmax=12, xtick={0,2,...,11},%ymin=0, 
+	%no markers,
+	/pgfplots/error bars/y dir=both, /pgfplots/error bars/y explicit,
+	]
+	\addplot table[y error=err]{data/mediaphi_phi0.10_cp0.82.scaled};
+	\addplot table[y error=err]{data/mediaphi_phi0.10_cp1.36.scaled};
+	\addplot table[y error=err]{data/mediaphi_phi0.25_cp0.38.scaled};
+	\addplot table[y error=err]{data/mediaphi_phi0.25_cp0.48.scaled};
+	\addplot table[y error=err]{data/mediaphi_phi0.25_cp0.57.scaled};
+\end{axis}
+\end{tikzpicture}
+\end{figure*}
