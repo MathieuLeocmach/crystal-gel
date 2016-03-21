@@ -106,7 +106,7 @@ Fig.~\ref{fig:fractions} plots the fraction of each state for the state point at
 The distinction between gas and liquid phases is consistent with the analysis of volume fraction and composition
 of the gas and liquid phases just after phase separation (and before crystallization). To analyse the fraction
 of liquid and gas after phase separation we convert the position of particles into a contiunous field smearing
-the position of each particle with a gaussian field of variance $5$ pixels, and then mapping the field
+the position of each particle with a Gaussian field of variance $5$ pixels, and then mapping the field
 to a cubic grid with $10$ pixels spacing. In this way liquid and gas regions can be identified by
 an appropriate threshold of the field.
 
@@ -114,7 +114,7 @@ an appropriate threshold of the field.
  \centering
  \includegraphics[width=10cm]{./field.pdf}
  % field.pdf: 681x483 pixel, 72dpi, 24.02x17.04 cm, bb=0 0 681 483
- \caption{{\bf Distribution function of the gaussian field at $t=490\,\tau_B$.} The gaussian field is applied to
+ \caption{{\bf Distribution function of the Gaussian field at $t=490\,\tau_B$.} The Gaussian field is applied to
  a configuration just after phase separation and before crystallization. The vertical dashed line represents the
  field threshold $f=0.06$ used to distinguish between gas and liquid particles.}
  \label{fig:field}
@@ -133,9 +133,9 @@ The phase diagram is obtained in the framework of the generalized free volume th
 \subsection*{Adjusting theoretical and experimental phase diagrams}
 
 \begin{figure}
-\includegraphics{local_phi12.pdf}
-\caption{Late stage of the evolution of local volume fraction around colloidal particles having 12 nearest neighbours. Samples are shown with the same color code as in Fig.1 of the main text. In particular red circles correspond to the crystalizing sample at $\phi=0.33$ and $cp=0.38\,$mg/g.}
-\label{fig:local_phi12}
+\includegraphics{local_phi12.pdf}%
+\caption{Late stage of the evolution of local volume fraction around colloidal particles having 12 nearest neighbours. Samples are shown with the same color code as in Fig.1 of the main text. In particular red circles correspond to the crystalizing sample at $\phi=0.33$ and $cp=0.38\,$mg/g.}%
+\label{fig:local_phi12}%
 \end{figure}
 
 The volume fraction of a colloidal suspension is notoriously difficult to estimate experimentally~\cite{Poon2012}. It depends on the cube of the colloid diameter and is thus extremely sensitive to any error in size determination. Therefore here we determine the volume fraction directly from the phase behaviour and deduce a precise measure of the (effective) colloid diameter from it.
@@ -151,11 +151,11 @@ The gas spinodal line is given by a local maximum in free energy, a local proper
 However, the liquid side of the binodal and spinodal lines obtained from CS EoS reach unphysically high volume fractions (above close packing), making comparisons with the measured liquid compositions impossible.
 
 Indeed our small polymer/colloid size ratio pushes the gas-liquid critical point to high volume fractions, exemplifying the failure of CS EoS. Adding a divergence at Jamming into CS equation of state is not trivial. Attempts by Lefebre~\cite{LeFevre1972} and Kolafa~\cite{Kolafa2004} match CS at low density, have the right divergence close to jamming but far less than CS at intermediate volume fractions (0.5-0.56), the exact range where our critical point lies. Here we decided to use an equation by Liu~\cite{Liu2006a} that is completely equivalent to CS up to 0.56 and then show good agreement with simulation data near jamming.
-
+%
 The Liu EoS allows us to draw a phase diagram that is in qualitative agreement with the measured liquid compositions.
 
 \section*{Transition probabilities}
-\begin{figure}[!b]
+\begin{figure}
  \centering
  \includegraphics[width=14cm]{./sfig1.pdf}
  % sfig1.pdf: 1398x1026 pixel, 72dpi, 49.32x36.19 cm, bb=0 0 1398 1026
@@ -185,11 +185,13 @@ more prominently into the crystal state. The transformation of crystals into the
 step of the \emph{Ostwald process}, but this channel is limited by the small rate of conversion of surface particles
 into the gas state.
 
+\begin{figure*}
+\includegraphics{capillary.pdf}
+\caption{\textbf{Capillary experiment reproducing the crystal-gel state} Colloid volume fraction is $\approx 0.33$ and polymer concentration is $0.40\,$mg/g. Top row: Confocal slices showing the initial network, crystallising network and final crystal-gel network. Bottom row: Reconstructions from confocal coordinates. Particles are drawn to scale and coloured according to their phase. Red: crystal; white: liquid; green: gas. To highlight the crystalline regions, liquid and gas particles are drawn half-sized.}
+\label{fig:capillary}
+\end{figure*}
 
 
-
-\bibliographystyle{naturemag2}
-\bibliography{biblio}
 
 \clearpage
 \section*{Supplementary Movie 1}
@@ -198,6 +200,9 @@ This movie shows the early stage of gelation process of $\phi\approx 0.30$ and $
 \section*{Supplementary Movie 2}
 This movie shows the late stage after Supplemental Movie 1 with scanning duration of 27000~s (12300~$\tau$). 
 Please note that there is a large difference in the frame rate between Movie 1 and 2. 
+
+\bibliographystyle{naturemag2}
+\bibliography{biblio}
 
 
 \end{document}

@@ -1,6 +1,8 @@
 \documentclass[preprint,amsmath,amssymb,superscriptaddress]{revtex4-1}
 \usepackage{graphicx,amsmath}
 \usepackage{color}
+\usepackage{xr}
+\externaldocument[S-]{Supplementary}
 \begin{document}
 \draft
 
@@ -187,17 +189,19 @@ plot the exponent $D=3$, which corresponds to volume growth, which we will show 
 The difference is due to the onset of crystallization in the low-polymer concentration sample. This is already evident in the high $q$ behaviour of
 the structure factors (Fig.~\ref{fig:phase_separation}c), where the diffraction planes appear as sharper peaks for $\phi\approx 0.33$ and $c_p=0.38$ mg/g.
 
-To gain additional insight, in Fig.~\ref{fig:phase_separation}d we plot the average local volume fraction as a function of the number of neighbours.
-\textcolor{blue}{The volume fraction is obtained by computing the Voronoi diagram of each configuration,
-which uniquely assigns a volume to each colloidal particle.}
-For all state points, we can see that the average volume fraction of a colloidal
-particle increases with its number of neighbours. Approaching close packing (12 neighbours), we clearly see two families of curves. The state point
-at $\phi\approx 0.33$ and $c_p=0.38$ mg/g reaches close packing at a volume fraction of around $\sim 68\%$, which is in reasonable agreement with the
-volume fraction of the stable crystal phase~\cite{ilett1995phase}. All other state points, instead, reach close packing at a volume fraction $\sim 64\%$, which is
-indeed close to the volume fraction of the attractive glass state~\cite{pham2002multiple}. 
+\textcolor{blue}{To gain additional insight, in Supplementary Figure~\ref{S-fig:local_phi12} we plot the late stage (after all samples already underwent gas-liquid phase separation) time evolution of the local volume fraction of closed packed particles (having 12 neighbours). The volume fraction is obtained by computing the Voronoi diagram of each configuration, which uniquely assigns a volume to each colloidal particle. Only the state point at $\phi\approx 0.33$ and $c_p = 0.38\,$mg/g state shows an increase, up to an asymptotic value that we identify with the composition of the stable crystal phase $\approx 0.72$. We plot the asymptotic average volume fraction as a function of the number of neighbours in Fig.~\ref{fig:phase_separation}d. Approaching close packing (12 neighbours), we clearly see two families of curves. The state point at $\phi\approx 0.33$ and $c_p=0.38\,$mg/g reaches close packing at the volume fraction $\approx 0.72$. By contrast all other state points, reach close packing at a markedly lower volume fraction, which is indeed close to the volume fraction of the attractive glass state~\cite{pham2002multiple}. This result clearly indicates that a single state point follows a different arrest mechanism, in which phase separation is arrested by crystallization and not by glassiness.}
+
+
+%To gain additional insight, in Fig.~\ref{fig:phase_separation}d we plot the average local volume fraction as a function of the number of neighbours.
+%\textcolor{blue}{The volume fraction is obtained by computing the Voronoi diagram of each configuration, which uniquely assigns a volume to each colloidal particle.}
+%For all state points, we can see that the average volume fraction of a colloidal
+%particle increases with its number of neighbours. Approaching close packing (12 neighbours), we clearly see two families of curves. \textcolor{blue}{The state point at $\phi\approx 0.33$ and $c_p=0.38\,$mg/g reaches close packing at the
+%volume fraction $\approx 0.72$ of the stable crystal phase. By contrast all other state points, reach close packing at a lower volume fraction, which is indeed close to the volume fraction of the attractive glass state~\cite{pham2002multiple}. 
+%%~\cite{ilett1995phase}
+%% 
+%The time evolution  of the local volume fraction of particles having 12 neighbours is also informative, see Supplementary Figure~\ref{S-fig:local_phi12}. After all samples underwent gas-liquid phase separation, only the state point at $\phi\approx 0.33$ and $c_p = 0.38\,$mg/g state shows an increase, up to an asymptotic value markedly higher than all other samples. 
 %(\textbf{the absolute values of these volume fraction are not totally convincing, probably because of a not optimal estimate of the size of the colloids. We should run the code of Mathieau with size detection}). 
-This result clearly indicates that the state point at $\phi\approx 0.33$ and $c_p=0.38$ mg/g follows a different arrest mechanism, in which phase separation
-is arrested by crystallization and not by glassiness. Although our estimation of the absolute volume fraction may involves systematic errors of a few \%, the trend should be robust~\cite{Poon2012}.
+%This result clearly indicates that this state point} follows a different arrest mechanism, in which phase separation is arrested by crystallization and not by glassiness. %Although our estimation of the absolute volume fraction may involves systematic errors of a few \%, the trend should be robust~\cite{Poon2012}.
 
 
 % 
@@ -271,7 +275,7 @@ Note that the topology of the crystal network found at late times, i.e. $t=5577\
  
 
 \textcolor{blue}{
-Next we show in Fig.~\ref{fig:transitions}b the fraction of particles in each different phase for the crystallization trajectory at
+In Fig.~\ref{fig:transitions}b, we show  the fraction of particles in each different phase for the crystallization trajectory at
 $\phi\approx 0.33$ and $c_p=0.38$ mg/g, after the liquid-gas phase separation has occurred.
 The process of crystallization is characterized 
 by a steep decrease in liquid particles, as they transform into small crystalline nuclei inside the liquid domains. This decrease
@@ -288,7 +292,7 @@ to the crystal state. The different crystallization channels are depicted in the
 
 \textcolor{blue}{
 In Supplementary Information we confirm these results with a detailed analysis of transition probabilities, including a state for surface particles that are in contact 
-to crystalline particles.
+to crystalline particles., see Supplementary Figure~\ref{S-fig:probabilities}.
 While the direct freezing of the fluid represents the major contribution to the nuclei growth, the kinetic path via the gas phase (gas$\rightarrow$crystal), also plays a crucial role,
 especially in determining the morphology of the porous crystal, as we discussed above. In this context the Bergeron process~\cite{glickman2000glossary,morrison2012resilience}
 plays a considerably more important role than Ostwald ripening.}
@@ -367,7 +371,7 @@ The precision of density matching is $\sim 10^{-4}$ mg/ml, for which the gravity
 To induce short-ranged depletion attraction, we use polystyrene (TOSOH) of molecular weight 3.8 Mdalton as non-adsorbing polymer.
 Experiments are conducted at 27 $^\circ$C, some 80 $^\circ$C above the theta temperature in this solvents mixture~\cite{Royall2007}. A Flory scaling of the measurements of~\cite{lu2008gelation} yields a radius of gyration $R_g=76\pm5$ nm.
 
-We obtain the best match between theoretical phase diagram and experimental data for $\sigma=2.25\,\mu$m and $R_g=80$ nm (see Supplementary method). Therefore the polymer-colloid size ratio is $q_R=2R_g/\sigma=0.071$ and the overlap mass fraction of polymer $2.25$~mg/g.
+Matching phase boundaries often leads to better determination of volume fractions than colloid diameter measurements~\cite{Poon2012}. We obtain the best match between theoretical phase diagram and experimental data for $\sigma=2.25\,\mu$m and $R_g=80$ nm (see Supplementary method). Therefore the polymer-colloid size ratio is $q_R=2R_g/\sigma=0.071$ and the overlap mass fraction of polymer $2.25$~mg/g.
 
 In the absence of salt, the Debye length is expected to reach a few $\mu$m and the (weakly) charged colloids experience a long range electrostatic repulsion. We confirm that colloids never come close enough to feel the short-ranged attraction. Screening by tetrabutylammonium bromide (Fluka) at saturated concentration brings down the Debye length to about several nanometers practically discarding the repulsion. 
 Thus, salt injection can screen the Coulomb repulsion and make the polymer-induced depletion attraction effective, initiating phase separation. 
@@ -378,7 +382,7 @@ In our experiments, the reservoir solution was initially a polymer solution with
 
 The data are collected on a Leica SP5 confocal microscope, using 532 nm laser excitation. The scanning volume is 98 $\times$ 98 $\times$ 53 $\mu$m$^3$, which contains $\sim 10^4$ colloid particles. Our spatial resolution is 192 nm / pixel. To be able to follow individual trajectories, we perform a 3D scan every 10~s ($\approx 4\tau_B$) at early time and every 30 s later.
 
-The crystal-gel state was reproduced in a sealed cell with all the components of the suspension pre-mixed. Colloid volume fraction was virtually identical at $\approx 0.33$ and polymer concentration was $0.40\,$mg/g. \textcolor{blue}{See Supplementary Figure XXX.}
+The crystal-gel state is reproduced in a sealed cell with all the components of the suspension pre-mixed. Colloid volume fraction is virtually identical at $\approx 0.33$ and polymer concentration is $0.40\,$mg/g. See Supplementary Figure~\ref{S-fig:capillary}.
 
 
 
@@ -456,7 +460,7 @@ The authors declare no competing financial interests
 \caption{\textcolor{blue}{{\bf Percolated network structures.} {\bf a:} gel; {\bf b:} crystal-gel. The gel state is obtained from the state
 point $\phi\approx 0.33$ and $c_p=1.07$ mg/g at $t=400$ min after sample preparation, while the crystal-gel is obtained at the same $\phi$ but
 at lower polymer concentration, $c_p=0.38$ mg/g at $t=468$ min after sample preparation. On the left, the network is represented as a continuous field that has
-been obtained by applying a gaussian filter to the position of the particles (of width equal to the inter-particle distance) and
+been obtained by applying a Gaussian filter to the position of the particles (of width equal to the inter-particle distance) and
 plotting the surface which bounds the highest 20 \% values of the field. We can clearly see not only the percolated nature of both networks, 
 but also the difference in the smoothness of the network surface between amorphous and crystal gels. 
 On the right, slabs of 4.5 $\mu$m thickness and 41 $\mu$m width are plotted,
