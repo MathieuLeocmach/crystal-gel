@@ -1,0 +1,16 @@
+\begin{figure*}
+\begin{tikzpicture}
+\let\imw\relax
+\newlength\imw
+\setlength{\imw}{0.33\linewidth}
+\matrix[matrix of nodes, inner xsep=0, nodes={inner xsep=0, inner ysep=2pt}, column sep=0.005\linewidth, anchor=south west] (m) {
+$t=340\tau_B$ & $t=2600\tau_B$ & $t=6650\tau_B$\\
+\includegraphics[width=\imw]{data/capillary_slice_13.jpg}&
+\includegraphics[width=\imw]{data/capillary_slice_100.jpg}&
+\includegraphics[width=\imw]{data/capillary_slice_255.jpg}\\
+\includegraphics[width=\imw]{data/capillary_3d_13.jpg}&
+\includegraphics[width=\imw]{data/capillary_3d_100.jpg}&
+\includegraphics[width=\imw]{data/capillary_3d_255.jpg}\\
+};
+\end{tikzpicture}
+\end{figure*}
