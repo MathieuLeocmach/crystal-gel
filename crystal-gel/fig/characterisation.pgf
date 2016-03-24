@@ -21,17 +21,17 @@
 	\nextgroupplot[
 		xlabel={$s$}, ylabel=$R_g/\sigma$,
 		xmode=log, ymode=log,
-		ytick={0.5, 1, 2, 4}, yticklabels={0.5, 1, 2, 4},
+		ytick={0.5, 1, 2, 4}, yticklabels={$\frac{1}{2}$, 1, 2, 4},
 		domain=1:5e2,
 		]
 	\addplot[only marks, red, thick, mark=*] file{data/fig3d_sqrt_1.dat};
-	\addplot[black, ultra thick] {0.522*x^(1/3)} node[below left] at (axis cs:9e2,1e3) {$D=3$};
+	\addplot[black, ultra thick] {0.522*x^(1/3)} node[below left] at (axis cs:9e2,3) {$D=3$};
 	\addplot[gray, ultra thick] {0.426*x^(1/2.53)} node[pos=0.08,below right] {$D=2.53$};
 \end{groupplot}
 %\draw (g c1r1.outer north west) rectangle +(\linewidth, -\textheight);
 \begin{scope}[every node/.style={anchor=north west, font=\bf}]
-	\node at (g c1r1.north west) {A};
-	\node at (g c2r1.north west) {B};
+	\node at (g c1r1.left of north west) {a};
+	\node at (g c2r1.left of north west) {b};
 \end{scope}
 \end{tikzpicture}
 \end{figure}
