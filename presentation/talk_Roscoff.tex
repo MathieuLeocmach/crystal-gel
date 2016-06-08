@@ -1,0 +1,216 @@
+\documentclass[xcolor=table]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[british]{babel}
+\usepackage[super]{nth}
+%\usetheme{Boadilla}
+%\usecolortheme{rose}
+%\usecolortheme{crane}
+%\usefonttheme{structuresmallcapsserif}
+%\setbeamertemplate{navigation symbols}{}
+
+\definecolor{Main}{rgb}{0.74, 0.13, 0.19}
+\definecolor{Accent1}{rgb}{0.76,0.36,0.13}
+\definecolor{Accent2}{rgb}{0.54,0.1,0.4}
+
+\mode<presentation>{\usetheme{ilm}}
+%\usecolortheme{rose}
+%\useinnertheme[shadow]{circles}
+%\usecolortheme{whale}
+%\useoutertheme{infolines}
+
+%\usecolortheme[named=Accent1]{structure}
+
+
+
+
+%\setbeamerfont{page number in head/foot}{size=\large}
+%\setbeamercolor{page number in head/foot}{fg=Main}
+%% page/total
+%%\setbeamertemplate{footline}[frame number]
+%% pas de total
+%\setbeamertemplate{footline}{%
+%    	\hfill%
+%	\usebeamercolor[fg]{page number in head/foot}%
+%	\usebeamerfont{page number in head/foot}%
+%	\insertframenumber\kern1em\vskip2pt%
+%}
+%
+%\setbeamersize{text margin left=1em}
+%\setbeamersize{text margin right=1em}
+
+\usepackage[overlay,absolute]{textpos}
+\setlength{\TPHorizModule}{10mm}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{10mm}{10mm} % start everything near the top-left corner
+\setlength{\parindent}{0pt}
+
+%font
+\usepackage[T1]{fontenc}
+\usepackage{times}
+%\usepackage[oldstylenums]{kpfonts}
+
+%\include{macros}
+
+
+%proper math and math symbols
+%\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{datenumber,fp}
+
+\usepackage{siunitx}
+
+\usepackage{tabu}
+\usepackage{multirow}
+\usepackage{booktabs}
+
+% Allow the usage of graphics (.jpg, .png, etc.) in the document
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,backgrounds, calc, positioning, topaths,chains, intersections, decorations.markings, decorations.text, shapes.geometric, matrix,patterns,mindmap}
+%\usetikzlibrary{positioning, patterns,topaths,chains,matrix}
+
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\pgfplotsset{compat=1.9}
+\usepgfplotslibrary{groupplots}
+\usepgfplotslibrary{external}
+\makeatletter
+\newcommand*{\overlaynumber}{\number\beamer@slideinframe}
+\tikzset{
+  beamer externalizing/.style={%
+    execute at end picture={%
+      \tikzifexternalizing{%
+        \ifbeamer@anotherslide
+        \pgfexternalstorecommand{\string\global\string\beamer@anotherslidetrue}%
+        \fi
+      }{}%
+    }%
+  },
+  external/optimize=false
+}
+\let\orig@tikzsetnextfilename=\tikzsetnextfilename
+\renewcommand\tikzsetnextfilename[1]{\orig@tikzsetnextfilename{#1-\overlaynumber}}
+\makeatother
+
+\tikzset{every picture/.style={beamer externalizing}}
+\tikzexternalize
+\tikzsetexternalprefix{fig_presentation/}
+%\tikzset{external/optimize=false}
+%\tikzset{external/force remake}
+
+
+%link or play movies
+\usepackage{multimedia}
+
+
+
+%beamer related package
+
+\usepackage{todonotes}
+\presetkeys{todonotes}{inline}{}
+
+
+%bibliography
+\usepackage[style=authoryear-comp, language=british,eprint=false, url=false, doi=false, sortcites=true, sorting=none, isbn=false, firstinits=true,maxcitenames=6]{biblatex}
+%minimal citations
+\AtEveryCitekey{%
+	\clearfield{title}
+	\clearfield{pages}
+	\clearfield{volume}
+	\clearfield{number}
+	\clearfield{month}}
+\newcommand{\myfullcite}[1]{{\scriptsize\fullcite{#1}}}
+\renewbibmacro{in:}{%
+  \ifentrytype{article}{}{%
+  \printtext{\bibstring{in}\intitlepunct}}}
+%\bibliography{biblio}
+
+
+\newcolumntype{P}[1]{>{\raggedright}p{#1}}
+
+\institute[iLM]{iLM, Univ. Claude Bernard Lyon 1 and CNRS, France}
+\title[crystal gel]{A novel route to the spontaneous formation of porous crystals via viscoelastic phase separation}
+\author[M. Leocmach]{Mathieu Leocmach}
+\date{30 June 2016}
+\titlegraphic{
+	\begin{tabu}{X[c]X[c]X[c]}
+		\includegraphics[height=3\baselineskip]{Tsurusawa}&
+		\includegraphics[height=3\baselineskip]{John}&
+		\includegraphics[height=3\baselineskip]{Tanaka}\\
+		Hideyo Tsurusawa & John Russo & Hajime Tanaka\\
+		U. Tokyo & U. Bristol & U. Tokyo\\
+	\end{tabu}
+	
+	%\vfill
+	%\includegraphics[height=2\baselineskip]{logo_ens-lyon}\quad
+	%\includegraphics[height=2\baselineskip]{logo_ums_grand}\quad
+	%\includegraphics[height=2\baselineskip]{../../Yaourt/CNRSfilaire-Q}\quad
+	%\includegraphics[height=2\baselineskip]{CRPP}\quad
+	%\includegraphics[height=2\baselineskip,clip=true, trim=6mm 14mm 6mm 0]{NEW-Logo-ERC-OUTLINE}
+	}
+
+
+\newlength{\mylength}
+
+%\includeonly{creep_beamer}
+
+\begin{document}
+\tikzset{every mark/.append style={scale=0.8}}
+\pgfplotsset{every axis/.append style={footnotesize}}
+
+\pgfplotscreateplotcyclelist{earthy}{%
+{red!40!black,mark=o},
+{red!60!black,mark=triangle, every mark/.append style={rotate=180}},
+{red!80!black,mark=square},
+{red,mark=triangle},
+{red!80!yellow, mark=diamond},
+red!60!yellow,
+red!40!yellow,
+}
+
+\AtBeginSection[]{
+	\addtocounter{framenumber}{-1}
+	\begin{frame}[plain]
+		\tableofcontents[currentsection, hideothersubsections]
+	\end{frame}
+}
+
+\begin{frame}{\pgfuseimage{cnrs-logo}\hspace*{0.3cm}\pgfuseimage{ucbl-logo}}%[plain]
+	\titlepage
+\end{frame}
+
+\setcounter{framenumber}{0}
+
+\begin{frame}{Let it snow!}
+\hfill Wegener-\alert{Bergeron}-Findeisen \alert{process}
+\begin{columns}[b]
+\column{0.4\textwidth}
+\includegraphics[width=\textwidth,clip=true,trim=0 0 0 1cm]{Pitter1.jpg}
+
+\vspace{1em}\includegraphics[width=\textwidth]{bergeron.jpg}
+\column{0.40\textwidth}
+\includegraphics[width=\textwidth,clip=true,trim=0 0 0.8mm 0]{queries-figure-1.jpg}
+
+\vspace{1em}\includegraphics[width=\textwidth]{OKC-Fallstreak.jpg}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}{Wavelength}
+	\tikzsetnextfilename{lambda}
+	%\input{fig_soundbite_palavas/lambda.pgf}
+	\textcolor{ilmorange}{$\blacktriangleright$} $\lambda\propto e$ compatible with nucleation rate
+
+\end{frame}
+
+\appendix
+\newcounter{finalframe}
+\setcounter{finalframe}{\value{framenumber}}
+
+\begin{frame}[plain]
+\end{frame}
+
+\setcounter{framenumber}{\value{finalframe}}
+\end{document}
+
