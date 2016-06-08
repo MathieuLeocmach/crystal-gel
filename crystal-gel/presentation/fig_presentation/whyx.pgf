@@ -1,0 +1,33 @@
+\begin{tikzpicture}
+\node[text width=0.25\textwidth, anchor=base west] (process){
+Crystallisation
+\begin{itemize}
+\item nucleation
+\item growth
+\end{itemize}};
+
+\node[anchor=base east] (prop) at (\textwidth,0){
+Properties
+};
+
+\node[text width=0.39\textwidth, anchor=base] (x) at ($(process.base east)!0.5!(prop.base west)$){
+Crystalites
+\begin{itemize}
+\item polymorph type
+\item shape
+\item spatial arrangement
+\item size distribution
+\end{itemize}};
+
+
+% 
+\node[above left=3em and 0 of prop.east] (np){natural processes};
+\node[below left=8em and 0 of prop.east] (tech){technological applications};
+
+\begin{scope}[->,ultra thick, ilmcolor]
+\draw (process.base east) +(0,0.3em) -- ($(x.base west)+(0,0.3em)$);
+\draw (x.base) +(0,0.3em) -- ($(prop.base west)+(0,0.3em)$);
+\draw (prop) -- (np.south-|prop);
+\draw (prop) -- (tech.north-|prop);
+\end{scope}
+\end{tikzpicture}
