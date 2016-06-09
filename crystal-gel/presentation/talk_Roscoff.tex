@@ -209,11 +209,77 @@ red!40!yellow,
 \end{frame}
 
 
-\begin{frame}{Wavelength}
-	\tikzsetnextfilename{lambda}
-	%\input{fig_soundbite_palavas/lambda.pgf}
-	\textcolor{ilmorange}{$\blacktriangleright$} $\lambda\propto e$ compatible with nucleation rate
+\begin{frame}{Colloid + Polymer}
+	
+\begin{columns}
+	\column{0.45\textwidth}
+	\begin{tikzpicture}
+		\let\mrad\relax
+		\newlength\mrad
+		\setlength{\mrad}{1em}
+		
+		
+		%schemas interactions
+		
+		%repulsion
+		\begin{scope}[xshift=2\mrad]
+		\node[circle, inner sep=0, minimum width=4\mrad, inner color=Main, outer color=white]  (puri) {}; 
+		\foreach \x in {0,30,...,330}{
+			\draw[decoration={random steps,segment length=0.1\mrad, amplitude=0.08\mrad},decorate] (0,0) -- (\x:1\mrad);
+		}
+		\fill[gray, radius=0.8\mrad] circle;
+		\foreach \x in {15,75,...,315}{
+			\node[Accent2, font=\tiny] at (\x:0.6\mrad) {+};
+		}
+		\end{scope}
+		
+		%spheres collantes
+		\begin{scope}[xshift=\textwidth-2.5\mrad]
+		\node[draw,circle, inner sep=0, minimum width=2.5\mrad, green!50!black, dashed]  (colli) {}; 
+		\draw[green!50!black, radius=1.25\mrad, dashed] (1.6\mrad,0) circle;
+		\fill[gray, radius=0.8\mrad] circle;
+		\fill[gray, radius=0.8\mrad] (1.6\mrad,0) circle;
+		\end{scope}
+		
+		\path (puri) -- (colli) coordinate[midway] (m);
+		
+		%spheres dures
+		\begin{scope}[shift=(m)]
+		\node[circle, inner sep=0, minimum width=2.2\mrad, inner color=Main, outer color=white]  (duri) {}; 
+		\foreach \x in {0,30,...,330}{
+			\draw[decoration={random steps,segment length=0.1\mrad, amplitude=0.08\mrad},decorate] (0,0) -- (\x:1\mrad);
+		}
+		\fill[gray, radius=0.8\mrad] circle;
+		\foreach \x in {15,75,...,315}{
+			\node[Accent2, font=\tiny] at (\x:0.6\mrad) {+};
+		}
+		\end{scope}
+		
+		%fleches
+		\draw[->] (puri) -- (duri) node[midway,above,font=\footnotesize]{ions};
+		\draw[->] (duri) -- (colli)node[midway, above,font=\footnotesize]{PS};
+		% \draw[->] (puri) -- (ps) -- (depli);
+		
+		
+		%titres
+		\node[text width=6em,anchor=base west, inner xsep=0] (pur) at (puri.west|-puri.north) {repulsion};
+		
+		\node[text width=6em,anchor=base, align=center] (dur) at (duri|-pur.base) {hard};
+		
+		\node[text width=6em, anchor=base east, inner xsep=0,xshift=1.5\mrad, align=right] (coll) at (colli.east|-pur.base) {depletion};
+	\end{tikzpicture}	
 
+	\bigskip
+	\includegraphics[width=\textwidth]{/home/mathieu/Documents/Recherches/tex/CNRS-2015/Renth_sedim.jpg}\\
+	\textit{\footnotesize Renth 1999}
+	\begin{itemize}
+	\item triple coexistence
+	\item various kinetic paths
+	\end{itemize}
+
+	\column{0.45\textwidth}
+	\includegraphics[width=\textwidth,clip=true,trim=0 0 0 4.5cm]{Renth_diag.pdf}
+	\end{columns}
 \end{frame}
 
 \appendix
