@@ -528,6 +528,51 @@ How to do that in 3D at particle level \alert{without a space station}?
 	Compact structure and higher local $\phi$ \alert{because crystallized}
 \end{frame}
 
+\begin{frame}{Crystals outgrow liquid}
+\vspace{\baselineskip}
+\tikzsetnextfilename{crystal_fates}%
+\begin{tikzpicture}
+\begin{groupplot}[%
+			group style={
+				group name=g, group size=2 by 1,
+				horizontal sep=4em,
+				},
+		width=0.5\linewidth,
+		%height=0.5\linewidth,
+	]
+	\nextgroupplot[
+		title={crystals},
+		xlabel={$t/10^3\tau_B$}, ylabel=\#,
+		xmin=0, xmax=13.0, ymin=0,
+		no marks,
+		legend style={cells={anchor=base west}},
+		]
+	\addplot table[x expr={\thisrowno{0}/2.3e3}]{/data/Documents/tex/svn/crystal-gel/data/fig3a_1.dat} node[left] at (rel axis cs:1,0.2) {size};
+	\addplot table[x expr={\thisrowno{0}/2.3e3}]{/data/Documents/tex/svn/crystal-gel/data/fig3a_2.dat} node[left] at (rel axis cs:1,0.6) {number};
+	%\legend{average size, average number};
+
+	\nextgroupplot[
+		title={cluster size distribution},
+		xlabel={$s$}, ylabel=$R_g/\sigma$,
+		xmode=log, ymode=log,
+		ytick={0.5, 1, 2, 4}, yticklabels={$\frac{1}{2}$, 1, 2, 4},
+		domain=1:5e2,
+		]
+	\addplot[only marks, red, thick, mark=*] file{/data/Documents/tex/svn/crystal-gel/data/fig3d_sqrt_1.dat};
+	\addplot[black, ultra thick] {0.522*x^(1/3)} node[below left] at (axis cs:9e2,2.5) {$D=3$};
+	\addplot[gray, ultra thick] {0.426*x^(1/2.53)} node[pos=0.08,below right] {$D=2.53$};
+\end{groupplot}
+\end{tikzpicture}
+\begin{center}
+\includegraphics[height=6.5\baselineskip]{pathsX.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Dynamics: Bergeron > Ostwald}
+\vspace{\baselineskip}
+\includegraphics[width=\textwidth]{/data/Documents/tex/svn/crystal-gel/nature/fig4.pdf}
+\end{frame}
+
 \appendix
 \newcounter{finalframe}
 \setcounter{finalframe}{\value{framenumber}}
