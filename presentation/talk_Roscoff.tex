@@ -330,6 +330,204 @@ How to do that in 3D at particle level \alert{without a space station}?
 \end{columns}
 \end{frame}
 
+\begin{frame}{Exploring phase diagram}
+	\vspace{\baselineskip}
+	\tikzsetnextfilename{phdiag_cluster}%
+	\begin{tikzpicture}[
+		every axis/.style={
+		xlabel absolute, every axis x label/.append style={anchor=base, yshift=-1em},
+		%ylabel absolute, every axis y label/.append style={anchor=base, yshift=-0.5em}
+		}]
+	\pgfplotscreateplotcyclelist{samples}{%
+	blue,mark=square*,\\%
+	cyan,mark=square\\%
+	red, thick, mark=*\\%
+	red!65!yellow, mark=otimes\\%
+	red!30!yellow, mark=oplus\\%
+	red!65!black, mark=o\\%
+	}%
+	\begin{groupplot}[
+		group style={
+				group name=g, group size=2 by 2,
+				horizontal sep=4em,
+				vertical sep=3em,
+				%x descriptions at=edge bottom,
+			},
+		cycle list name=samples,
+		width=0.51\textwidth,
+		height=0.5\linewidth,
+		axis on top,
+	]
+	\nextgroupplot[
+		title={phase diagram},
+		xlabel={$\phi$}, ylabel={$c_p$ (\si{\milli\gram/\gram})},
+		xmin=0,xmax=0.74,
+		ymin=0, ymax=1.9, ytick={0,0.5,...,2},
+		mark options={solid}
+		]
+		\begin{scope}[dotted, mark repeat=2,mark phase=2,<->]
+		\addplot file {/data/Documents/tex/svn/crystal-gel/sample0.phd};
+		\addplot file {/data/Documents/tex/svn/crystal-gel/sample1.phd};
+		\addplot file {/data/Documents/tex/svn/crystal-gel/sample2.phd};
+		\addplot file {/data/Documents/tex/svn/crystal-gel/sample3.phd};
+		\addplot file {/data/Documents/tex/svn/crystal-gel/sample4.phd};
+		\addplot file {/data/Documents/tex/svn/crystal-gel/sample5.phd};
+		\end{scope}
+		\addplot[black, dashed,no marks] file {/data/Documents/tex/svn/crystal-gel/gasliquid_sg.phd};% node[diamond, fill, inner sep=2pt] at (current plot begin){};
+		\addplot[black, dashed,no marks] file {/data/Documents/tex/svn/crystal-gel/gasliquid_sl.phd};
+		\addplot[black, no marks] file {/data/Documents/tex/svn/crystal-gel/gasliquid_bl.phd};
+		\addplot[black, no marks] file {/data/Documents/tex/svn/crystal-gel/gasliquid_bg.phd};
+		\addplot[fill=lightgray!50, no marks, draw=none] file {/data/Documents/tex/svn/crystal-gel/fluidcrystal_f.phd} node[above right] at (rel axis cs:0,0) {Fluid} -- (rel axis cs:0,0) \closedcycle;
+		\addplot[fill=lightgray!50, no marks, draw=none] file {/data/Documents/tex/svn/crystal-gel/fluidcrystal_x.phd} node[above left] (x) at (rel axis cs:1,0.5) {Crystal}  -| (rel axis cs:1,0) \closedcycle;
+		%\draw[gray] (axis cs:0.371290311343, 0.12299370925) -- (axis cs:0.680497991395,0.0372636873433);
+		%\draw[gray, dotted] (axis cs:3.40152108798e-05,0.624739653238) -- (axis cs:0.722831684246, 0.0726528862772);
+		\draw[->] (x.base) --(rel axis cs:0.98,0.01);
+		\addplot[only marks, mark=triangle] file{/data/Documents/tex/svn/crystal-gel/fluid_samples.phd};
+	
+	\nextgroupplot[
+		title={cluster size distribution},
+		xlabel={$s$}, ylabel={$R_g/\sigma$},
+		xmin=1, xmax=4e3,
+		ymin=0.5, ymax=30,
+		xmode=log, ymode=log, 
+		clip mode=individual,
+		]
+		\addplot file{/data/Documents/tex/svn/crystal-gel/data/fig1b_sqrt_1.dat};
+		\addplot file{/data/Documents/tex/svn/crystal-gel/data/fig1b_sqrt_2.dat};
+		\addplot file{/data/Documents/tex/svn/crystal-gel/data/fig1b_sqrt_3.dat};
+		\addplot file{/data/Documents/tex/svn/crystal-gel/data/fig1b_sqrt_4.dat};
+		\addplot file{/data/Documents/tex/svn/crystal-gel/data/fig1b_sqrt_5.dat};
+		\addplot[gray, ultra thick, domain=1:4e3] {0.629*x^(1/2.53)} node [left] at (rel axis cs:1,0.9){$D=2.53$};
+	
+	
+	\end{groupplot}
+	%\draw(g c1r1.outer south west) -- +(\textwidth,0);
+	\end{tikzpicture}
+	\begin{itemize}
+	\item Good agreement with theoretical phase diagram
+	\item At percolation time, compatible with random gelation
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Outlier at later times}
+	\vspace{\baselineskip}
+	\tikzsetnextfilename{Sq_localphi}%
+	\begin{tikzpicture}[
+		every axis/.style={
+		xlabel absolute, every axis x label/.append style={anchor=base, yshift=-1em},
+		%ylabel absolute, every axis y label/.append style={anchor=base, yshift=-0.5em}
+		}]
+	\pgfplotscreateplotcyclelist{samples}{%
+	blue,mark=square*,\\%
+	cyan,mark=square\\%
+	red, thick, mark=*\\%
+	red!65!yellow, mark=otimes\\%
+	red!30!yellow, mark=oplus\\%
+	red!65!black, mark=o\\%
+	}%
+	\begin{groupplot}[
+		group style={
+				group name=g, group size=2 by 2,
+				horizontal sep=4em,
+				vertical sep=3em,
+				%x descriptions at=edge bottom,
+			},
+		cycle list name=samples,
+		width=0.51\textwidth,
+		height=0.5\linewidth,
+		axis on top,
+	]
+	\nextgroupplot[
+		title={structure factor},
+		xlabel={$q\sigma$}, ylabel={$S(q)$},
+		xmode=log, ymode=log, xmin=0.2, xmax=20, ymin=0.1,
+		restrict x to domain=-1.8:3, unbounded coords=discard, 
+		%clip mode=individual
+		]
+		\addplot+[clip mode=individual] file{/data/Documents/tex/svn/crystal-gel/data/fig3c_1.dat};
+		\addplot+[clip mode=individual] file{/data/Documents/tex/svn/crystal-gel/data/fig3c_2.dat};
+		\addplot file{/data/Documents/tex/svn/crystal-gel/data/fig3c_3.dat};
+		\addplot+[clip mode=individual] file{/data/Documents/tex/svn/crystal-gel/data/fig3c_4.dat};
+		\addplot+[clip mode=individual] file{/data/Documents/tex/svn/crystal-gel/data/fig3c_5.dat};
+		\addplot[black, ultra thick, domain=0.1:3] {2.14605*x^(-3)} node[pos=0.92,left=0.5em] {$D=3$};
+		\addplot[gray, ultra thick, domain=0.1:3] {3.98797*x^(-2.53)} node [pos=0.65, above right] {$D=2.53$};
+	
+	\nextgroupplot[
+		title={local volume fraction},
+		xlabel={\# neighbours}, ylabel={$\phi$ [\%]},
+		xmin=0, ymin=0, ytick={0,10,30,50},
+		extra y ticks={64, 72}, extra y tick style={grid=major}, extra y tick label={},
+		legend pos=north west, legend style={font=\footnotesize},
+		no markers,
+		/pgfplots/error bars/y dir=both, /pgfplots/error bars/y explicit,
+		]
+		\addplot table[y error=err]{/data/Documents/tex/svn/crystal-gel/data/vol_err_phi_0.10_cp_0.82.scaled};
+		\addplot table[y error=err]{/data/Documents/tex/svn/crystal-gel/data/vol_err_phi_0.10_cp_1.36.scaled};
+		\addplot table[y error=err]{/data/Documents/tex/svn/crystal-gel/data/vol_err_phi_0.25_cp_0.38.scaled};
+		\addplot table[y error=err]{/data/Documents/tex/svn/crystal-gel/data/vol_err_phi_0.25_cp_0.48.scaled};
+		\addplot table[y error=err]{/data/Documents/tex/svn/crystal-gel/data/vol_err_phi_0.25_cp_0.57.scaled};
+	
+	
+	\end{groupplot}
+	%\draw(g c1r1.outer south west) -- +(\textwidth,0);
+	\end{tikzpicture}
+	\begin{itemize}
+	\item Final stucture compatible with random gelation
+	\item Glassy local $\phi$ for 12-neighboured particles
+	\end{itemize}
+	\alert{Except} \textcolor{red}{$\bullet$}: compact structure and higher local $\phi$. %\textcolor{ilmorange}{$\Rightarrow$} Crystal?
+\end{frame}
+
+\begin{frame}{Real space: crystal gel!}
+	\tikzsetnextfilename{phdiag_arrows}%
+	\begin{tikzpicture}[
+			every axis/.style={
+			xlabel absolute, every axis x label/.append style={anchor=base, yshift=-1em},
+			%ylabel absolute, every axis y label/.append style={anchor=base, yshift=-0.5em}
+			}]
+		\pgfplotscreateplotcyclelist{samples}{%
+		blue,mark=square*,\\%
+		cyan,mark=square\\%
+		red, thick, mark=*\\%
+		red!65!yellow, mark=otimes\\%
+		red!30!yellow, mark=oplus\\%
+		red!65!black, mark=o\\%
+		}%
+		\begin{axis}[
+			cycle list name=samples,
+			width=0.51\textwidth,
+			height=0.5\linewidth,
+			axis on top,
+			xlabel={$\phi$}, ylabel={$c_p$ (\si{\milli\gram/\gram})},
+			xmin=0,xmax=0.74,
+			ymin=0, ymax=1.9, ytick={0,0.5,...,2},
+			mark options={solid}
+			]
+			\begin{scope}[/pgfplots/skip coords between index={0}{1}, /pgfplots/skip coords between index={2}{3}]%[draw=none,mark repeat=2,mark phase=2]
+			\addplot table {/data/Documents/tex/svn/crystal-gel/sample0.phd};
+			\addplot table {/data/Documents/tex/svn/crystal-gel/sample1.phd};
+			\addplot table {/data/Documents/tex/svn/crystal-gel/sample2.phd}[->] -- (rel axis cs:0.95,0.2);
+			\addplot table {/data/Documents/tex/svn/crystal-gel/sample3.phd};
+			\addplot table {/data/Documents/tex/svn/crystal-gel/sample4.phd};
+			\addplot table {/data/Documents/tex/svn/crystal-gel/sample5.phd}[->] -- (rel axis cs:0.95,0.7);
+			\end{scope}
+			\addplot[black, dashed,no marks] file {/data/Documents/tex/svn/crystal-gel/gasliquid_sg.phd};% node[diamond, fill, inner sep=2pt] at (current plot begin){};
+			\addplot[black, dashed,no marks] file {/data/Documents/tex/svn/crystal-gel/gasliquid_sl.phd};
+			\addplot[black, no marks] file {/data/Documents/tex/svn/crystal-gel/gasliquid_bl.phd};
+			\addplot[black, no marks] file {/data/Documents/tex/svn/crystal-gel/gasliquid_bg.phd};
+			\addplot[fill=lightgray!50, no marks, draw=none] file {/data/Documents/tex/svn/crystal-gel/fluidcrystal_f.phd} node[above right] at (rel axis cs:0,0) {Fluid} -- (rel axis cs:0,0) \closedcycle;
+			\addplot[fill=lightgray!50, no marks, draw=none] file {/data/Documents/tex/svn/crystal-gel/fluidcrystal_x.phd} %node[above left] (x) at (rel axis cs:1,0.5) {Crystal}  
+			-| (rel axis cs:1,0) \closedcycle;
+			%\draw[->] (x.base) --(rel axis cs:0.98,0.01);
+			\addplot[only marks, mark=triangle] file{/data/Documents/tex/svn/crystal-gel/fluid_samples.phd};
+	\end{axis}
+	\end{tikzpicture}
+	\includegraphics[height=11\baselineskip,clip=true,trim=0.5cm 0 0 0]{/data/Documents/tex/svn/crystal-gel/nature/fig2.pdf}
+	
+	\bigskip
+	Compact structure and higher local $\phi$ \alert{because crystallized}
+\end{frame}
+
 \appendix
 \newcounter{finalframe}
 \setcounter{finalframe}{\value{framenumber}}
