@@ -213,6 +213,7 @@ red!40!yellow,
 	
 \begin{columns}
 	\column{0.45\textwidth}
+	\tikzsetnextfilename{interactions}%
 	\begin{tikzpicture}
 		\let\mrad\relax
 		\newlength\mrad
@@ -267,7 +268,7 @@ red!40!yellow,
 		\node[text width=6em,anchor=base, align=center] (dur) at (duri|-pur.base) {hard};
 		
 		\node[text width=6em, anchor=base east, inner xsep=0,xshift=1.5\mrad, align=right] (coll) at (colli.east|-pur.base) {depletion};
-	\end{tikzpicture}	
+	\end{tikzpicture}\\
 
 	\bigskip
 	\includegraphics[width=\textwidth]{../../CNRS-2015/Renth_sedim.jpg}\\
@@ -287,16 +288,46 @@ red!40!yellow,
 	\begin{itemize}
 	\item Phase separation arrested by crystallisation
 	\begin{description}
-		\item[polymer blend] Tanaka \& Nishi PRL 1985
-		\item[simulations] Soga J.Chem. Phys. 1999; Fortini PRE 2008 
+		\item[polymer blend] Tanaka \& Nishi \textit{PRL} 1985
+		\item[simulations] Soga \textit{J.Chem. Phys.} 1999; Fortini \textit{PRE} 2008 
 	\end{description}
 	\item Spinodal then crystallisation
 	\begin{description}
-		\item[simulations] Pérez Langmuir 2011
-		\item[microgravity] (triple coexistence) Sabin PRL 2012
+		\item[simulations] Pérez \textit{Langmuir} 2011
+		\item[microgravity] (triple coexistence) Sabin \textit{PRL} 2012
 	\end{description}
 	\end{itemize}
 	\includegraphics[width=\textwidth]{micrograv_Sabin2012}
+\end{frame}
+
+\begin{frame}{Experimental}
+How to do that in 3D at particle level \alert{without a space station}?
+\begin{itemize}
+\item index matched + \alert{\SI{2.3}{\micro\metre} colloids} + confocal
+\item density match + $T$-control
+\item preparation protocol without flow
+\end{itemize}
+\bigskip
+\begin{columns}
+	\column{0.265\textwidth}
+		Colloids+polymers\\
+		{\footnotesize no screening
+		\begin{itemize}
+			\item Dispersed
+			\item Homogeneous
+		\end{itemize}
+		\bigskip
+		\begin{beamercolorbox}[rounded=true]{block body}PMMA + PS\\
+		in decalin + CHB $\epsilon_r\approx5$\\
+		$\kappa^{-1}>\SI{10}{\micro\metre}$
+		\end{beamercolorbox}}
+	\column{0.4\textwidth}
+		\tikzsetnextfilename{chemin_gelification}%
+		\input{chemin_gelification.pgf}
+	\column{0.335\textwidth}
+		\tikzsetnextfilename{cell}%
+		\input{cell.pgf}
+\end{columns}
 \end{frame}
 
 \appendix
