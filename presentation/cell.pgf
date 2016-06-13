@@ -1,0 +1,71 @@
+\let\mlen\relax%
+\newlength\mlen%
+\setlength{\mlen}{24\baselineskip}%
+\begin{tikzpicture}
+		%box
+		\draw[every node/.style={draw, inner sep=0, minimum width=0.01\mlen, minimum height=0.12\mlen, anchor=south west}] 
+			node (Rrightwall) at (0, 0) {}
+			node (Rleftwall) at (0.2\mlen, 0) {}
+			[every node/.append style={minimum height=0.06\mlen}]
+			node (Crightwall) at ($(Rrightwall.north west)+(0, 0.01\mlen)$) {}
+			node (Cleftwall) at (Crightwall.south -| Rleftwall.west) {}
+			(Crightwall.north west) +(0,0.005\mlen) rectangle (Cleftwall.north east);
+			
+	
+		%filtre
+		\foreach \x / \y in {0/0.23, 0.27/0.48, 0.52/0.73, 0.77/1}
+			\fill[gray] ($(Rrightwall.north west)!\x!(Rleftwall.north east)$) rectangle ($(Crightwall.south west)!\y!(Cleftwall.south east)$);
+		
+		
+		%laser
+		\node[fill, green, semitransparent, isosceles triangle, anchor=apex, shape border rotate=-90, minimum width=0.08\mlen, inner sep=0,  isosceles triangle apex angle=75] at ($(Crightwall.north east)!0.4!(Cleftwall.south west)$) (laser) {};
+		
+		%lens
+		\filldraw[lightgray] (laser.right corner) arc[start angle=180,delta angle=180,x radius=0.04\mlen, y radius=0.01\mlen] --cycle;
+		%colloids
+		\begin{scope}[radius=0.008\mlen, ball color=red!80,shift={(Crightwall.south west)}, yshift=-0.13\mlen]
+			\shade(0.08\mlen, 0.175\mlen) circle;
+			\shade(0.11\mlen, 0.16\mlen) circle;
+			\shade(0.05\mlen, 0.15\mlen) circle;
+			\shade(0.03\mlen, 0.18\mlen) circle;
+			\shade(0.14\mlen, 0.14\mlen) circle;
+			\shade(0.16\mlen, 0.165\mlen) circle;
+		\end{scope}
+		
+		%polymers
+		\begin{scope}[shift={(Crightwall.south west)}, yshift=-0.13\mlen]
+		\foreach \x / \y in {0.06/0.1745, 0.17/0.1345, 0.172/0.14, 0.145/0.16, 0.19/0.18, 0.09/0.14, 0.03/0.15} 
+			\draw[%
+			gray, decoration={coil, segment length=0.0025\mlen, amplitude=0.0025\mlen},
+			] (\x\mlen, \y\mlen)
+			decorate{++(-0.0025\mlen,-0.0025\mlen) -- ++(0.0045\mlen,0.0045\mlen) -- ++(0,-0.0045\mlen) -- ++(-0.005\mlen,+0.005\mlen) };
+		\end{scope}
+		
+		%salt
+		\begin{axis}[
+			at={($(Rrightwall.south east)+(0.75,0.75)$)},
+			width=0.19\mlen-2*0.75,
+			height=0.115\mlen,
+			axis lines=none,
+			scale only axis,
+			xmin=-1, xmax=1,ymin=0,ymax=1,
+			]
+			\addplot [blue, only marks, mark=*, samples=1000, mark size=0.75]
+    {rand^2};
+		\end{axis}
+		
+		%arrows
+		\foreach \x in {0.25,0.5,0.75}
+			\draw[blue!20,->, line width=0.005\mlen] ++($(Rrightwall.south west)!\x!(Rleftwall.south east)$) +(0, 0.08\mlen) -- +(0, 0.11\mlen);
+		
+		
+		%labels
+		\begin{scope}[right, every node/.style={font=\footnotesize}]
+			\node[anchor=north] at ($(Rleftwall.south)!0.5!(Rrightwall.south)$) (Reservoir) {Salt reservoir};
+			\node[anchor=west] at (laser.left corner) {Objective lens};
+			%\node[text width=0.15\mlen, align=right] at (Cleftwall-|Reservoir.west) (oc) {Observation cell};
+			\node[right = 0.01\mlen of Rleftwall.north west] {Filter};
+			%\node[above right,blue] at (Rleftwall.east-|Reservoir.west) {Ion diffusion};
+			%\node[above right] at (0.21\mlen, 0) {Reservoir};
+		\end{scope}
+\end{tikzpicture}

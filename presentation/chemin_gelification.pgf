@@ -1,0 +1,41 @@
+
+\begin{tikzpicture}
+\let\mrad\relax
+\newlength\mrad
+\setlength{\mrad}{1em}
+%depletition et repulsion
+\begin{scope}[yshift=3\mrad]
+\node[circle, inner sep=0, minimum width=4\mrad, inner color=Main, outer color=white]  (depli) {}; 
+\draw[green!50!black, radius=1.25\mrad, dashed] circle; 
+%\draw[green!50!black, radius=0.3\mrad] (1.1\mrad,0) circle; 
+\foreach \x in {0,30,...,330}{
+	\draw[decoration={random steps,segment length=0.1\mrad, amplitude=0.08\mrad},decorate] (0,0) -- (\x:1\mrad);
+}
+\fill[gray, radius=0.8\mrad] circle;
+\foreach \x in {15,75,...,315}{
+	\node[Accent2, font=\tiny] at (\x:0.6\mrad) {+};
+}
+\end{scope}
+\begin{scope}[yshift=-3\mrad]
+\node[circle, inner sep=0, minimum width=4\mrad, inner color=Main, outer color=white]  (depli2) {}; 
+\draw[green!50!black, radius=1.25\mrad, dashed] circle; 
+%\draw[green!50!black, radius=0.3\mrad] (1.1\mrad,0) circle; 
+\foreach \x in {0,30,...,330}{
+	\draw[decoration={random steps,segment length=0.1\mrad, amplitude=0.08\mrad},decorate] (0,0) -- (\x:1\mrad);
+}
+\fill[gray, radius=0.8\mrad] circle;
+\foreach \x in {15,75,...,315}{
+	\node[Accent2, font=\tiny] at (\x:0.6\mrad) {+};
+}
+\end{scope}
+
+%spheres collantes
+\begin{scope}[xshift=\textwidth-3.5\mrad]
+\node[draw,circle, inner sep=0, minimum width=2.5\mrad, green!50!black, dashed]  (colli) at (0,0.8\mrad) {}; 
+\draw[green!50!black, radius=1.25\mrad, dashed] (0,-0.8\mrad) circle;
+\fill[gray, radius=0.8\mrad] (0,0.8\mrad) circle;
+\fill[gray, radius=0.8\mrad] (0,-0.8\mrad) circle;
+\end{scope}
+
+\draw[->,blue!20, line width=0.1\mrad] (2\mrad,0) -- (\textwidth-5\mrad,0) node[midway,above, font=\footnotesize, blue]{ion diffusion};
+\end{tikzpicture}
