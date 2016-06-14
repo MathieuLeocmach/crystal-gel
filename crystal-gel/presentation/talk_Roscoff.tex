@@ -541,13 +541,13 @@ How to do that in 3D at particle level \alert{without a space station}?
 		%height=0.5\linewidth,
 	]
 	\nextgroupplot[
-		title={crystals},
+		title={nuclei},
 		xlabel={$t/10^3\tau_B$}, ylabel=\#,
 		xmin=0, xmax=13.0, ymin=0,
 		no marks,
 		legend style={cells={anchor=base west}},
 		]
-	\addplot table[x expr={\thisrowno{0}/2.3e3}]{/data/Documents/tex/svn/crystal-gel/data/fig3a_1.dat} node[left] at (rel axis cs:1,0.2) {size};
+	\addplot table[x expr={\thisrowno{0}/2.3e3}]{/data/Documents/tex/svn/crystal-gel/data/fig3a_1.dat} node[left] at (rel axis cs:1,0.2) {avg size};
 	\addplot table[x expr={\thisrowno{0}/2.3e3}]{/data/Documents/tex/svn/crystal-gel/data/fig3a_2.dat} node[left] at (rel axis cs:1,0.6) {number};
 	%\legend{average size, average number};
 
@@ -571,6 +571,30 @@ How to do that in 3D at particle level \alert{without a space station}?
 \begin{frame}{Dynamics: Bergeron > Ostwald}
 \vspace{\baselineskip}
 \includegraphics[width=\textwidth]{/data/Documents/tex/svn/crystal-gel/nature/fig4.pdf}
+\end{frame}
+
+\begin{frame}{Conclusion}
+	\begin{itemize}
+		\item A particle level colloidal analogue to the Bergeron process
+		\item Generic "crystal-gel" process
+		\begin{enumerate}
+			\item gas-liquid phase separation below melting point
+		of a crystal
+			\item weak or little frustration against crystallization
+			\item dynamical slowing down in a supercooled liquid state
+			\begin{itemize}
+				\item viscoelastic phase separation
+				\item network of the minority liquid phase
+			\end{itemize}
+			\item low supercooling: crystallisation > vitrification
+		\end{enumerate}
+		\item Gels of poor glass formers (monoatomic systems)
+		\item Porous material with a large area of crystalline planes
+		\begin{itemize}
+			\item catalysis, sensing, filtration, super-capacitor\ldots
+			\item single step
+		\end{itemize}
+	\end{itemize}
 \end{frame}
 
 \appendix
