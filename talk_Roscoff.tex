@@ -283,6 +283,89 @@ red!40!yellow,
 	\end{columns}
 \end{frame}
 
+\begin{frame}{Gel formation}
+	\begin{columns}
+		\column{0.5\textwidth}
+		\begin{tikzpicture}[
+			every axis/.style={
+			xlabel absolute, every axis x label/.append style={anchor=base, yshift=-0.5em},
+			ylabel absolute, every axis y label/.append style={anchor=base, yshift=-0.5em}
+			}]
+		\pgfplotscreateplotcyclelist{samples}{%
+		blue,mark=square*,\\%
+		cyan,mark=square\\%
+		red, thick, mark=*\\%
+		red!65!yellow, mark=otimes\\%
+		red!30!yellow, mark=oplus\\%
+		red!65!black, mark=o\\%
+		}%
+		\begin{groupplot}[
+			group style={
+					group name=g, group size=1 by 2,
+					horizontal sep=4em,
+					vertical sep=0.5em,
+					x descriptions at=edge bottom,
+				},
+			cycle list name=samples,
+			width=\textwidth,
+			%height=0.5\linewidth,
+			axis on top,
+		]
+		\nextgroupplot[
+			ylabel={$\Pi v$},
+			xmin=0,xmax=0.74,
+			ymin=0, ymax=2400, %ytick={0,0.5,...,2},
+			mark options={solid}
+			]
+			\addplot[black, dashed,no marks] file {res_gasliquid_sg.phd};% node[diamond, fill, inner sep=2pt] at (current plot begin){};
+			\addplot[black, dashed,no marks] file {res_gasliquid_sl.phd};
+			\addplot[black, no marks] file {res_gasliquid_bl.phd};
+			\addplot[black, no marks] file {res_gasliquid_bg.phd};
+			\addplot[fill=lightgray!50, no marks, draw=none] file {res_fluidcrystal_f.phd} node[above right] at (rel axis cs:0,0) {Fluid} -- (rel axis cs:0,0) \closedcycle;
+			\addplot[fill=lightgray!50, no marks, draw=none] file {res_fluidcrystal_x.phd} node[above left, inner ysep=0, inner xsep=1pt] (x) at (rel axis cs:1,0) {Crystal}  -| (rel axis cs:1,0) \closedcycle;
+			\node at (axis cs:0.4,1500) {Gel};
+	
+		\nextgroupplot[
+			xlabel={$\phi$}, ylabel={$c_p$ (\si{\milli\gram/\gram})},
+			xmin=0,xmax=0.74,
+			ymin=0, ymax=1.9, ytick={0,0.5,...,2},
+			mark options={solid}
+			]
+			\addplot[black, dashed,no marks] file {gasliquid_sg.phd};% node[diamond, fill, inner sep=2pt] at (current plot begin){};
+			\addplot[black, dashed,no marks] file {gasliquid_sl.phd};
+			\addplot[black, no marks] file {gasliquid_bl.phd};
+			\addplot[black, no marks] file {gasliquid_bg.phd};
+			\addplot[fill=lightgray!50, no marks, draw=none] file {fluidcrystal_f.phd} node[above right] at (rel axis cs:0,0) {Fluid} -- (rel axis cs:0,0) \closedcycle;
+			\addplot[fill=lightgray!50, no marks, draw=none] file {fluidcrystal_x.phd} node[above left] (x) at (rel axis cs:1,0.5) {Crystal}  -| (rel axis cs:1,0) \closedcycle;
+			\draw[->] (x.base) --(rel axis cs:0.98,0.01);
+		\end{groupplot}
+		%\draw(g c1r1.outer south west) -- +(\textwidth,0);
+		\end{tikzpicture}
+		\column{0.5\textwidth}
+		Small polymer/colloid size ratio
+		\begin{itemize}
+		\item metastable gas-liquid
+		\item spinodal + glass $\Rightarrow$ gel\\ \hfill\textit{\footnotesize Lu et al. Nature~2008}
+		\item continuous minority phase
+		\item viscoelastic phase sep.\\ \hfill\textit{\footnotesize Tanaka J.Phys.Cond.Mat.~2000}
+		\end{itemize}
+		\begin{tikzpicture}
+	\draw[->] (0,0) -- +(\textwidth,0) node[pos=0.1, label=-90:\textcolor{ilmorange}{$\tau_1$}](t1) {|} node[pos=0.5, label=-90:\textcolor{ilmcolor}{$\tau_2$}] (t2){|};
+	\fill[ilmcolor] ($(t1)!0.1!45:(t2)$) coordinate(cse) rectangle ($(t1)!0.9!45:(t2)$) coordinate(cnw);
+	\clip (cse) rectangle (cnw);
+	\fill[ilmorange] ++($(cse)!0.5!(cnw)$) 
+		+(60:0.06\textwidth) circle (0.045\textwidth) 
+		+(180:0.06\textwidth) circle (0.045\textwidth) 
+		+(-60:0.06\textwidth) circle (0.045\textwidth) 
+		+(0:0.12\textwidth) circle (0.045\textwidth)
+		+(120:0.12\textwidth) circle (0.045\textwidth)
+		+(-120:0.12\textwidth) circle (0.045\textwidth)
+		+(45:0.16\textwidth) circle (0.045\textwidth)
+		+(-45:0.16\textwidth) circle (0.045\textwidth);
+	\end{tikzpicture}
+	\end{columns}
+\end{frame}
+
 
 \begin{frame}{Another class of gel? Crystal-gel?}
 	\begin{itemize}
