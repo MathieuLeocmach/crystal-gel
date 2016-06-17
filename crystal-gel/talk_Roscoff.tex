@@ -286,6 +286,8 @@ red!40!yellow,
 \begin{frame}{Gel formation}
 	\begin{columns}
 		\column{0.5\textwidth}
+		\vspace{\baselineskip}
+		\tikzsetnextfilename{phdiagth}%
 		\begin{tikzpicture}[
 			every axis/.style={
 			xlabel absolute, every axis x label/.append style={anchor=base, yshift=-0.5em},
@@ -348,21 +350,63 @@ red!40!yellow,
 		\item spinodal + glass $\Rightarrow$ gel\\ \hfill\textit{\footnotesize Lu et al. Nature~2008}
 		\item continuous minority phase
 		\item viscoelastic phase sep.\\ \hfill\textit{\footnotesize Tanaka J.Phys.Cond.Mat.~2000}
+		\item due to dynamic assymetry
 		\end{itemize}
+		\tikzsetnextfilename{vps}%
 		\begin{tikzpicture}
-	\draw[->] (0,0) -- +(\textwidth,0) node[pos=0.1, label=-90:\textcolor{ilmorange}{$\tau_1$}](t1) {|} node[pos=0.5, label=-90:\textcolor{ilmcolor}{$\tau_2$}] (t2){|};
-	\fill[ilmcolor] ($(t1)!0.1!45:(t2)$) coordinate(cse) rectangle ($(t1)!0.9!45:(t2)$) coordinate(cnw);
+	\draw[->] (0,0) -- +(\textwidth,0) node[pos=0.05, label=-90:\textcolor{ilmorange}{$\tau_1$}](t1) {|} node[pos=0.54, label=-90:\textcolor{ilmcolor}{$\tau_2$}] (t2){|} coordinate[pos=1] (tf) node[anchor=north east,font=\footnotesize]{time};
+	\let\side\relax
+	\newlength\side
+	\setlength{\side}{0.275\textwidth}
+	\fill[ilmcolor!80!ilmorange] ($(t1)!0.1!45:(t2)$) coordinate(cse) rectangle +(\side,\side) coordinate(cnw);
+	\begin{scope}
+	\clip (cse) rectangle (cnw);
+	\fill[ilmorange!80!ilmcolor] ++($(cse)!0.5!(cnw)$) 
+		+(60:0.3\side) circle (0.22\side) 
+		+(180:0.3\side) circle (0.22\side) 
+		+(-60:0.3\side) circle (0.22\side) 
+		+(0:0.6\side) circle (0.22\side)
+		+(120:0.6\side) circle (0.22\side)
+		+(-120:0.6\side) circle (0.22\side)
+		+(45:0.8\side) circle (0.22\side)
+		+(-45:0.8\side) circle (0.22\side);
+	\end{scope}
+	\fill[ilmcolor] (cse-|t2) ++(-0.5\side,0) coordinate(cse) rectangle +(\side,\side) coordinate(cnw);
+	\begin{scope}
 	\clip (cse) rectangle (cnw);
 	\fill[ilmorange] ++($(cse)!0.5!(cnw)$) 
-		+(60:0.06\textwidth) circle (0.045\textwidth) 
-		+(180:0.06\textwidth) circle (0.045\textwidth) 
-		+(-60:0.06\textwidth) circle (0.045\textwidth) 
-		+(0:0.12\textwidth) circle (0.045\textwidth)
-		+(120:0.12\textwidth) circle (0.045\textwidth)
-		+(-120:0.12\textwidth) circle (0.045\textwidth)
-		+(45:0.16\textwidth) circle (0.045\textwidth)
-		+(-45:0.16\textwidth) circle (0.045\textwidth);
+		+(60:0.3\side) circle (0.26\side) 
+		+(180:0.3\side) circle (0.26\side) 
+		+(-60:0.3\side) circle (0.25\side) 
+		+(0:0.6\side) circle (0.25\side)
+		+(120:0.6\side) circle (0.25\side)
+		+(-120:0.6\side) circle (0.25\side)
+		+(45:0.8\side) circle (0.25\side)
+		+(-45:0.8\side) circle (0.25\side)
+		%enhance broken bond
+		+(120:0.15\side) circle (0.07\side);
+	\end{scope}
+	\fill[ilmorange] (cse-|tf) ++(-\side,0) coordinate(cse) rectangle +(\side,\side) coordinate(cnw);
+	\begin{scope}
+	\clip (cse) rectangle (cnw);
+	\fill[ilmcolor] ++($(cse)!0.5!(cnw)$) circle (0.07\side)
+		+(0:0.3\side) circle (0.07\side) 
+		+(120:0.3\side) circle (0.07\side) 
+		+(-120:0.3\side) circle (0.07\side) 
+		+(-60:0.6\side) circle (0.07\side)
+		+(60:0.6\side) circle (0.07\side)
+		++(0:0.3\side)
+		+(-60:0.3\side) circle (0.07\side)
+		+(60:0.3\side) circle (0.07\side)
+		+(120:0.6\side) circle (0.07\side)
+		+(-120:0.6\side) circle (0.07\side)
+		++(180:0.9\side)
+		+(-60:0.3\side) circle (0.07\side)
+		+(60:0.3\side) circle (0.07\side);
+	\end{scope}
 	\end{tikzpicture}
+	
+	\hfill$\textcolor{ilmcolor}{\tau_2} \rightarrow +\infty$ {\usebeamercolor[fg]{itemize item}\usebeamertemplate{itemize item}} arrest 
 	\end{columns}
 \end{frame}
 
