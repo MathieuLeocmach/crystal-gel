@@ -732,54 +732,170 @@ How to do that in 3D at particle level \alert{without a space station}?
 \end{frame}
 
 \begin{frame}{Reproducibility in capillary}
-\hfill $\phi\approx 0.33$, $c_P=\SI{0.40}{\milli\gram/\gram}$
-
-\includegraphics[width=\textwidth]{nature/capillary}
+	\hfill $\phi\approx 0.33$, $c_P=\SI{0.40}{\milli\gram/\gram}$
+	
+	\includegraphics[width=\textwidth]{nature/capillary}
 \end{frame}
 
 \begin{frame}{Transition probabilities}
-\vspace{\baselineskip}
-\includegraphics[width=\textwidth]{nature/sfig1.pdf}
+	\vspace{\baselineskip}
+	\includegraphics[width=\textwidth]{nature/sfig1.pdf}
 \end{frame}
 
 \begin{frame}{Evolution local volume fraction}
-\vspace{\baselineskip}
-12-neighboured particles
-\begin{center}
-\includegraphics{nature/local_phi12.pdf}
-\end{center}
+	\vspace{\baselineskip}
+	12-neighboured particles
+	\begin{center}
+	\includegraphics{nature/local_phi12.pdf}
+	\end{center}
 \end{frame}
 
 \begin{frame}{phase definition}
-\begin{description}
-\item[crystal]
-	\begin{itemize} 
-	\item particle $i$ has $N_b(i)=12$ neighbours
-	\item $\displaystyle q_{6 m}(i)=\frac{1}{N_b(i)}\sum_{j=1}^{N_b(i)}
-Y_{6 m}(\mathbf{r_{ij}}),\quad -6 <m<6$
-	\item crystalline bond $(i,j)$: \[(\mathbf{q}_{6}(i)/|\mathbf{q}_{6}(i)|)\cdot(\mathbf{q}_{6}(j)/|\mathbf{q}_{6}(j)|)>0.7\]
-	\item crystalline particle: $7$ crystalline bonds
-	\end{itemize}
-\item[surface] two neighbouring crystal particles
-\item[liquid] at least four neighbouring particles
-\item[gas]
-\end{description}
+	\begin{description}
+	\item[crystal]
+		\begin{itemize} 
+		\item particle $i$ has $N_b(i)=12$ neighbours
+		\item $\displaystyle q_{6 m}(i)=\frac{1}{N_b(i)}\sum_{j=1}^{N_b(i)}
+	Y_{6 m}(\mathbf{r_{ij}}),\quad -6 <m<6$
+		\item crystalline bond $(i,j)$: \[(\mathbf{q}_{6}(i)/|\mathbf{q}_{6}(i)|)\cdot(\mathbf{q}_{6}(j)/|\mathbf{q}_{6}(j)|)>0.7\]
+		\item crystalline particle: $7$ crystalline bonds
+		\end{itemize}
+	\item[surface] two neighbouring crystal particles
+	\item[liquid] at least four neighbouring particles
+	\item[gas]
+	\end{description}
 \end{frame}
 
 \begin{frame}{Colloid and polymer sizes}
-Direct measurement \alert{too imprecise}
-\begin{itemize}
-\item diffusion constant $\Rightarrow R= \SI{2.3 +- 0.05}{\micro\metre}$
-\item Flory scaling litterature measurements $\Rightarrow R_g=\SI{76. +- 50.}{\nano\metre}$
-\end{itemize}
+	Direct measurement \alert{too imprecise}
+	\begin{itemize}
+	\item diffusion constant $\Rightarrow R= \SI{2.3 +- 0.05}{\micro\metre}$
+	\item Flory scaling litterature measurements $\Rightarrow R_g=\SI{76. +- 50.}{\nano\metre}$
+	\end{itemize}
+	
+	\begin{block}{Adjusting theoretical and experimental phase diagrams}
+	\begin{enumerate}
+	\item to have the final local volume fraction of the 12-neighboured particles in the crystallising sample to be equal to the theoretical equilibrium crystal volume fraction 
+	\item to have the theoretical spinodal line to correspond to the gel region boundary.
+	\end{enumerate}
+	\end{block}
+	Starting from our initial estimates of $\sigma$ and $R$ we iteratively converge to $R=\SI{80}{\nano\metre}$, $\sigma = \SI{2.25}{\micro\metre}$ and a crystal (without defects) at $0.723$.
+\end{frame}
 
-\begin{block}{Adjusting theoretical and experimental phase diagrams}
-\begin{enumerate}
-\item to have the final local volume fraction of the 12-neighboured particles in the crystallising sample to be equal to the theoretical equilibrium crystal volume fraction 
-\item to have the theoretical spinodal line to correspond to the gel region boundary.
-\end{enumerate}
-\end{block}
-Starting from our initial estimates of $\sigma$ and $R$ we iteratively converge to $R=\SI{80}{\nano\metre}$, $\sigma = \SI{2.25}{\micro\metre}$ and a crystal (without defects) at $0.723$.
+\begin{frame}{Carnahan-Starling is not enough}
+	\tikzsetnextfilename{CSphasediag}%
+	\begin{tikzpicture}[
+		every axis/.style={
+			xlabel absolute, every axis x label/.append style={anchor=base, yshift=-0.5em},
+			ylabel absolute, every axis y label/.append style={anchor=base, yshift=-0.5em}
+			}]
+		\pgfplotscreateplotcyclelist{samples}{%
+		blue,mark=square*,\\%
+		cyan,mark=square\\%
+		red, thick, mark=*\\%
+		red!65!yellow, mark=otimes\\%
+		red!30!yellow, mark=oplus\\%
+		red!65!black, mark=o\\%
+		}%
+		\begin{groupplot}[
+			group style={
+					group name=g, group size=2 by 2,
+					horizontal sep=0.5em,
+					vertical sep=0.5em,
+					x descriptions at=edge bottom,
+					y descriptions at=edge left,
+				},
+			cycle list name=samples,
+			width=0.5\textwidth,
+			%height=0.5\linewidth,
+			axis on top,
+			xlabel={$\phi$},
+		]
+		\nextgroupplot[
+			ylabel={attraction},
+			xmin=0,xmax=0.74,
+			ymin=0, ymax=2400, %ytick={0,0.5,...,2},
+			mark options={solid}
+			]
+			\begin{scope}[dotted, mark repeat=2,mark phase=2,<->]
+		\addplot file {res_sample0.phd};
+		\addplot file {res_sample1.phd};
+		\addplot file {res_sample2.phd};
+		\addplot file {res_sample3.phd};
+		\addplot file {res_sample4.phd};
+		\addplot file {res_sample5.phd};
+		\end{scope}
+			\addplot[black, dashed,no marks] file {res_gasliquid_sg.phd};% node[diamond, fill, inner sep=2pt] at (current plot begin){};
+			\addplot[black, dashed,no marks] file {res_gasliquid_sl.phd};
+			\addplot[black, no marks] file {res_gasliquid_bl.phd};
+			\addplot[black, no marks] file {res_gasliquid_bg.phd};
+			\addplot[fill=lightgray!50, no marks, draw=none] file {res_fluidcrystal_f.phd} -- (rel axis cs:0,0) \closedcycle;
+			\addplot[fill=lightgray!50, no marks, draw=none] file {res_fluidcrystal_x.phd}  -| (rel axis cs:1,0) \closedcycle;
+
+	\nextgroupplot[
+			xmin=0,xmax=0.74,
+			ymin=0, ymax=2400, %ytick={0,0.5,...,2},
+			mark options={solid}
+			]
+			\begin{scope}[dotted, mark repeat=2,mark phase=2,<->]
+		\addplot file {res_sample0.phd};
+		\addplot file {res_sample1.phd};
+		\addplot file {res_sample2.phd};
+		\addplot file {res_sample3.phd};
+		\addplot file {res_sample4.phd};
+		\addplot file {res_sample5.phd};
+		\end{scope}
+			\addplot[black, dashed,no marks] file {res_gasliquidCS_sg.phd};% node[diamond, fill, inner sep=2pt] at (current plot begin){};
+			\addplot[black, dashed,no marks] file {res_gasliquidCS_sl.phd};
+			\addplot[black, no marks,skip coords between index={10}{100}] file {res_gasliquidCS_bl.phd};
+			\addplot[black, no marks,skip coords between index={10}{100}] file {res_gasliquidCS_bg.phd};
+			\addplot[fill=lightgray!50, no marks, draw=none] file {res_fluidcrystal_f.phd} -- (rel axis cs:0,0) \closedcycle;
+			\addplot[fill=lightgray!50, no marks, draw=none] file {res_fluidcrystal_x.phd}  -| (rel axis cs:1,0) \closedcycle;
+
+		\nextgroupplot[
+			ylabel={P concentr. (\si{\milli\gram/\gram})},
+			xmin=0,xmax=0.74,
+			ymin=0, ymax=1.9, ytick={0,0.5,...,2},
+			mark options={solid}
+			]
+			\begin{scope}[dotted, mark repeat=2,mark phase=2,<->]
+			\addplot file {sample0.phd};
+			\addplot file {sample1.phd};
+			\addplot file {sample2.phd};
+			\addplot file {sample3.phd};
+			\addplot file {sample4.phd};
+			\addplot file {sample5.phd};
+			\end{scope}
+			\addplot[black, dashed,no marks] file {gasliquid_sg.phd};% node[diamond, fill, inner sep=2pt] at (current plot begin){};
+			\addplot[black, dashed,no marks] file {gasliquid_sl.phd};
+			\addplot[black, no marks] file {gasliquid_bl.phd};
+			\addplot[black, no marks] file {gasliquid_bg.phd};
+			\addplot[fill=lightgray!50, no marks, draw=none] file {fluidcrystal_f.phd} -- (rel axis cs:0,0) \closedcycle;
+			\addplot[fill=lightgray!50, no marks, draw=none] file {fluidcrystal_x.phd}  -| (rel axis cs:1,0) \closedcycle;
+			\addplot[only marks, mark=triangle] file{fluid_samples.phd};
+		
+		\nextgroupplot[
+			xmin=0,xmax=0.74,
+			ymin=0, ymax=1.9, ytick={0,0.5,...,2},
+			mark options={solid}
+			]
+			\begin{scope}[dotted, mark repeat=2,mark phase=2,<->]
+			\addplot file {sample0.phd};
+			\addplot file {sample1.phd};
+			\addplot file {sample2.phd};
+			\addplot file {sample3.phd};
+			\addplot file {sample4.phd};
+			\addplot file {sample5.phd};
+			\end{scope}
+			\addplot[black, dashed,no marks] file {gasliquidCS_sg.phd};% node[diamond, fill, inner sep=2pt] at (current plot begin){};
+			\addplot[black, dashed,no marks] file {gasliquidCS_sl.phd};
+			\addplot[black, no marks,skip coords between index={10}{100}] file {gasliquidCS_bl.phd};
+			\addplot[black, no marks,skip coords between index={10}{100}] file {gasliquidCS_bg.phd};
+			\addplot[fill=lightgray!50, no marks, draw=none] file {fluidcrystal_f.phd} -- (rel axis cs:0,0) \closedcycle;
+			\addplot[fill=lightgray!50, no marks, draw=none] file {fluidcrystal_x.phd}  -| (rel axis cs:1,0) \closedcycle;
+			\addplot[only marks, mark=triangle] file{fluid_samples.phd};
+	\end{groupplot}
+	\end{tikzpicture}
 \end{frame}
 
 \setcounter{framenumber}{\value{finalframe}}
