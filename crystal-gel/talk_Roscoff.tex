@@ -419,21 +419,7 @@ red!40!yellow,
 \end{frame}
 
 
-\begin{frame}{Another class of gel? Crystal-gel?}
-	\begin{itemize}
-	\item Phase separation arrested by crystallisation
-	\begin{description}
-		\item[polymer blend] Tanaka \& Nishi \textit{PRL} 1985
-		\item[simulations] Soga \textit{J.Chem. Phys.} 1999; Fortini \textit{PRE} 2008 
-	\end{description}
-	\item Spinodal then crystallisation
-	\begin{description}
-		\item[simulations] Pérez \textit{Langmuir} 2011
-		\item[microgravity] (triple coexistence) Sabin \textit{PRL} 2012
-	\end{description}
-	\end{itemize}
-	\includegraphics[width=\textwidth]{presentation/micrograv_Sabin2012}
-\end{frame}
+
 
 \begin{frame}{Experimental}
 How to do that in 3D at particle level \alert{without a space station}?
@@ -557,7 +543,6 @@ How to do that in 3D at particle level \alert{without a space station}?
 		xlabel={\# neighbours}, ylabel={$\phi$ [\%]},
 		xmin=0, ymin=0, ytick={0,10,30,50},
 		extra y ticks={64, 72}, extra y tick style={grid=major}, extra y tick label={},
-		legend pos=north west, legend style={font=\footnotesize},
 		no markers,
 		/pgfplots/error bars/y dir=both, /pgfplots/error bars/y explicit,
 		]
@@ -582,7 +567,6 @@ How to do that in 3D at particle level \alert{without a space station}?
 	}
 	\end{groupplot}
 	\node[anchor=north west, rotate=90, inner xsep=0,lightgray] (x) at (g c1r1.south east) {crystal};
-	%\draw(g c1r1.outer south west) -- +(\textwidth,0);
 	\end{tikzpicture}
 	\vspace{-0.5em}
 	\begin{itemize}
@@ -644,49 +628,86 @@ How to do that in 3D at particle level \alert{without a space station}?
 	Compact structure and higher local $\phi$ \alert{because crystallized}
 \end{frame}
 
-\begin{frame}{Crystals outgrow liquid}
-\vspace{\baselineskip}
-\tikzsetnextfilename{crystal_fates}%
-\begin{tikzpicture}
-\begin{groupplot}[%
-			group style={
-				group name=g, group size=2 by 1,
-				horizontal sep=4em,
-				},
-		width=0.5\linewidth,
-		%height=0.5\linewidth,
-	]
-	\nextgroupplot[
-		title={nuclei},
-		xlabel={$t/10^3\tau_B$}, ylabel=\#,
-		xmin=0, xmax=13.0, ymin=0,
-		no marks,
-		legend style={cells={anchor=base west}},
-		]
-	\addplot table[x expr={\thisrowno{0}/2.3e3}]{data/fig3a_1.dat} node[left] at (rel axis cs:1,0.2) {avg size};
-	\addplot table[x expr={\thisrowno{0}/2.3e3}]{data/fig3a_2.dat} node[left] at (rel axis cs:1,0.6) {number};
-	%\legend{average size, average number};
-
-	\nextgroupplot[
-		title={cluster size distribution},
-		xlabel={$s$}, ylabel=$R_g/\sigma$,
-		xmode=log, ymode=log,
-		ytick={0.5, 1, 2, 4}, yticklabels={$\frac{1}{2}$, 1, 2, 4},
-		domain=1:5e2,
-		]
-	\addplot[only marks, red, thick, mark=*] file{data/fig3d_sqrt_1.dat};
-	\addplot[black, ultra thick] {0.522*x^(1/3)} node[below left] at (axis cs:9e2,2.5) {$D=3$};
-	\addplot[gray, ultra thick] {0.426*x^(1/2.53)} node[pos=0.08,below right] {$D=2.53$};
-\end{groupplot}
-\end{tikzpicture}
-\begin{center}
-\tikzsetnextfilename{pathsX}\vspace{-0.5em}\input{presentation/pathsX.pgf}
-\end{center}
+\begin{frame}{Another class of gel? Crystal-gel?}
+	\begin{itemize}
+	\item Phase separation arrested by crystallisation
+	\begin{description}
+		\item[polymer blend] Tanaka \& Nishi \textit{PRL} 1985
+		\item[simulations] Soga \textit{J.Chem. Phys.} 1999; Fortini \textit{PRE} 2008 
+	\end{description}
+	\item Spinodal then crystallisation
+	\begin{description}
+		\item[simulations] Pérez \textit{Langmuir} 2011
+		\item[microgravity] (triple coexistence) Sabin \textit{PRL} 2012
+	\end{description}
+	\end{itemize}
+	\includegraphics[width=\textwidth]{presentation/micrograv_Sabin2012}
 \end{frame}
 
+\begin{frame}{Crystals outgrow metastable liquid}
+	\vspace{\baselineskip}
+	\tikzsetnextfilename{crystal_fates}%
+	\begin{tikzpicture}
+	\begin{groupplot}[%
+				group style={
+					group name=g, group size=2 by 1,
+					horizontal sep=4em,
+					},
+			width=0.5\linewidth,
+			%height=0.5\linewidth,
+			xlabel absolute, every axis x label/.append style={anchor=base, font=\footnotesize, yshift=-0.5em},
+		]
+		\nextgroupplot[
+			title={nuclei},
+			xlabel={$t/10^3\tau_B$}, ylabel=\#,
+			xmin=0, xmax=13.0, ymin=0,
+			no marks,
+			legend style={cells={anchor=base west}},
+			]
+		\addplot table[x expr={\thisrowno{0}/2.3e3}]{data/fig3a_1.dat} node[left] at (rel axis cs:1,0.2) {avg size};
+		\addplot table[x expr={\thisrowno{0}/2.3e3}]{data/fig3a_2.dat} node[left] at (rel axis cs:1,0.6) {number};
+		%\legend{average size, average number};
+	
+		\nextgroupplot[
+			title={cluster size distribution},
+			xlabel={$s$}, ylabel=$R_g/\sigma$,
+			xmode=log, ymode=log,
+			ytick={0.5, 1, 2, 4}, yticklabels={$\frac{1}{2}$, 1, 2, 4},
+			domain=1:5e2,
+			]
+		\addplot[only marks, red, thick, mark=*] file{data/fig3d_sqrt_1.dat};
+		\addplot[black, ultra thick] {0.522*x^(1/3)} node[below left] at (axis cs:9e2,2.5) {$D=3$};
+		\addplot[gray, ultra thick] {0.426*x^(1/2.53)} node[pos=0.08,below right] {$D=2.53$};
+	\end{groupplot}
+	\end{tikzpicture}
+	
+	\hfill\includegraphics[width=0.95\textwidth, clip=true, trim=0 20cm 0 0]{nature/fig4.pdf}\hfill
+\end{frame}
+
+
 \begin{frame}{Dynamics: Bergeron > Ostwald}
-\vspace{\baselineskip}
-\includegraphics[width=\textwidth]{nature/fig4.pdf}
+	\vspace{\baselineskip}
+	\begin{center}
+	\tikzsetnextfilename{pathsX}\vspace{-0.5em}\input{presentation/pathsX.pgf}
+	\end{center}
+	\begin{columns}
+	\column{0.5\textwidth}
+	\begin{itemize}
+	\item Individual trajectories
+	\item Probability of path to X
+	\end{itemize}
+	\column{0.5\textwidth}
+	\tikzsetnextfilename{pathsX2}%
+	\begin{tikzpicture}
+	\node[regular polygon, regular polygon sides=3, minimum width=5em] (tri){};
+	\node[circle, minimum width=3.5em, fill=green!40, left=1em of tri.corner 2] (gas) {gas};
+	\node[circle, minimum width=3.5em, draw, fill=white, right =1em of tri.corner 3] (liq) {liquid};
+	\node[regular polygon, regular polygon sides=6, fill=red,minimum width=3.5em, inner sep=0, above=0 of tri.corner 1] (X) {crystal};
+	\draw[->, very thick] ($(tri.corner 2)+(0,0.25em)$) -- ($(liq.west)+(0,0.25em)$) node[midway, above]{54\%}-- (X);
+	\draw[->, very thick, dotted] ($(tri.corner 3)+(0,-0.25em)$) -- ($(gas.east)+(0,-0.25em)$) node[midway, below]{35\%}-- (X);
+	\draw[->, very thick, dashed] (X) edge [in=190,out=-130,loop] node[left]{11\%} ();
+	\end{tikzpicture}
+	\end{columns}
 \end{frame}
 
 \begin{frame}{Conclusion}
