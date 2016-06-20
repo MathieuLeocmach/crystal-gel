@@ -567,7 +567,19 @@ How to do that in 3D at particle level \alert{without a space station}?
 		\addplot table[y error=err]{data/vol_err_phi_0.25_cp_0.48.scaled};
 		\addplot table[y error=err]{data/vol_err_phi_0.25_cp_0.57.scaled};
 	}
-	
+	\only<6>{
+	\nextgroupplot[
+		title={local $\phi$ 12-ngb particles},
+		xlabel=$t/10^3\tau_B$, ylabel={$\phi$ [\%]},
+		xmin=0,
+		/pgfplots/error bars/y dir=both, /pgfplots/error bars/y explicit,
+		]
+		\addplot table[y error=err]{data/mediaphi_phi0.10_cp0.82.scaled};
+		\addplot table[y error=err]{data/mediaphi_phi0.10_cp1.36.scaled};
+		\addplot table[y error=err]{data/mediaphi_phi0.25_cp0.38.scaled};
+		\addplot table[y error=err]{data/mediaphi_phi0.25_cp0.48.scaled};
+		\addplot table[y error=err]{data/mediaphi_phi0.25_cp0.57.scaled};
+	}
 	\end{groupplot}
 	\node[anchor=north west, rotate=90, inner xsep=0,lightgray] (x) at (g c1r1.south east) {crystal};
 	%\draw(g c1r1.outer south west) -- +(\textwidth,0);
@@ -717,14 +729,6 @@ How to do that in 3D at particle level \alert{without a space station}?
 \begin{frame}{Transition probabilities}
 	\vspace{\baselineskip}
 	\includegraphics[width=\textwidth]{nature/sfig1.pdf}
-\end{frame}
-
-\begin{frame}{Evolution local volume fraction}
-	\vspace{\baselineskip}
-	12-neighboured particles
-	\begin{center}
-	\includegraphics{nature/local_phi12.pdf}
-	\end{center}
 \end{frame}
 
 \begin{frame}{phase definition}
