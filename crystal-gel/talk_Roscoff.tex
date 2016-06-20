@@ -319,28 +319,32 @@ red!40!yellow,
 			ymin=0, ymax=2400, %ytick={0,0.5,...,2},
 			mark options={solid}
 			]
+			\addplot[fill=lightgray!50, no marks, draw=none] file {res_fluidcrystal_f.phd} node[above right] at (rel axis cs:0,0) {fluid} -- (rel axis cs:0,0) \closedcycle;
+			\addplot[fill=lightgray!50, no marks, draw=none] file {res_fluidcrystal_x.phd} node[above left, inner ysep=0, inner xsep=1pt] (x) at (rel axis cs:1,0) {crystal}  -| (rel axis cs:1,0) \closedcycle;
 			\addplot[black, dashed,no marks] file {res_gasliquid_sg.phd};% node[diamond, fill, inner sep=2pt] at (current plot begin){};
 			\addplot[black, dashed,no marks] file {res_gasliquid_sl.phd};
-			\addplot[black, no marks] file {res_gasliquid_bl.phd};
-			\addplot[black, no marks] file {res_gasliquid_bg.phd};
-			\addplot[fill=lightgray!50, no marks, draw=none] file {res_fluidcrystal_f.phd} node[above right] at (rel axis cs:0,0) {Fluid} -- (rel axis cs:0,0) \closedcycle;
-			\addplot[fill=lightgray!50, no marks, draw=none] file {res_fluidcrystal_x.phd} node[above left, inner ysep=0, inner xsep=1pt] (x) at (rel axis cs:1,0) {Crystal}  -| (rel axis cs:1,0) \closedcycle;
-			\node at (axis cs:0.4,1500) {Gel};
+			\addplot[black, no marks] file {res_gasliquid_bl.phd} node[pos=0.5,sloped,below] {liquid};
+			\addplot[black, no marks] file {res_gasliquid_bg.phd} node[pos=0.1,sloped,below] {gas};
+			
+			\node at (axis cs:0.35,2000) {g-l spinodal};
 	
 		\nextgroupplot[
-			xlabel={colloid volume fraction}, ylabel={P concentration  (\si{\milli\gram/\gram})},
+			xlabel={colloid volume fraction}, ylabel={P concent.  (\si{\milli\gram/\gram})},
 			xmin=0,xmax=0.74,
 			ymin=0, ymax=1.9, ytick={0,0.5,...,2},
 			mark options={solid}
 			]
+			\addplot[fill=lightgray!50, no marks, draw=none] file {fluidcrystal_f.phd} node[above right] at (rel axis cs:0,0) {fluid} -- (rel axis cs:0,0) \closedcycle;
+			\addplot[fill=lightgray!50, no marks, draw=none] file {fluidcrystal_x.phd} %node[above left, inner ysep=0, inner xsep=1pt] (x) at (rel axis cs:1,0) {Crystal}  
+-| (rel axis cs:1,0) \closedcycle;
 			\addplot[black, dashed,no marks] file {gasliquid_sg.phd};% node[diamond, fill, inner sep=2pt] at (current plot begin){};
 			\addplot[black, dashed,no marks] file {gasliquid_sl.phd};
-			\addplot[black, no marks] file {gasliquid_bl.phd};
-			\addplot[black, no marks] file {gasliquid_bg.phd};
-			\addplot[fill=lightgray!50, no marks, draw=none] file {fluidcrystal_f.phd} node[above right] at (rel axis cs:0,0) {Fluid} -- (rel axis cs:0,0) \closedcycle;
-			\addplot[fill=lightgray!50, no marks, draw=none] file {fluidcrystal_x.phd} node[above left] (x) at (rel axis cs:1,0.5) {Crystal}  -| (rel axis cs:1,0) \closedcycle;
-			\draw[->] (x.base) --(rel axis cs:0.98,0.01);
+			\addplot[black, no marks] file {gasliquid_bl.phd} node[pos=1,sloped,below] {liquid};
+			\addplot[black, no marks] file {gasliquid_bg.phd} node[pos=0.3,sloped,below] {gas};
+			
+			%\draw[->] (x.base) --(rel axis cs:0.98,0.01);
 		\end{groupplot}
+		\node[anchor=north west, rotate=90, inner xsep=0,lightgray] (x) at (g c1r2.south east) {crystal};
 		%\draw(g c1r1.outer south west) -- +(\textwidth,0);
 		\end{tikzpicture}
 		\column{0.5\textwidth}
@@ -492,7 +496,7 @@ How to do that in 3D at particle level \alert{without a space station}?
 		ymin=0, ymax=1.9, ytick={0,0.5,...,2},
 		mark options={solid}
 		]
-		\begin{scope}[dotted, mark repeat=2,mark phase=2,<->]
+		\begin{scope}[dotted, thick, mark repeat=2,mark phase=2,<->]
 		\addplot file {sample0.phd};
 		\addplot file {sample1.phd};
 		\addplot file {sample2.phd};
@@ -500,16 +504,15 @@ How to do that in 3D at particle level \alert{without a space station}?
 		\addplot file {sample4.phd};
 		\addplot file {sample5.phd};
 		\end{scope}
-		\addplot[black, dashed,no marks] file {gasliquid_sg.phd};% node[diamond, fill, inner sep=2pt] at (current plot begin){};
-		\addplot[black, dashed,no marks] file {gasliquid_sl.phd};
-		\addplot[black, no marks] file {gasliquid_bl.phd};
-		\addplot[black, no marks] file {gasliquid_bg.phd};
-		\addplot[fill=lightgray!50, no marks, draw=none] file {fluidcrystal_f.phd} node[above right] at (rel axis cs:0,0) {Fluid} -- (rel axis cs:0,0) \closedcycle;
-		\addplot[fill=lightgray!50, no marks, draw=none] file {fluidcrystal_x.phd} node[above left] (x) at (rel axis cs:1,0.5) {Crystal}  -| (rel axis cs:1,0) \closedcycle;
-		%\draw[gray] (axis cs:0.371290311343, 0.12299370925) -- (axis cs:0.680497991395,0.0372636873433);
-		%\draw[gray, dotted] (axis cs:3.40152108798e-05,0.624739653238) -- (axis cs:0.722831684246, 0.0726528862772);
-		\draw[->] (x.base) --(rel axis cs:0.98,0.01);
 		\addplot[only marks, mark=triangle] file{fluid_samples.phd};
+		\addplot[fill=lightgray!50, no marks, draw=none] file {fluidcrystal_f.phd} node[above right] at (rel axis cs:0,0) {fluid} -- (rel axis cs:0,0) \closedcycle;
+			\addplot[fill=lightgray!50, no marks, draw=none] file {fluidcrystal_x.phd} %node[above left, inner ysep=0, inner xsep=1pt] (x) at (rel axis cs:1,0) {Crystal}  
+-| (rel axis cs:1,0) \closedcycle;
+			\addplot[black, dashed,no marks] file {gasliquid_sg.phd};% node[diamond, fill, inner sep=2pt] at (current plot begin){};
+			\addplot[black, dashed,no marks] file {gasliquid_sl.phd};
+			\addplot[black, no marks] file {gasliquid_bl.phd} node[pos=1,sloped,below] {liquid};
+			\addplot[black, no marks] file {gasliquid_bg.phd} node[pos=0.3,sloped,below] {gas};
+		
 	
 	\nextgroupplot[
 		title={cluster size distribution},
@@ -528,6 +531,7 @@ How to do that in 3D at particle level \alert{without a space station}?
 	
 	
 	\end{groupplot}
+	\node[anchor=north west, rotate=90, inner xsep=0,lightgray] (x) at (g c1r1.south east) {crystal};
 	%\draw(g c1r1.outer south west) -- +(\textwidth,0);
 	\end{tikzpicture}
 	\begin{itemize}
@@ -642,7 +646,7 @@ How to do that in 3D at particle level \alert{without a space station}?
 			\addplot[black, dashed,no marks] file {gasliquid_sl.phd};
 			\addplot[black, no marks] file {gasliquid_bl.phd};
 			\addplot[black, no marks] file {gasliquid_bg.phd};
-			\addplot[fill=lightgray!50, no marks, draw=none] file {fluidcrystal_f.phd} node[above right] at (rel axis cs:0,0) {Fluid} -- (rel axis cs:0,0) \closedcycle;
+			\addplot[fill=lightgray!50, no marks, draw=none] file {fluidcrystal_f.phd} node[above right] at (rel axis cs:0,0) {fluid} -- (rel axis cs:0,0) \closedcycle;
 			\addplot[fill=lightgray!50, no marks, draw=none] file {fluidcrystal_x.phd} %node[above left] (x) at (rel axis cs:1,0.5) {Crystal}  
 			-| (rel axis cs:1,0) \closedcycle;
 			%\draw[->] (x.base) --(rel axis cs:0.98,0.01);
