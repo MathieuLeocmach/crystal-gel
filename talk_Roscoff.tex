@@ -214,11 +214,15 @@ red!40!yellow,
 
 
 \begin{frame}{Big atoms: Colloid + Polymer}
-	
-\begin{columns}
-	\column{0.45\textwidth}
+	\begin{columns}
+	\column{0.5\textwidth}
+	\begin{itemize}
+		\item visible, trackable
+		\item tunable interactions
+	\end{itemize}
+	\medskip
 	\tikzsetnextfilename{interactions}%
-	\begin{tikzpicture}
+	\begin{tikzpicture}[every node/.style={font=\footnotesize}]
 		\let\mrad\relax
 		\newlength\mrad
 		\setlength{\mrad}{1em}
@@ -272,23 +276,27 @@ red!40!yellow,
 		\node[text width=6em,anchor=base, align=center] (dur) at (duri|-pur.base) {hard};
 		
 		\node[text width=6em, anchor=base east, inner xsep=0,xshift=1.5\mrad, align=right] (coll) at (colli.east|-pur.base) {depletion};
-	\end{tikzpicture}\\
-
-	\bigskip
-	\includegraphics[width=\textwidth]{../CNRS-2015/Renth_sedim.jpg}\\
-	\textit{\footnotesize Poon PRL 1999, Renth PRE 2001}
-	\begin{itemize}
-	\item triple coexistence
-	\item various kinetic paths
-	\end{itemize}
-
-	\column{0.45\textwidth}
-	\includegraphics[width=\textwidth,clip=true,trim=0 0 0 4.5cm]{presentation/Renth_diag.pdf}
+	\end{tikzpicture}
+	\begin{block}{Various phases}
+		\begin{itemize}
+			\item triple coexistence\\
+			\textit{\footnotesize Poon PRL 1999}
+			\item gas-liquid metastable\\\hfill to gas-crystal
+		\end{itemize}
+	\end{block}
+	\column{0.5\textwidth}
+	\vspace{0.5\baselineskip}
+	\hfill\tikzsetnextfilename{sedim_glx}%
+	\begin{tikzpicture}
+		\node[inner sep=0] (sedim){\includegraphics[height=17\baselineskip, clip=true, trim=0 250 0 0]{presentation/sedim_gas_liq_crystal_p.png}};
+		\path[every node/.style={left}] (sedim.north west) -- (sedim.south west) node[pos=0.1] {gas} node[pos=0.45] {liquid} node[pos=0.8] {crystal} node[pos=0.15, ilmorange, font=\itshape] {low viscosity} node[pos=0.5, ilmcolor, font=\itshape] {high viscosity};
+		\node[anchor=north east, font=\scriptsize, inner sep=1pt] at (sedim.south east) {Paddy Royall};
+	\end{tikzpicture}
 	\end{columns}
 \end{frame}
 
 \begin{frame}{Gel formation}
-	\begin{columns}
+		\begin{columns}
 		\column{0.5\textwidth}
 		\vspace{\baselineskip}
 		\tikzsetnextfilename{phdiagth}%
@@ -297,14 +305,14 @@ red!40!yellow,
 			xlabel absolute, every axis x label/.append style={anchor=base, yshift=-0.5em},
 			ylabel absolute, every axis y label/.append style={anchor=base, yshift=-0.5em}
 			}]
-		\pgfplotscreateplotcyclelist{samples}{%
-		blue,mark=square*,\\%
-		cyan,mark=square\\%
-		red, thick, mark=*\\%
-		red!65!yellow, mark=otimes\\%
-		red!30!yellow, mark=oplus\\%
-		red!65!black, mark=o\\%
-		}%
+% 		\pgfplotscreateplotcyclelist{samples}{%
+% 		blue,mark=square*,\\%
+% 		cyan,mark=square\\%
+% 		red, thick, mark=*\\%
+% 		red!65!yellow, mark=otimes\\%
+% 		red!30!yellow, mark=oplus\\%
+% 		red!65!black, mark=o\\%
+% 		}%
 		\begin{groupplot}[
 			group style={
 					group name=g, group size=1 by 2,
@@ -312,7 +320,7 @@ red!40!yellow,
 					vertical sep=0.5em,
 					x descriptions at=edge bottom,
 				},
-			cycle list name=samples,
+			%cycle list name=samples,
 			width=\textwidth,
 			%height=0.5\linewidth,
 			axis on top,
@@ -323,14 +331,18 @@ red!40!yellow,
 			ymin=0, ymax=2400, %ytick={0,0.5,...,2},
 			mark options={solid}
 			]
-			\addplot[fill=lightgray!50, no marks, draw=none] file {res_fluidcrystal_f.phd} node[above right] at (rel axis cs:0,0) {fluid} -- (rel axis cs:0,0) \closedcycle;
+			\addplot[fill=lightgray!50, no marks, draw=none] file {res_fluidcrystal_f.phd} node[above right] at (rel axis cs:0,0) {fluid} -- (rel axis cs:0,0) coordinate (O) \closedcycle;
 			\addplot[fill=lightgray!50, no marks, draw=none] file {res_fluidcrystal_x.phd} node[above left, inner ysep=0, inner xsep=1pt] (x) at (rel axis cs:1,0) {crystal}  -| (rel axis cs:1,0) \closedcycle;
 			\addplot[black, dashed,no marks] file {res_gasliquid_sg.phd};% node[diamond, fill, inner sep=2pt] at (current plot begin){};
 			\addplot[black, dashed,no marks] file {res_gasliquid_sl.phd};
-			\addplot[black, no marks] file {res_gasliquid_bl.phd} node[pos=0.5,sloped,below] {liquid};
-			\addplot[black, no marks] file {res_gasliquid_bg.phd} node[pos=0.1,sloped,below] {gas};
+			\addplot[black, no marks] file {res_gasliquid_bl.phd} node[pos=0.5,sloped,below,ilmcolor] (l) {liquid};
+			\addplot[black, no marks] file {res_gasliquid_bg.phd} node[pos=0.1,sloped,below,ilmorange] {gas};
 			
 			\node at (axis cs:0.35,2000) {g-l spinodal};
+			\draw[<->, thick, dotted] (l) -- (l -| O) node[pos=0.5,fill] {};
+			%glass
+			\only<2>{\addplot[pattern=crosshatch, pattern color=ilmcolor,no marks, draw=none] coordinates {(0.56,0) (0.6,500) (0.56,2400)}  -- (rel axis cs:1,1)  \closedcycle;}
+			
 	
 		\nextgroupplot[
 			xlabel={colloid volume fraction}, ylabel={P concent.  (\si{\milli\gram/\gram})},
@@ -343,8 +355,11 @@ red!40!yellow,
 -| (rel axis cs:1,0) \closedcycle;
 			\addplot[black, dashed,no marks] file {gasliquid_sg.phd};% node[diamond, fill, inner sep=2pt] at (current plot begin){};
 			\addplot[black, dashed,no marks] file {gasliquid_sl.phd};
-			\addplot[black, no marks] file {gasliquid_bl.phd} node[pos=1,sloped,below] {liquid};
-			\addplot[black, no marks] file {gasliquid_bg.phd} node[pos=0.3,sloped,below] {gas};
+			\addplot[black, no marks] file {gasliquid_bl.phd} node[pos=1,sloped,below,ilmcolor] (l) {liquid};
+			\addplot[black, no marks] file {gasliquid_bg.phd} node[pos=0.3,sloped,below,ilmorange] {gas};
+			\draw[<->, thick, dotted] (l.north) -- (rel axis cs:0,1) node[pos=0.5,fill] {};
+			%glass
+			\only<2>{\addplot[pattern=crosshatch, pattern color=ilmcolor,no marks, draw=none] coordinates {(0.56,0) (0.6,0.125) (0.56,2)}  -- (rel axis cs:1,1)  \closedcycle;}
 			
 			%\draw[->] (x.base) --(rel axis cs:0.98,0.01);
 		\end{groupplot}
@@ -352,17 +367,12 @@ red!40!yellow,
 		%\draw(g c1r1.outer south west) -- +(\textwidth,0);
 		\end{tikzpicture}
 		\column{0.5\textwidth}
-		Small polymer/colloid size ratio
-		\begin{itemize}
-		\item metastable gas-liquid
-		\item spinodal + glass $\Rightarrow$ gel\\ \hfill\textit{\footnotesize Lu et al. Nature~2008}
-		\item continuous minority phase
-		\item viscoelastic phase sep.\\ \hfill\textit{\footnotesize Tanaka J.Phys.Cond.Mat.~2000}
-		\item due to dynamic assymetry
-		\end{itemize}
+		%Small polymer/colloid size ratio
+		\structure{Dynamic assymetry}
 		\tikzsetnextfilename{vps}%
 		\begin{tikzpicture}
 	\draw[->] (0,0) -- +(\textwidth,0) node[pos=0.05, label=-90:\textcolor{ilmorange}{$\tau_1$}](t1) {|} node[pos=0.54, label=-90:\textcolor{ilmcolor}{$\tau_2$}] (t2){|} coordinate[pos=1] (tf) node[anchor=north east,font=\footnotesize]{time};
+	\node[below, font=\scriptsize, text width=0.4\textwidth, align=center] at ($(t1)!0.5!(t2)$) {continuous \textcolor{ilmcolor}{minority} phase};
 	\let\side\relax
 	\newlength\side
 	\setlength{\side}{0.275\textwidth}
@@ -413,8 +423,13 @@ red!40!yellow,
 		+(60:0.3\side) circle (0.07\side);
 	\end{scope}
 	\end{tikzpicture}
-	
-	\hfill$\textcolor{ilmcolor}{\tau_2} \rightarrow +\infty$ {\usebeamercolor[fg]{itemize item}\usebeamertemplate{itemize item}} arrest 
+	\begin{itemize}
+		\item viscoelastic phase sep.\\ \hfill\textit{\footnotesize Tanaka J.Phys.Cond.Mat.~2000}
+		\pause
+		\item glass transition $\textcolor{ilmcolor}{\tau_2} \rightarrow +\infty$
+		\item arrested phase separation
+		\item spinodal + glass $\Rightarrow$ gel\\ \hfill\textit{\footnotesize Lu et al. Nature~2008}
+	\end{itemize}	
 	\end{columns}
 \end{frame}
 
