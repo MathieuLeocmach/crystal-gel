@@ -373,6 +373,7 @@ red!40!yellow,
 		\begin{tikzpicture}
 	\draw[->] (0,0) -- +(\textwidth,0) node[pos=0.05, label=-90:\textcolor{ilmorange}{$\tau_1$}](t1) {|} node[pos=0.54, label=-90:\textcolor{ilmcolor}{$\tau_2$}] (t2){|} coordinate[pos=1] (tf) node[anchor=north east,font=\footnotesize]{time};
 	\node[below, font=\scriptsize, text width=0.4\textwidth, align=center] at ($(t1)!0.5!(t2)$) {continuous \textcolor{ilmcolor}{minority} phase};
+	\node[below, font=\scriptsize, text width=0.3\textwidth, align=center] at ($(t2)!0.4!(tf)$) {phase inversion};
 	\let\side\relax
 	\newlength\side
 	\setlength{\side}{0.275\textwidth}
