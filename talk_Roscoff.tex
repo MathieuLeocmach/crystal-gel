@@ -724,10 +724,13 @@ red!40!yellow,
 	\column{0.5\textwidth}
 	\tikzsetnextfilename{pathsX2}%
 	\begin{tikzpicture}
+	\colorlet{gas}{green!40}%
+	\colorlet{crystal}{red}%
+	\colorlet{liquid}{lightgray}%
 	\node[regular polygon, regular polygon sides=3, minimum width=5em] (tri){};
-	\node[circle, minimum width=3.5em, fill=green!40, left=1em of tri.corner 2] (gas) {gas};
-	\node[circle, minimum width=3.5em, draw, fill=white, right =1em of tri.corner 3] (liq) {liquid};
-	\node[regular polygon, regular polygon sides=6, fill=red,minimum width=3.5em, inner sep=0, above=0 of tri.corner 1] (X) {crystal};
+	\node[circle, minimum width=3.5em, fill=gas, left=1em of tri.corner 2] (gas) {gas};
+	\node[circle, minimum width=3.5em, fill=liquid, right =1em of tri.corner 3] (liq) {liquid};
+	\node[regular polygon, regular polygon sides=6, fill=crystal,minimum width=3.5em, inner sep=0, above=0 of tri.corner 1] (X) {crystal};
 	\draw[->, very thick] ($(tri.corner 2)+(0,0.25em)$) -- ($(liq.west)+(0,0.25em)$) node[midway, above]{54\%}-- (X);
 	\draw[->, very thick, dotted] ($(tri.corner 3)+(0,-0.25em)$) -- ($(gas.east)+(0,-0.25em)$) node[midway, below]{35\%}-- (X);
 	\draw[->, very thick, dashed] (X) edge [in=190,out=-130,loop] node[left]{11\%} ();
