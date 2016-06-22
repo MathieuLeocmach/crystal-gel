@@ -1,6 +1,7 @@
-\colorlet{gas}{green!40}%
-\colorlet{crystal}{red}%
-\colorlet{liquid}{lightgray}%
+\colorlet{an}{black}
+\colorlet{gas}{ilmorange!50!-an}%
+\colorlet{crystal}{ilmcolor!50!-an}%
+\colorlet{liquid}{ilmcolor!90!-an}%
 \let\ml\relax
 \newlength\ml
 \setlength{\ml}{0.00105\textwidth}
@@ -40,18 +41,18 @@
         ++(-54.4, -31.6) .. controls +(-18.8, -8.2) and +(18.0, -5.8) .. 
         ++(-56.6, 7.2) .. controls +(-10.4, 5.5) and +(11.4, -3.8) .. 
         ++(-29.6, 18.7) -- ($(bg.south west)!0.61!(bg.north west)$) |- cycle;
-      \path[fill=gas] ($(bg.south west)!0.39!(bg.north west)$) node[anchor=base west] {liquid} .. controls +(0.0, 2.5) and +(-18.9, 15.4) .. 
+      \path[fill=gas] ($(bg.south west)!0.39!(bg.north west)$) node[anchor=base west, an] {liquid} .. controls +(0.0, 2.5) and +(-18.9, 15.4) .. 
         ++(63.0, -34.5) .. controls +(8.6, -12.7) and +(0.6, 14.7) .. 
         ++(7.6, -43.3) .. controls +(-2.5, -16.0) and +(12.5, 9.2) .. 
         ++(-27.3, -33.2) .. controls +(-10.6, -6.2) and +(0.8, 0.9) .. 
         ($(bg.south west)!0.06!(bg.south east)$) -| cycle;
 	\fill[crystal] (274.8619,237.0951) circle (17);
-	\fill[crystal] (406.1129,300) circle (31) node[black] {crystal};
+	\fill[crystal] (406.1129,300) circle (31) node[an] {crystal};
 	\fill[crystal] (497.3412,397) circle (16);
 	\fill[crystal] (498,175) circle (20);
 	\fill[crystal] (317,250) circle (16);
 	%phases
-    \node[below right=50\ml of bg.north west] {gas};
+    \node[below right=50\ml of bg.north west, an] {gas};
 
 
 	  \begin{scope}[xshift=0.5\textwidth]
@@ -99,11 +100,10 @@
 	\fill[crystal] (498,175) circle (20) coordinate(cd);
 	\fill[crystal] (317,250) circle (32) ++(10,-15) coordinate(ce);
 	%processes
-	\node[anchor=east] at ($(bg.south east)!0.39!(bg.north east)$) (direct) {Direct};
-	\draw[->, very thick] (direct) to[bend right, distance=40\ml] (cd);
-	\draw[->, very thick, dotted] (200,280) coordinate (l) to[out=70, in=130, distance=80\ml] (cbb);
-	\draw[->, very thick, dashed] (ce) to[out=-60, in=-90, distance=60\ml] (cb);
-  \node[below] at ($(ce)!0.8!-60:(cb)$) {Ostwald};
-  \node[above] at ($(l)!0.65!30:(cbb)$) {Bergeron};
+	\draw[->, very thick, an] ($(bg.south east)!0.39!(bg.north east)$) node[anchor=east] (direct) {Direct} (direct) to[bend right, distance=40\ml] (cd);
+	\draw[->, very thick, dotted, an] (200,280) coordinate (l) to[out=70, in=130, distance=80\ml] (cbb);
+	\draw[->, very thick, dashed, an] (ce) to[out=-60, in=-90, distance=60\ml] (cb);
+  \node[below, an] at ($(ce)!0.8!-60:(cb)$) {Ostwald};
+  \node[above, an] at ($(l)!0.65!30:(cbb)$) {Bergeron};
   \end{scope}
 \end{tikzpicture}
