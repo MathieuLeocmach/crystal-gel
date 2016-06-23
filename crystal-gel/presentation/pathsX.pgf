@@ -1,7 +1,7 @@
 \colorlet{an}{black}
 \colorlet{gas}{ilmorange!50!-an}%
-\colorlet{crystal}{ilmcolor!50!-an}%
-\colorlet{liquid}{ilmcolor!90!-an}%
+\colorlet{crystal}{ilmcolor!90!-an}%
+\colorlet{liquid}{ilmcolor!50!-an}%
 \let\ml\relax
 \newlength\ml
 \setlength{\ml}{0.00105\textwidth}
