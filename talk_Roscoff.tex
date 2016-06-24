@@ -479,8 +479,8 @@ red!40!yellow,
 	\tikzsetnextfilename{phdiag_panels}%
 	\begin{tikzpicture}[
 		every axis/.style={
-		xlabel absolute, every axis x label/.append style={anchor=base, yshift=-1em},
-		ylabel absolute, every axis y label/.append style={anchor=base, yshift=-1em}
+		xlabel absolute, every axis x label/.append style={anchor=base, yshift=-1em, inner sep=0},
+		ylabel absolute, every axis y label/.append style={anchor=base, yshift=-1em, inner sep=0}
 		}]
 	\pgfplotscreateplotcyclelist{samples}{%
 	blue,mark=square*,\\%
@@ -591,7 +591,7 @@ red!40!yellow,
 	\end{groupplot}
 	\node[anchor=north west, rotate=90, inner xsep=0,lightgray] (x) at (g c1r1.south east) {crystal};
 	\end{tikzpicture}
-	\vspace{-0.5em}
+	%\vspace{-0.5em}
 	\begin{itemize}
 	\item<2-> Good agreement with theoretical phase diagram
 	\item<3-> At percolation time, compatible with random gelation
@@ -605,8 +605,8 @@ red!40!yellow,
 	\tikzsetnextfilename{phdiag_arrows}%
 	\begin{tikzpicture}[
 			every axis/.style={
-			xlabel absolute, every axis x label/.append style={anchor=base, yshift=-1em},
-			%ylabel absolute, every axis y label/.append style={anchor=base, yshift=-0.5em}
+			xlabel absolute, every axis x label/.append style={anchor=base, yshift=-1em, inner sep=0},
+			ylabel absolute, every axis y label/.append style={anchor=base, yshift=-1em, inner sep=0}
 			}]
 		\pgfplotscreateplotcyclelist{samples}{%
 		blue,mark=square*,\\%
@@ -617,6 +617,7 @@ red!40!yellow,
 		red!65!black, mark=o\\%
 		}%
 		\begin{axis}[
+			name=ax,
 			cycle list name=samples,
 			width=0.51\textwidth,
 			height=0.5\linewidth,
@@ -644,9 +645,25 @@ red!40!yellow,
 			%\draw[->] (x.base) --(rel axis cs:0.98,0.01);
 			\addplot[only marks, mark=triangle] file{fluid_samples.phd};
 	\end{axis}
+	\let\ml\relax%
+	\newlength\ml%
+	\setlength{\ml}{0.25\textwidth}%
+	\matrix[matrix of nodes, inner sep=0, above left= 0 and -\textwidth of ax.outer south west, row sep=0.5em, column sep=0.3em,ampersand replacement=\&] (m){
+		\includegraphics[width=\ml]{presentation/highcpfinal_gaussian.jpg}\&
+		\includegraphics[width=\ml]{presentation/sliceILM_highcp_t800.png}\\
+		\includegraphics[width=\ml]{presentation/lowcpfinal_gaussian.jpg}\&
+		\includegraphics[width=\ml]{presentation/sliceILM_t890.png}\\
+	};
+	\matrix[
+	matrix of nodes, inner sep=0, column sep=0.2em, below left= 0.3em and 0 of m.south east, font=\scriptsize, ampersand replacement=\&,
+	every odd column/.style={circle, inner sep=0, minimum width= 0.6em, anchor=south west}
+	] {
+	|[ball color=ilmcolor]|\&crystal\&
+	|[ball color=ilmcolor!50!white]|\&liquid\&
+	|[ball color=ilmorange]|\&gas
+	\\};
 	\end{tikzpicture}
-	\includegraphics[height=11\baselineskip,clip=true,trim=0.5cm 0 0 0]{nature/fig2.pdf}
-	
+
 	\bigskip
 	Compact structure and higher local $\phi$ \alert{because crystallized}
 \end{frame}
@@ -684,6 +701,7 @@ red!40!yellow,
 			title={nuclei},
 			xlabel={$t/10^3\tau_B$}, ylabel=\#,
 			xmin=0, xmax=13.0, ymin=0,
+			extra x ticks={2.11, 5.63, 12.13}, extra x tick style={grid=major}, extra x tick labels={},
 			no marks,
 			legend style={cells={anchor=base west}},
 			]
@@ -752,7 +770,7 @@ red!40!yellow,
 \begin{frame}{Conclusion}
 	\begin{itemize}
 		\item A particle level colloidal analogue to the Bergeron process
-		\item Generic "crystal-gel" process
+		\item Generic ``crystal-gel'' process
 		\begin{enumerate}
 			\item gas-liquid phase separation below melting point
 		of a crystal
