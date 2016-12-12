@@ -13,8 +13,8 @@
 		width=0.5\textwidth,
 		height=0.4\linewidth,
 		axis on top,
-		xlabel={$\tau_B$},
-		xmin=0,xmax=400,
+		xlabel={$t/\tau_B$},
+		xmin=-50,xmax=700,
 	}
 }}
 \begin{groupplot}[
@@ -27,16 +27,16 @@
 ]
 \nextgroupplot
 	\addplot file{data/panel_a_neigh.dat};
-	\addplot+[cyan,mark=square] coordinates {(20,5)} node[right=0.5em, black] {$\phi=0.14$, $c_P=1.36$};
+	\addplot+[cyan,mark=square] coordinates {(20,5.25)} node[right=0.5em, black] {$\phi=0.14$, $c_P=1.36$};
 \nextgroupplot
 	\addplot file{data/panel_b_neigh.dat};
-	\addplot+[red!65!yellow, mark=otimes] coordinates {(20,5)} node[right=0.5em, black] {$\phi=0.33$, $c_P=1.07$};
+	\addplot+[red!65!yellow, mark=otimes] coordinates {(20,5.25)} node[right=0.5em, black] {$\phi=0.33$, $c_P=1.07$};
 \nextgroupplot
 	\addplot file{data/panel_c_neigh.dat};
-	\addplot+[blue,mark=square*] coordinates {(20,5)} node[right=0.5em, black] {$\phi=0.14$, $c_P=0.82$};
+	\addplot+[blue,mark=square*] coordinates {(20,5.25)} node[right=0.5em, black] {$\phi=0.14$, $c_P=0.82$};
 \nextgroupplot
 	\addplot file{data/panel_d_neigh.dat};
-	\addplot+[red, thick, mark=*] coordinates {(20,5)} node[right=0.5em, black] {$\phi=0.33$, $c_P=0.38$};
+	\addplot+[red, thick, mark=*] coordinates {(20,5.25)} node[right=0.5em, black] {$\phi=0.33$, $c_P=0.38$};
 \end{groupplot}
 \begin{groupplot}[
 	group/y descriptions at=edge right,
