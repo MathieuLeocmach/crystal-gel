@@ -1,0 +1,984 @@
+\pdfminorversion=4
+\documentclass[xcolor=table]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[british]{babel}
+\usepackage[super]{nth}
+%\usetheme{Boadilla}
+%\usecolortheme{rose}
+%\usecolortheme{crane}
+%\usefonttheme{structuresmallcapsserif}
+%\setbeamertemplate{navigation symbols}{}
+
+\definecolor{Main}{rgb}{0.74, 0.13, 0.19}
+\definecolor{Accent1}{rgb}{0.76,0.36,0.13}
+\definecolor{Accent2}{rgb}{0.54,0.1,0.4}
+
+\mode<presentation>{\usetheme{ilm}}
+%\usecolortheme{rose}
+%\useinnertheme[shadow]{circles}
+%\usecolortheme{whale}
+%\useoutertheme{infolines}
+
+%\usecolortheme[named=Accent1]{structure}
+
+
+
+
+%\setbeamerfont{page number in head/foot}{size=\large}
+%\setbeamercolor{page number in head/foot}{fg=Main}
+%% page/total
+%%\setbeamertemplate{footline}[frame number]
+%% pas de total
+%\setbeamertemplate{footline}{%
+%    	\hfill%
+%	\usebeamercolor[fg]{page number in head/foot}%
+%	\usebeamerfont{page number in head/foot}%
+%	\insertframenumber\kern1em\vskip2pt%
+%}
+%
+%\setbeamersize{text margin left=1em}
+%\setbeamersize{text margin right=1em}
+
+\usepackage[overlay,absolute]{textpos}
+\setlength{\TPHorizModule}{10mm}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{10mm}{10mm} % start everything near the top-left corner
+\setlength{\parindent}{0pt}
+
+%font
+\usepackage[T1]{fontenc}
+\usepackage{times}
+%\usepackage[oldstylenums]{kpfonts}
+
+%\include{macros}
+
+
+%proper math and math symbols
+%\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{datenumber,fp}
+
+\usepackage[separate-uncertainty = true]{siunitx}
+
+\usepackage{tabu}
+\usepackage{multirow}
+\usepackage{booktabs}
+
+% Allow the usage of graphics (.jpg, .png, etc.) in the document
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,backgrounds, calc, positioning, topaths,chains, intersections, decorations.markings, decorations.text, shapes.geometric, matrix,patterns,mindmap}
+%\usetikzlibrary{positioning, patterns,topaths,chains,matrix}
+
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\pgfplotsset{compat=1.9}
+\usepgfplotslibrary{groupplots}
+\usepgfplotslibrary{external}
+\makeatletter
+\newcommand*{\overlaynumber}{\number\beamer@slideinframe}
+\tikzset{
+  beamer externalizing/.style={%
+    execute at end picture={%
+      \tikzifexternalizing{%
+        \ifbeamer@anotherslide
+        \pgfexternalstorecommand{\string\global\string\beamer@anotherslidetrue}%
+        \fi
+      }{}%
+    }%
+  },
+  external/optimize=false
+}
+\let\orig@tikzsetnextfilename=\tikzsetnextfilename
+\renewcommand\tikzsetnextfilename[1]{\orig@tikzsetnextfilename{#1-\overlaynumber}}
+\makeatother
+
+\tikzset{every picture/.style={beamer externalizing}}
+\tikzexternalize
+\tikzsetexternalprefix{fig_presentation/}
+%\tikzset{external/optimize=false}
+%\tikzset{external/force remake}
+
+
+%link or play movies
+\usepackage{multimedia}
+
+
+
+%beamer related package
+
+\usepackage{todonotes}
+\presetkeys{todonotes}{inline}{}
+
+\tikzset{onslide/.code args={<#1>#2}{%
+  \only<#1>{\pgfkeysalso{#2}} %
+}}%
+
+
+%bibliography
+\usepackage[style=authoryear-comp, language=british,eprint=false, url=false, doi=false, sortcites=true, sorting=none, isbn=false, firstinits=true,maxcitenames=6]{biblatex}
+%minimal citations
+\AtEveryCitekey{%
+	\clearfield{title}
+	\clearfield{pages}
+	\clearfield{volume}
+	\clearfield{number}
+	\clearfield{month}}
+\newcommand{\myfullcite}[1]{{\scriptsize\fullcite{#1}}}
+\renewbibmacro{in:}{%
+  \ifentrytype{article}{}{%
+  \printtext{\bibstring{in}\intitlepunct}}}
+%\bibliography{biblio}
+
+
+\newcolumntype{P}[1]{>{\raggedright}p{#1}}
+
+\institute[iLM]{Equipe Liquides et Interfaces}%{Univ Lyon, Université Claude Bernard Lyon 1, CNRS, Institut Lumière Matière}
+\title[crystal gel]{A novel route to the spontaneous formation of porous crystals via viscoelastic phase separation}
+\author[M. Leocmach]{Mathieu Leocmach \hfill{\usebeamerfont{normal text}\texttt{\usebeamercolor[fg]{normal text}\footnotesize @LamSonLeoc\includegraphics[height=1em]{Twitter_Bird}}}\vspace{-0.5\baselineskip}}
+\date{16 Nov 2016}
+\titlegraphic{
+	\begin{tabu}{X[c]X[c]X[c]}
+		\includegraphics[height=3\baselineskip]{presentation/Tsurusawa}&
+		\includegraphics[height=3\baselineskip]{presentation/John}&
+		\includegraphics[height=3\baselineskip]{presentation/Tanaka}\\
+		Hideyo Tsurusawa & John Russo & Hajime Tanaka\\
+		U. Tokyo & U. Bristol & U. Tokyo\\
+	\end{tabu}
+	
+	%\vfill
+	%\includegraphics[height=2\baselineskip]{logo_ens-lyon}\quad
+	%\includegraphics[height=2\baselineskip]{logo_ums_grand}\quad
+	%\includegraphics[height=2\baselineskip]{../../Yaourt/CNRSfilaire-Q}\quad
+	%\includegraphics[height=2\baselineskip]{CRPP}\quad
+	%\includegraphics[height=2\baselineskip,clip=true, trim=6mm 14mm 6mm 0]{NEW-Logo-ERC-OUTLINE}
+	}
+
+
+\newlength{\mylength}
+
+%\includeonly{creep_beamer}
+
+\begin{document}
+\tikzset{every mark/.append style={scale=0.8}}
+\pgfplotsset{every axis/.append style={footnotesize}}
+
+\pgfplotscreateplotcyclelist{earthy}{%
+{red!40!black,mark=o},
+{red!60!black,mark=triangle, every mark/.append style={rotate=180}},
+{red!80!black,mark=square},
+{red,mark=triangle},
+{red!80!yellow, mark=diamond},
+red!60!yellow,
+red!40!yellow,
+}
+
+\AtBeginSection[]{
+	\addtocounter{framenumber}{-1}
+	\begin{frame}[plain]
+		\tableofcontents[currentsection, hideothersubsections]
+	\end{frame}
+}
+
+\begin{frame}{\pgfuseimage{cnrs-logo}\hspace*{0.3cm}\pgfuseimage{ucbl-logo}}%[plain]
+	\titlepage
+\end{frame}
+
+\setcounter{framenumber}{0}
+
+\begin{frame}<1>[label=intro]{How does it crystallise?}
+	\begin{description}[Understand]
+		\item[Understand] natural phenomena
+		\item[Engineer] technological applications
+	\end{description}
+	
+	\begin{block}{What determines the ensemble properties of crystallites?}
+	\vspace{-0.5\baselineskip}\begin{columns}
+	\column{0.45\textwidth}%
+		\begin{itemize}
+			\item polymorph type
+			\item shape
+		\end{itemize}
+	\column{0.45\textwidth}
+	\begin{itemize}
+			\item spatial arrangement
+			\item size distribution
+		\end{itemize}
+	\end{columns}
+	\end{block}
+	
+	\begin{itemize}
+		\item Not always simple nucleation and growth scenario
+		\begin{itemize}
+			\item<2> Example: Bergeron process
+		\end{itemize}
+		\item<2> \structure{More detailed view of the processes needed}
+	\end{itemize}
+\end{frame}
+	
+\begin{frame}{Let it snow!}
+	\hfill Wegener-\alert{Bergeron}-Findeisen \alert{process}
+	\begin{columns}[b]
+	\column{0.4\textwidth}
+	\includegraphics[width=\textwidth,clip=true,trim=0 0 0 1cm]{presentation/Pitter1.jpg}
+	
+	\vspace{1em}\includegraphics[width=\textwidth]{presentation/bergeron.jpg}
+	\column{0.40\textwidth}
+	\includegraphics[width=\textwidth,clip=true,trim=0 0 0.8mm 0]{presentation/queries-figure-1.jpg}
+	
+	\vspace{1em}\includegraphics[width=\textwidth]{presentation/OKC-Fallstreak.jpg}
+	\end{columns}
+\end{frame}
+
+\againframe<2>{intro}
+
+\begin{frame}{Big atoms: Colloid + Polymer}
+	\begin{columns}
+	\column{0.5\textwidth}
+	\begin{itemize}
+		\item visible, trackable
+		\item tunable interactions
+	\end{itemize}
+	\medskip
+	\tikzsetnextfilename{interactions}%
+	\begin{tikzpicture}[every node/.style={font=\footnotesize}]
+		\let\mrad\relax
+		\newlength\mrad
+		\setlength{\mrad}{1em}
+		
+		
+		%schemas interactions
+		
+		%repulsion
+		\begin{scope}[xshift=2\mrad]
+		\node[circle, inner sep=0, minimum width=4\mrad, inner color=Main, outer color=white]  (puri) {}; 
+		\foreach \x in {0,30,...,330}{
+			\draw[decoration={random steps,segment length=0.1\mrad, amplitude=0.08\mrad},decorate] (0,0) -- (\x:1\mrad);
+		}
+		\fill[gray, radius=0.8\mrad] circle;
+		\foreach \x in {15,75,...,315}{
+			\node[Accent2, font=\tiny] at (\x:0.6\mrad) {+};
+		}
+		\end{scope}
+		
+		%spheres collantes
+		\begin{scope}[xshift=\textwidth-2.5\mrad]
+		\node[draw,circle, inner sep=0, minimum width=2.5\mrad, green!50!black, dashed]  (colli) {}; 
+		\draw[green!50!black, radius=1.25\mrad, dashed] (1.6\mrad,0) circle;
+		\fill[gray, radius=0.8\mrad] circle;
+		\fill[gray, radius=0.8\mrad] (1.6\mrad,0) circle;
+		\end{scope}
+		
+		\path (puri) -- (colli) coordinate[midway] (m);
+		
+		%spheres dures
+		\begin{scope}[shift=(m)]
+		\node[circle, inner sep=0, minimum width=2.2\mrad, inner color=Main, outer color=white]  (duri) {}; 
+		\foreach \x in {0,30,...,330}{
+			\draw[decoration={random steps,segment length=0.1\mrad, amplitude=0.08\mrad},decorate] (0,0) -- (\x:1\mrad);
+		}
+		\fill[gray, radius=0.8\mrad] circle;
+		\foreach \x in {15,75,...,315}{
+			\node[Accent2, font=\tiny] at (\x:0.6\mrad) {+};
+		}
+		\end{scope}
+		
+		%fleches
+		\draw[->] (puri) -- (duri) node[midway,above,font=\footnotesize]{ions};
+		\draw[->] (duri) -- (colli)node[midway, above,font=\footnotesize]{PS};
+		% \draw[->] (puri) -- (ps) -- (depli);
+		
+		
+		%titres
+		\node[text width=6em,anchor=base west, inner xsep=0] (pur) at (puri.west|-puri.north) {repulsion};
+		
+		\node[text width=6em,anchor=base, align=center] (dur) at (duri|-pur.base) {hard};
+		
+		\node[text width=6em, anchor=base east, inner xsep=0,xshift=1.5\mrad, align=right] (coll) at (colli.east|-pur.base) {depletion};
+	\end{tikzpicture}
+	\begin{block}{Various phases}
+		\begin{itemize}
+			\item triple coexistence\\
+			\textit{\footnotesize Poon PRL 1999}
+			\item gas-liquid metastable\\\hfill to gas-crystal
+		\end{itemize}
+	\end{block}
+	\column{0.5\textwidth}
+	\vspace{0.5\baselineskip}
+	\hfill\tikzsetnextfilename{sedim_glx}%
+	\begin{tikzpicture}
+		\node[inner sep=0] (sedim){\includegraphics[height=17\baselineskip, clip=true, trim=0 250 0 0]{presentation/sedim_gas_liq_crystal_p.png}};
+		\path[every node/.style={left}] (sedim.north west) -- (sedim.south west) node[pos=0.1] {gas} node[pos=0.45] {liquid} node[pos=0.8] {crystal} node[pos=0.15, ilmorange, font=\itshape] {low viscosity} node[pos=0.5, ilmcolor, font=\itshape] {high viscosity};
+		\node[anchor=north east, font=\scriptsize, inner sep=1pt] at (sedim.south east) {Paddy Royall};
+	\end{tikzpicture}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Gel formation}
+		\begin{columns}
+		\column{0.5\textwidth}
+		\vspace{\baselineskip}
+		\tikzsetnextfilename{phdiagth}%
+		\begin{tikzpicture}[
+			every axis/.style={
+			xlabel absolute, every axis x label/.append style={anchor=base, yshift=-0.5em},
+			ylabel absolute, every axis y label/.append style={anchor=base, yshift=-0.5em}
+			}]
+% 		\pgfplotscreateplotcyclelist{samples}{%
+% 		blue,mark=square*,\\%
+% 		cyan,mark=square\\%
+% 		red, thick, mark=*\\%
+% 		red!65!yellow, mark=otimes\\%
+% 		red!30!yellow, mark=oplus\\%
+% 		red!65!black, mark=o\\%
+% 		}%
+		\begin{groupplot}[
+			group style={
+					group name=g, group size=1 by 2,
+					horizontal sep=4em,
+					vertical sep=0.5em,
+					x descriptions at=edge bottom,
+				},
+			%cycle list name=samples,
+			width=\textwidth,
+			%height=0.5\linewidth,
+			axis on top,
+		]
+		\nextgroupplot[
+			ylabel={attraction},
+			xmin=0,xmax=0.74,
+			ymin=0, ymax=2400, %ytick={0,0.5,...,2},
+			mark options={solid}
+			]
+			\addplot[fill=lightgray!50, no marks, draw=none] file {res_fluidcrystal_f.phd} node[above right] at (rel axis cs:0,0) {fluid} -- (rel axis cs:0,0) coordinate (O) \closedcycle;
+			\addplot[fill=lightgray!50, no marks, draw=none] file {res_fluidcrystal_x.phd} node[above left, inner ysep=0, inner xsep=1pt] (x) at (rel axis cs:1,0) {crystal}  -| (rel axis cs:1,0) \closedcycle;
+			\addplot[black, dashed,no marks] file {res_gasliquid_sg.phd};% node[diamond, fill, inner sep=2pt] at (current plot begin){};
+			\addplot[black, dashed,no marks] file {res_gasliquid_sl.phd};
+			\addplot[black, no marks] file {res_gasliquid_bl.phd} node[pos=0.5,sloped,below,ilmcolor] (l) {liquid};
+			\addplot[black, no marks] file {res_gasliquid_bg.phd} node[pos=0.1,sloped,below,ilmorange] {gas};
+			
+			\node at (axis cs:0.35,2000) {g-l spinodal};
+			\draw[<->, thick, dotted] (l) -- (l -| O) node[pos=0.5,fill] {};
+			%glass
+			\only<2>{\addplot[pattern=crosshatch, pattern color=ilmcolor,no marks, draw=none] coordinates {(0.56,0) (0.6,500) (0.56,2400)}  -- (rel axis cs:1,1)  \closedcycle;}
+			
+	
+		\nextgroupplot[
+			xlabel={colloid volume fraction}, ylabel={P concent.  (\si{\milli\gram/\gram})},
+			xmin=0,xmax=0.74,
+			ymin=0, ymax=1.9, ytick={0,0.5,...,2},
+			mark options={solid}
+			]
+			\addplot[fill=lightgray!50, no marks, draw=none] file {fluidcrystal_f.phd} node[above right] at (rel axis cs:0,0) {fluid} -- (rel axis cs:0,0) \closedcycle;
+			\addplot[fill=lightgray!50, no marks, draw=none] file {fluidcrystal_x.phd} %node[above left, inner ysep=0, inner xsep=1pt] (x) at (rel axis cs:1,0) {Crystal}  
+-| (rel axis cs:1,0) \closedcycle;
+			\addplot[black, dashed,no marks] file {gasliquid_sg.phd};% node[diamond, fill, inner sep=2pt] at (current plot begin){};
+			\addplot[black, dashed,no marks] file {gasliquid_sl.phd};
+			\addplot[black, no marks] file {gasliquid_bl.phd} node[pos=1,sloped,below,ilmcolor] (l) {liquid};
+			\addplot[black, no marks] file {gasliquid_bg.phd} node[pos=0.3,sloped,below,ilmorange] {gas};
+			\draw[<->, thick, dotted] (l.north) -- (rel axis cs:0,1) node[pos=0.5,fill] {};
+			%glass
+			\only<2>{\addplot[pattern=crosshatch, pattern color=ilmcolor,no marks, draw=none] coordinates {(0.56,0) (0.6,0.125) (0.56,2)}  -- (rel axis cs:1,1)  \closedcycle;}
+			
+			%\draw[->] (x.base) --(rel axis cs:0.98,0.01);
+		\end{groupplot}
+		\node[anchor=north west, rotate=90, inner xsep=0,lightgray] (x) at (g c1r2.south east) {crystal};
+		%\draw(g c1r1.outer south west) -- +(\textwidth,0);
+		\end{tikzpicture}
+		\column{0.5\textwidth}
+		%Small polymer/colloid size ratio
+		\structure{Dynamic assymetry}
+		\tikzsetnextfilename{vps}%
+		\begin{tikzpicture}
+	\draw[->] (0,0) -- +(\textwidth,0) node[pos=0.05, label=-90:\textcolor{ilmorange}{$\tau_1$}](t1) {|} node[pos=0.54, label=-90:\textcolor{ilmcolor}{$\tau_2$}] (t2){|} coordinate[pos=1] (tf) node[anchor=north east,font=\footnotesize]{time};
+	\node[below, font=\scriptsize, text width=0.4\textwidth, align=center] at ($(t1)!0.5!(t2)$) {continuous \textcolor{ilmcolor}{minority} phase};
+	\node[below, font=\scriptsize, text width=0.3\textwidth, align=center] at ($(t2)!0.4!(tf)$) {phase inversion};
+	\let\side\relax
+	\newlength\side
+	\setlength{\side}{0.275\textwidth}
+	\fill[ilmcolor!80!ilmorange] ($(t1)!0.1!45:(t2)$) coordinate(cse) rectangle +(\side,\side) coordinate(cnw);
+	\begin{scope}
+	\clip (cse) rectangle (cnw);
+	\fill[ilmorange!80!ilmcolor] ++($(cse)!0.5!(cnw)$) 
+		+(60:0.3\side) circle (0.22\side) 
+		+(180:0.3\side) circle (0.22\side) 
+		+(-60:0.3\side) circle (0.22\side) 
+		+(0:0.6\side) circle (0.22\side)
+		+(120:0.6\side) circle (0.22\side)
+		+(-120:0.6\side) circle (0.22\side)
+		+(45:0.8\side) circle (0.22\side)
+		+(-45:0.8\side) circle (0.22\side);
+	\end{scope}
+	\fill[ilmcolor] (cse-|t2) ++(-0.5\side,0) coordinate(cse) rectangle +(\side,\side) coordinate(cnw);
+	\begin{scope}
+	\clip (cse) rectangle (cnw);
+	\fill[ilmorange] ++($(cse)!0.5!(cnw)$) 
+		+(60:0.3\side) circle (0.26\side) 
+		+(180:0.3\side) circle (0.26\side) 
+		+(-60:0.3\side) circle (0.25\side) 
+		+(0:0.6\side) circle (0.25\side)
+		+(120:0.6\side) circle (0.25\side)
+		+(-120:0.6\side) circle (0.25\side)
+		+(45:0.8\side) circle (0.25\side)
+		+(-45:0.8\side) circle (0.25\side)
+		%enhance broken bond
+		+(120:0.15\side) circle (0.07\side);
+	\end{scope}
+	\fill[ilmorange] (cse-|tf) ++(-\side,0) coordinate(cse) rectangle +(\side,\side) coordinate(cnw);
+	\begin{scope}
+	\clip (cse) rectangle (cnw);
+	\fill[ilmcolor] ++($(cse)!0.5!(cnw)$) circle (0.07\side)
+		+(0:0.3\side) circle (0.07\side) 
+		+(120:0.3\side) circle (0.07\side) 
+		+(-120:0.3\side) circle (0.07\side) 
+		+(-60:0.6\side) circle (0.07\side)
+		+(60:0.6\side) circle (0.07\side)
+		++(0:0.3\side)
+		+(-60:0.3\side) circle (0.07\side)
+		+(60:0.3\side) circle (0.07\side)
+		+(120:0.6\side) circle (0.07\side)
+		+(-120:0.6\side) circle (0.07\side)
+		++(180:0.9\side)
+		+(-60:0.3\side) circle (0.07\side)
+		+(60:0.3\side) circle (0.07\side);
+	\end{scope}
+	\end{tikzpicture}
+	\begin{itemize}
+		\item viscoelastic phase sep.\\ \hfill\textit{\footnotesize Tanaka J.Phys.Cond.Mat.~2000}
+		\pause
+		\item glass transition $\textcolor{ilmcolor}{\tau_2} \rightarrow +\infty$
+		\item arrested phase separation
+		\item spinodal + glass $\Rightarrow$ gel\\ \hfill\textit{\footnotesize Lu et al. Nature~2008}
+	\end{itemize}	
+	\end{columns}
+\end{frame}
+
+
+
+
+\begin{frame}{Experimental}
+	\vspace{\baselineskip}
+	How to observe the whole process in 3D at particle level?
+	\begin{itemize}
+		\item index matched + \alert{\SI{2.3}{\micro\metre} colloids} + confocal
+		\item density match + $T$-control
+		\item preparation protocol without flow
+	\end{itemize}
+	\bigskip
+	\begin{columns}
+		\column{0.265\textwidth}
+			Colloids+polymers\\
+			{\footnotesize no screening
+			\begin{itemize}
+				\item Dispersed
+				\item Homogeneous
+			\end{itemize}
+			\bigskip
+			\begin{beamercolorbox}[rounded=true]{block body}PMMA + PS\\
+			in decalin + CHB $\epsilon_r\approx5$\\
+			$\kappa^{-1}>\SI{10}{\micro\metre}$
+			\end{beamercolorbox}}
+		\column{0.4\textwidth}
+			\tikzsetnextfilename{chemin_gelification}%
+			\input{presentation/chemin_gelification.pgf}
+		\column{0.335\textwidth}
+			\tikzsetnextfilename{cell}%
+			\input{presentation/cell.pgf}
+			\vspace{-\baselineskip}
+			\begin{itemize}
+			\item $\sim 10^4$ particles
+			\item from $t=0$
+			\item to $t>10^4\tau_B$
+			\end{itemize}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Exploring the phase diagram}
+\vspace{\baselineskip}
+	\tikzsetnextfilename{phdiag_panels}%
+	\begin{tikzpicture}[
+		every axis/.style={
+		xlabel absolute, every axis x label/.append style={anchor=base, yshift=-1em, inner sep=0},
+		ylabel absolute, every axis y label/.append style={anchor=base, yshift=-1em, inner sep=0}
+		}]
+	\pgfplotscreateplotcyclelist{samples}{%
+	blue,mark=square*,\\%
+	cyan,mark=square\\%
+	red, thick, mark=*\\%
+	red!65!yellow, mark=otimes\\%
+	red!30!yellow, mark=oplus\\%
+	red!65!black, mark=o\\%
+	}%
+	\begin{groupplot}[
+		group style={
+				group name=g, group size=2 by 2,
+				horizontal sep=4em,
+				vertical sep=3em,
+				%x descriptions at=edge bottom,
+			},
+		cycle list name=samples,
+		width=0.51\textwidth,
+		height=0.5\linewidth,
+		axis on top,
+	]
+	\nextgroupplot[
+		title={phase diagram},
+		xlabel={$\phi$}, ylabel={$c_p$ (\si{\milli\gram/\gram})},
+		xmin=0,xmax=0.74,
+		ymin=0, ymax=1.9, ytick={0,0.5,...,2},
+		mark options={solid}
+		]
+		\begin{scope}[
+			onslide={<1,3->{/pgfplots/skip coords between index={0}{1}, /pgfplots/skip coords between index={2}{3}}},
+			onslide={<2>{dotted, thick, mark repeat=2,mark phase=2,<->}}]
+		\addplot file {sample0.phd};
+		\addplot file {sample1.phd};
+		\addplot file {sample2.phd};
+		\addplot file {sample3.phd};
+		\addplot file {sample4.phd};
+		\addplot file {sample5.phd};
+		\end{scope}
+		\addplot[only marks, mark=triangle] file{fluid_samples.phd};
+		\addplot[fill=lightgray!50, no marks, draw=none] file {fluidcrystal_f.phd} node[above right] at (rel axis cs:0,0) {fluid} -- (rel axis cs:0,0) \closedcycle;
+			\addplot[fill=lightgray!50, no marks, draw=none] file {fluidcrystal_x.phd} %node[above left, inner ysep=0, inner xsep=1pt] (x) at (rel axis cs:1,0) {Crystal}  
+-| (rel axis cs:1,0) \closedcycle;
+			\addplot[black, dashed,no marks] file {gasliquid_sg.phd};% node[diamond, fill, inner sep=2pt] at (current plot begin){};
+			\addplot[black, dashed,no marks] file {gasliquid_sl.phd};
+			\addplot[black, no marks] file {gasliquid_bl.phd} node[pos=1,sloped,below] {liquid};
+			\addplot[black, no marks] file {gasliquid_bg.phd} node[pos=0.3,sloped,below] {gas};
+		
+	\only<3>{
+	\nextgroupplot[
+		title={cluster size distribution},
+		xlabel={$s$}, ylabel={$R_g/\sigma$},
+		xmin=1, xmax=4e3,
+		ymin=0.5, ymax=30,
+		xmode=log, ymode=log, 
+		clip mode=individual,
+		]
+		\addplot file{data/fig1b_sqrt_1.dat};
+		\addplot file{data/fig1b_sqrt_2.dat};
+		\addplot file{data/fig1b_sqrt_3.dat};
+		\addplot file{data/fig1b_sqrt_4.dat};
+		\addplot file{data/fig1b_sqrt_5.dat};
+		\addplot[gray, ultra thick, domain=1:4e3] {0.629*x^(1/2.53)} node [left] at (rel axis cs:1,0.9){$D=2.53$};
+	}
+	\only<4>{
+	\nextgroupplot[
+		title={structure factor},
+		xlabel={$q\sigma$}, ylabel={$S(q)$},
+		xmode=log, ymode=log, xmin=0.2, xmax=20, ymin=0.1,
+		restrict x to domain=-1.8:3, unbounded coords=discard, 
+		%clip mode=individual
+		]
+		\addplot+[clip mode=individual] file{data/fig3c_1.dat};
+		\addplot+[clip mode=individual] file{data/fig3c_2.dat};
+		\addplot file{data/fig3c_3.dat};
+		\addplot+[clip mode=individual] file{data/fig3c_4.dat};
+		\addplot+[clip mode=individual] file{data/fig3c_5.dat};
+		\addplot[black, ultra thick, domain=0.1:3] {2.14605*x^(-3)} node[pos=0.92,left=0.5em] {$D=3$};
+		\addplot[gray, ultra thick, domain=0.1:3] {3.98797*x^(-2.53)} node [pos=0.65, above right] {$D=2.53$};
+	}
+	\only<5>{
+	\nextgroupplot[
+		title={local volume fraction},
+		xlabel={\# neighbours}, ylabel={$\phi$ [\%]},
+		xmin=0, ymin=0, ytick={0,10,30,50},
+		extra y ticks={64, 72}, extra y tick style={grid=major}, extra y tick label={},
+		no markers,
+		/pgfplots/error bars/y dir=both, /pgfplots/error bars/y explicit,
+		]
+		\addplot table[y error=err]{data/vol_err_phi_0.10_cp_0.82.scaled};
+		\addplot table[y error=err]{data/vol_err_phi_0.10_cp_1.36.scaled};
+		\addplot table[y error=err]{data/vol_err_phi_0.25_cp_0.38.scaled};
+		\addplot table[y error=err]{data/vol_err_phi_0.25_cp_0.48.scaled};
+		\addplot table[y error=err]{data/vol_err_phi_0.25_cp_0.57.scaled};
+	}
+	\only<6>{
+	\nextgroupplot[
+		title={local $\phi$ 12-ngb particles},
+		xlabel=$t/10^3\tau_B$, ylabel={$\phi$ [\%]},
+		xmin=0,
+		/pgfplots/error bars/y dir=both, /pgfplots/error bars/y explicit,
+		]
+		\addplot table[y error=err]{data/mediaphi_phi0.10_cp0.82.scaled};
+		\addplot table[y error=err]{data/mediaphi_phi0.10_cp1.36.scaled};
+		\addplot table[y error=err]{data/mediaphi_phi0.25_cp0.38.scaled};
+		\addplot table[y error=err]{data/mediaphi_phi0.25_cp0.48.scaled};
+		\addplot table[y error=err]{data/mediaphi_phi0.25_cp0.57.scaled};
+	}
+	\end{groupplot}
+	\node[anchor=north west, rotate=90, inner xsep=0,lightgray] (x) at (g c1r1.south east) {crystal};
+	\end{tikzpicture}
+	%\vspace{-0.5em}
+	\begin{itemize}
+	\item<2-> Good agreement with theoretical phase diagram
+	\item<3-> At percolation time, compatible with random gelation
+	\item<4-> Final stucture compatible with random gelation \alert{Except} \textcolor{red}{$\bullet$}
+	\item<5-> Glassy local $\phi$ for 12-neighboured particles \alert{Except} \textcolor{red}{$\bullet$}
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Real space: crystal gel!}
+	\tikzsetnextfilename{phdiag_arrows}%
+	\begin{tikzpicture}[
+			every axis/.style={
+			xlabel absolute, every axis x label/.append style={anchor=base, yshift=-1em, inner sep=0},
+			ylabel absolute, every axis y label/.append style={anchor=base, yshift=-1em, inner sep=0}
+			}]
+		\pgfplotscreateplotcyclelist{samples}{%
+		blue,mark=square*,\\%
+		cyan,mark=square\\%
+		red, thick, mark=*\\%
+		red!65!yellow, mark=otimes\\%
+		red!30!yellow, mark=oplus\\%
+		red!65!black, mark=o\\%
+		}%
+		\begin{axis}[
+			name=ax,
+			cycle list name=samples,
+			width=0.51\textwidth,
+			height=0.5\linewidth,
+			axis on top,
+			xlabel={$\phi$}, ylabel={$c_p$ (\si{\milli\gram/\gram})},
+			xmin=0,xmax=0.74,
+			ymin=0, ymax=1.9, ytick={0,0.5,...,2},
+			mark options={solid}
+			]
+			\begin{scope}[/pgfplots/skip coords between index={0}{1}, /pgfplots/skip coords between index={2}{3}]%[draw=none,mark repeat=2,mark phase=2]
+			\addplot table {sample0.phd};
+			\addplot table {sample1.phd};
+			\addplot table {sample2.phd}[->] -- (rel axis cs:0.95,0.2);
+			\addplot table {sample3.phd};
+			\addplot table {sample4.phd};
+			\addplot table {sample5.phd}[->] -- (rel axis cs:0.95,0.7);
+			\end{scope}
+			\addplot[black, dashed,no marks] file {gasliquid_sg.phd};% node[diamond, fill, inner sep=2pt] at (current plot begin){};
+			\addplot[black, dashed,no marks] file {gasliquid_sl.phd};
+			\addplot[black, no marks] file {gasliquid_bl.phd};
+			\addplot[black, no marks] file {gasliquid_bg.phd};
+			\addplot[fill=lightgray!50, no marks, draw=none] file {fluidcrystal_f.phd} node[above right] at (rel axis cs:0,0) {fluid} -- (rel axis cs:0,0) \closedcycle;
+			\addplot[fill=lightgray!50, no marks, draw=none] file {fluidcrystal_x.phd} %node[above left] (x) at (rel axis cs:1,0.5) {Crystal}  
+			-| (rel axis cs:1,0) \closedcycle;
+			%\draw[->] (x.base) --(rel axis cs:0.98,0.01);
+			\addplot[only marks, mark=triangle] file{fluid_samples.phd};
+	\end{axis}
+	\let\ml\relax%
+	\newlength\ml%
+	\setlength{\ml}{0.25\textwidth}%
+	\matrix[matrix of nodes, inner sep=0, above left= 0 and -\textwidth of ax.outer south west, row sep=0.5em, column sep=0.3em,ampersand replacement=\&] (m){
+		\includegraphics[width=\ml]{presentation/highcpfinal_gaussian.jpg}\&
+		\includegraphics[width=\ml]{presentation/sliceILM_highcp_t800.jpg}\\
+		\includegraphics[width=\ml]{presentation/lowcpfinal_gaussian.jpg}\&
+		\includegraphics[width=\ml]{presentation/sliceILM_t890.jpg}\\
+	};
+	\matrix[
+	matrix of nodes, inner sep=0, column sep=0.2em, below left= 0.3em and 0 of m.south east, font=\scriptsize, ampersand replacement=\&,
+	every odd column/.style={circle, inner sep=0, minimum width= 0.6em, anchor=south west}
+	] {
+	|[ball color=ilmcolor]|\&crystal\&
+	|[ball color=ilmcolor!50!white]|\&liquid\&
+	|[ball color=ilmorange]|\&gas
+	\\};
+	\end{tikzpicture}
+
+	\bigskip
+	Compact structure and higher local $\phi$ \alert{because crystallized}
+\end{frame}
+
+
+
+\begin{frame}{Crystals outgrow metastable liquid}
+	\vspace{\baselineskip}
+	\tikzsetnextfilename{crystal_fates}%
+	\begin{tikzpicture}
+	\begin{groupplot}[%
+				group style={
+					group name=g, group size=2 by 1,
+					horizontal sep=4em,
+					},
+			width=0.5\linewidth,
+			%height=0.5\linewidth,
+			xlabel absolute, every axis x label/.append style={anchor=base, font=\footnotesize, yshift=-0.5em},
+		]
+		\nextgroupplot[
+			title={nuclei},
+			xlabel={$t/10^3\tau_B$}, ylabel=\#,
+			xmin=0, xmax=13.0, ymin=0,
+			extra x ticks={2.11, 5.63, 12.13}, extra x tick style={grid=major}, extra x tick labels={},
+			no marks,
+			legend style={cells={anchor=base west}},
+			]
+		\addplot table[x expr={\thisrowno{0}/2.3e3}]{data/fig3a_1.dat} node[left] at (rel axis cs:1,0.2) {avg size};
+		\addplot table[x expr={\thisrowno{0}/2.3e3}]{data/fig3a_2.dat} node[left] at (rel axis cs:1,0.6) {number};
+		%\legend{average size, average number};
+	
+		\nextgroupplot[
+			title={nuclei size distribution},
+			xlabel={$s$}, ylabel=$R_g/\sigma$,
+			xmode=log, ymode=log, ymin=0.3,
+			ytick={0.5, 1, 2, 4}, yticklabels={$\frac{1}{2}$, 1, 2, 4},
+			domain=1.1:5e2,
+			]
+		\draw[dashed] (rel axis cs:0.5,0) -- (rel axis cs:0.5,1);
+		\addplot[only marks, red, thick, mark=*] file{data/fig3d_sqrt_1.dat};
+		\addplot[black, ultra thick] {0.522*x^(1/3)} node[below left] at (axis cs:9e2,2.5) {$D=3$} node[anchor=north east, font=\footnotesize, text width=0.1\textwidth] at (rel axis cs:1,0.5) {outgrow\linebreak network};
+		\addplot[gray, ultra thick] {0.426*x^(1/2.53)} node[anchor=south west, inner sep=1pt] at (rel axis cs:0,0){$D=2.53$} node[anchor=north east, font=\footnotesize, text width=0.2\textwidth, align=right] at (rel axis cs:0.45,1) {within\linebreak network};
+		
+	\end{groupplot}
+	\end{tikzpicture}
+
+	\let\imw\relax
+	\newlength\imw
+	\setlength{\imw}{0.29\linewidth}
+	\begin{scriptsize}
+	\begin{tabular}{ccc}
+	\includegraphics[width=\imw]{presentation/sliceILM_t120.jpg}&
+	\includegraphics[width=\imw]{presentation/sliceILM_t390.jpg}&
+	\includegraphics[width=\imw]{presentation/sliceILM_t890.jpg}\\
+	$t=2110\tau_B$ & $t=5630\tau_B$ & $t=12130\tau_B$\\
+	\end{tabular}
+	\end{scriptsize}
+\end{frame}
+
+
+\begin{frame}{Dynamics: Bergeron > Ostwald}
+	\vspace{\baselineskip}
+	\begin{center}
+	\tikzsetnextfilename{pathsX}\vspace{-0.5em}\input{presentation/pathsX.pgf}
+	\end{center}
+	\begin{columns}
+	\column{0.5\textwidth}
+	\begin{itemize}
+	\item Individual trajectories
+	\item Probability of path to X
+	\end{itemize}
+	\column{0.5\textwidth}
+	\tikzsetnextfilename{pathsX2}%
+	\begin{tikzpicture}
+		\colorlet{an}{black}
+		\colorlet{gas}{ilmorange!50!-an}%
+		\colorlet{crystal}{ilmcolor!90!-an}%
+		\colorlet{liquid}{ilmcolor!50!-an}%
+		\node[regular polygon, regular polygon sides=3, minimum width=5em] (tri){};
+		\node[circle, minimum width=3.5em, fill=gas, left=1em of tri.corner 2] (gas) {gas};
+		\node[circle, minimum width=3.5em, fill=liquid, right =1em of tri.corner 3] (liq) {liquid};
+		\node[regular polygon, regular polygon sides=6, fill=crystal,minimum width=3.5em, inner sep=0, above=0 of tri.corner 1] (X) {crystal};
+		\draw[->, very thick] ($(tri.corner 2)+(0,0.25em)$) -- ($(liq.west)+(0,0.25em)$) node[midway, above]{54\%}-- (X);
+		\draw[->, very thick, dotted] ($(tri.corner 3)+(0,-0.25em)$) -- ($(gas.east)+(0,-0.25em)$) node[midway, below]{35\%}-- (X);
+		\draw[->, very thick, dashed] (X) edge [in=190,out=-130,loop] node[left]{11\%} ();
+	\end{tikzpicture}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Conclusion}
+	\begin{itemize}
+		\item A particle level colloidal analogue to the Bergeron process
+		\item Generic ``crystal-gel'' process
+		\begin{enumerate}
+			\item gas-liquid phase separation below melting point
+		of a crystal
+			\item weak or little frustration against crystallization
+			\item dynamical slowing down in a supercooled liquid state
+			\begin{itemize}
+				\item viscoelastic phase separation
+				\item network of the minority liquid phase
+			\end{itemize}
+			\item low supercooling: crystallisation > vitrification
+		\end{enumerate}
+		\item Gels of poor glass formers (monoatomic systems)
+		\item Porous material with a large area of crystalline planes
+		\begin{itemize}
+			\item catalysis, sensing, filtration, super-capacitor\ldots
+			\item single step
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\appendix
+\newcounter{finalframe}
+\setcounter{finalframe}{\value{framenumber}}
+
+\begin{frame}[plain]
+\end{frame}
+
+\begin{frame}{Another class of gel? Crystal-gel?}
+	\begin{itemize}
+	\item Phase separation arrested by crystallisation
+	\begin{description}
+		\item[polymer blend] Tanaka \& Nishi \textit{PRL} 1985
+		\item[simulations] Soga \textit{J.Chem. Phys.} 1999; Fortini \textit{PRE} 2008 
+	\end{description}
+	\item Spinodal then crystallisation
+	\begin{description}
+		\item[simulations] Pérez \textit{Langmuir} 2011
+		\item[microgravity] (triple coexistence) Sabin \textit{PRL} 2012
+	\end{description}
+	\end{itemize}
+	\includegraphics[width=\textwidth]{presentation/micrograv_Sabin2012}
+\end{frame}
+
+\begin{frame}{Reproducibility in capillary}
+	\hfill $\phi\approx 0.33$, $c_P=\SI{0.40}{\milli\gram/\gram}$
+	
+	\includegraphics[width=\textwidth]{nature/capillary}
+\end{frame}
+
+\begin{frame}{Transition probabilities}
+	\vspace{\baselineskip}
+	\includegraphics[width=\textwidth]{nature/sfig1.pdf}
+\end{frame}
+
+\begin{frame}{phase definition}
+	\begin{description}
+	\item[crystal]
+		\begin{itemize} 
+		\item particle $i$ has $N_b(i)=12$ neighbours
+		\item $\displaystyle q_{6 m}(i)=\frac{1}{N_b(i)}\sum_{j=1}^{N_b(i)}
+	Y_{6 m}(\mathbf{r_{ij}}),\quad -6 <m<6$
+		\item crystalline bond $(i,j)$: \[(\mathbf{q}_{6}(i)/|\mathbf{q}_{6}(i)|)\cdot(\mathbf{q}_{6}(j)/|\mathbf{q}_{6}(j)|)>0.7\]
+		\item crystalline particle: $7$ crystalline bonds
+		\end{itemize}
+	\item[surface] two neighbouring crystal particles
+	\item[liquid] at least four neighbouring particles
+	\item[gas]
+	\end{description}
+\end{frame}
+
+\begin{frame}{Colloid and polymer sizes}
+	Direct measurement \alert{too imprecise}
+	\begin{itemize}
+	\item diffusion constant $\Rightarrow R= \SI{2.3 +- 0.05}{\micro\metre}$
+	\item Flory scaling litterature measurements $\Rightarrow R_g=\SI{76. +- 50.}{\nano\metre}$
+	\end{itemize}
+	
+	\begin{block}{Adjusting theoretical and experimental phase diagrams}
+	\begin{enumerate}
+	\item to have the final local volume fraction of the 12-neighboured particles in the crystallising sample to be equal to the theoretical equilibrium crystal volume fraction 
+	\item to have the theoretical spinodal line to correspond to the gel region boundary.
+	\end{enumerate}
+	\end{block}
+	Starting from our initial estimates of $\sigma$ and $R$ we iteratively converge to $R=\SI{80}{\nano\metre}$, $\sigma = \SI{2.25}{\micro\metre}$ and a crystal (without defects) at $0.723$.
+\end{frame}
+
+\begin{frame}{Carnahan-Starling is not enough}
+	\tikzsetnextfilename{CSphasediag}%
+	\begin{tikzpicture}[
+		every axis/.style={
+			xlabel absolute, every axis x label/.append style={anchor=base, yshift=-0.5em},
+			ylabel absolute, every axis y label/.append style={anchor=base, yshift=-0.5em}
+			}]
+		\pgfplotscreateplotcyclelist{samples}{%
+		blue,mark=square*,\\%
+		cyan,mark=square\\%
+		red, thick, mark=*\\%
+		red!65!yellow, mark=otimes\\%
+		red!30!yellow, mark=oplus\\%
+		red!65!black, mark=o\\%
+		}%
+		\begin{groupplot}[
+			group style={
+					group name=g, group size=2 by 2,
+					horizontal sep=0.5em,
+					vertical sep=0.5em,
+					x descriptions at=edge bottom,
+					y descriptions at=edge left,
+				},
+			cycle list name=samples,
+			width=0.5\textwidth,
+			%height=0.5\linewidth,
+			axis on top,
+			xlabel={$\phi$},
+		]
+		\nextgroupplot[
+			ylabel={attraction},
+			xmin=0,xmax=0.74,
+			ymin=0, ymax=2400, %ytick={0,0.5,...,2},
+			mark options={solid}
+			]
+			\begin{scope}[dotted, mark repeat=2,mark phase=2,<->]
+		\addplot file {res_sample0.phd};
+		\addplot file {res_sample1.phd};
+		\addplot file {res_sample2.phd};
+		\addplot file {res_sample3.phd};
+		\addplot file {res_sample4.phd};
+		\addplot file {res_sample5.phd};
+		\end{scope}
+			\addplot[black, dashed,no marks] file {res_gasliquid_sg.phd};% node[diamond, fill, inner sep=2pt] at (current plot begin){};
+			\addplot[black, dashed,no marks] file {res_gasliquid_sl.phd};
+			\addplot[black, no marks] file {res_gasliquid_bl.phd};
+			\addplot[black, no marks] file {res_gasliquid_bg.phd};
+			\addplot[fill=lightgray!50, no marks, draw=none] file {res_fluidcrystal_f.phd} -- (rel axis cs:0,0) \closedcycle;
+			\addplot[fill=lightgray!50, no marks, draw=none] file {res_fluidcrystal_x.phd}  -| (rel axis cs:1,0) \closedcycle;
+
+	\nextgroupplot[
+			xmin=0,xmax=0.74,
+			ymin=0, ymax=2400, %ytick={0,0.5,...,2},
+			mark options={solid}
+			]
+			\begin{scope}[dotted, mark repeat=2,mark phase=2,<->]
+		\addplot file {res_sample0.phd};
+		\addplot file {res_sample1.phd};
+		\addplot file {res_sample2.phd};
+		\addplot file {res_sample3.phd};
+		\addplot file {res_sample4.phd};
+		\addplot file {res_sample5.phd};
+		\end{scope}
+			\addplot[black, dashed,no marks] file {res_gasliquidCS_sg.phd};% node[diamond, fill, inner sep=2pt] at (current plot begin){};
+			\addplot[black, dashed,no marks] file {res_gasliquidCS_sl.phd};
+			\addplot[black, no marks,skip coords between index={10}{100}] file {res_gasliquidCS_bl.phd};
+			\addplot[black, no marks,skip coords between index={10}{100}] file {res_gasliquidCS_bg.phd};
+			\addplot[fill=lightgray!50, no marks, draw=none] file {res_fluidcrystal_f.phd} -- (rel axis cs:0,0) \closedcycle;
+			\addplot[fill=lightgray!50, no marks, draw=none] file {res_fluidcrystal_x.phd}  -| (rel axis cs:1,0) \closedcycle;
+
+		\nextgroupplot[
+			ylabel={P concentr. (\si{\milli\gram/\gram})},
+			xmin=0,xmax=0.74,
+			ymin=0, ymax=1.9, ytick={0,0.5,...,2},
+			mark options={solid}
+			]
+			\begin{scope}[dotted, mark repeat=2,mark phase=2,<->]
+			\addplot file {sample0.phd};
+			\addplot file {sample1.phd};
+			\addplot file {sample2.phd};
+			\addplot file {sample3.phd};
+			\addplot file {sample4.phd};
+			\addplot file {sample5.phd};
+			\end{scope}
+			\addplot[black, dashed,no marks] file {gasliquid_sg.phd};% node[diamond, fill, inner sep=2pt] at (current plot begin){};
+			\addplot[black, dashed,no marks] file {gasliquid_sl.phd};
+			\addplot[black, no marks] file {gasliquid_bl.phd};
+			\addplot[black, no marks] file {gasliquid_bg.phd};
+			\addplot[fill=lightgray!50, no marks, draw=none] file {fluidcrystal_f.phd} -- (rel axis cs:0,0) \closedcycle;
+			\addplot[fill=lightgray!50, no marks, draw=none] file {fluidcrystal_x.phd}  -| (rel axis cs:1,0) \closedcycle;
+			\addplot[only marks, mark=triangle] file{fluid_samples.phd};
+		
+		\nextgroupplot[
+			xmin=0,xmax=0.74,
+			ymin=0, ymax=1.9, ytick={0,0.5,...,2},
+			mark options={solid}
+			]
+			\begin{scope}[dotted, mark repeat=2,mark phase=2,<->]
+			\addplot file {sample0.phd};
+			\addplot file {sample1.phd};
+			\addplot file {sample2.phd};
+			\addplot file {sample3.phd};
+			\addplot file {sample4.phd};
+			\addplot file {sample5.phd};
+			\end{scope}
+			\addplot[black, dashed,no marks] file {gasliquidCS_sg.phd};% node[diamond, fill, inner sep=2pt] at (current plot begin){};
+			\addplot[black, dashed,no marks] file {gasliquidCS_sl.phd};
+			\addplot[black, no marks,skip coords between index={10}{100}] file {gasliquidCS_bl.phd};
+			\addplot[black, no marks,skip coords between index={10}{100}] file {gasliquidCS_bg.phd};
+			\addplot[fill=lightgray!50, no marks, draw=none] file {fluidcrystal_f.phd} -- (rel axis cs:0,0) \closedcycle;
+			\addplot[fill=lightgray!50, no marks, draw=none] file {fluidcrystal_x.phd}  -| (rel axis cs:1,0) \closedcycle;
+			\addplot[only marks, mark=triangle] file{fluid_samples.phd};
+	\end{groupplot}
+	\end{tikzpicture}
+\end{frame}
+
+\setcounter{framenumber}{\value{finalframe}}
+\end{document}
+
