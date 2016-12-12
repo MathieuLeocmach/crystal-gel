@@ -1,0 +1,68 @@
+\begin{figure*}
+\begin{tikzpicture}[
+	every axis/.style={
+	xlabel absolute, every axis x label/.append style={anchor=base, yshift=-1em},
+	%ylabel absolute, every axis y label/.append style={anchor=base, yshift=-0.5em}
+	}]
+\pgfplotsset{group style={
+	group size=2 by 2,
+	horizontal sep=2em,
+	vertical sep=2em,
+	x descriptions at=edge bottom,
+	every plot/.style={
+		width=0.5\textwidth,
+		height=0.4\linewidth,
+		axis on top,
+		xlabel={$\tau_B$},
+		xmin=0,xmax=400,
+	}
+}}
+\begin{groupplot}[
+	group/y descriptions at=edge left,
+	group/group name=g,
+	ylabel={$\bar{n}$},
+	ymin=0, ymax=6,
+	axis y line*=left,
+	cycle list={black, {mark options={scale=2}}},
+]
+\nextgroupplot
+	\addplot file{data/panel_a_neigh.dat};
+	\addplot+[cyan,mark=square] coordinates {(20,5)} node[right=0.5em, black] {$\phi=0.14$, $c_P=1.36$};
+\nextgroupplot
+	\addplot file{data/panel_b_neigh.dat};
+	\addplot+[red!65!yellow, mark=otimes] coordinates {(20,5)} node[right=0.5em, black] {$\phi=0.33$, $c_P=1.07$};
+\nextgroupplot
+	\addplot file{data/panel_c_neigh.dat};
+	\addplot+[blue,mark=square*] coordinates {(20,5)} node[right=0.5em, black] {$\phi=0.14$, $c_P=0.82$};
+\nextgroupplot
+	\addplot file{data/panel_d_neigh.dat};
+	\addplot+[red, thick, mark=*] coordinates {(20,5)} node[right=0.5em, black] {$\phi=0.33$, $c_P=0.38$};
+\end{groupplot}
+\begin{groupplot}[
+	group/y descriptions at=edge right,
+	ylabel={$p_\mathrm{break}$},
+	ymin=0, ymax=1,
+	axis y line*=right,
+	axis x line=none,
+	ytick style=red!75!black,
+    yticklabel style=red!75!black,
+    ylabel style=red!75!black,
+	cycle list={{red!75!black, dashed, thick},},
+]
+\nextgroupplot
+	\addplot file{data/panel_a_prob.dat};
+\nextgroupplot
+	\addplot file{data/panel_b_prob.dat};
+\nextgroupplot
+	\addplot file{data/panel_c_prob.dat};
+\nextgroupplot
+	\addplot file{data/panel_d_prob.dat};
+\end{groupplot}
+\begin{scope}[every node/.style={anchor=north west, font=\bf}]
+	\node at (g c1r1.left of north west) {a};
+	\node[anchor=north east] at (g c2r1.north west) {b};
+	\node at (g c1r2.left of north west) {c};
+	\node[anchor=north east] at (g c2r2.north west) {d};
+\end{scope}
+\end{tikzpicture}
+\end{figure*}
