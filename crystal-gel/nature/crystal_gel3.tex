@@ -1,6 +1,6 @@
 \documentclass[preprint,amsmath,amssymb,superscriptaddress]{revtex4-1}
 \usepackage{graphicx,amsmath}
-\usepackage{color}
+\usepackage{xcolor}
 \usepackage{xr}
 \externaldocument[S-]{Supplementary}
 \begin{document}
@@ -42,13 +42,13 @@ We argue that similar crystal-gel states can be formed as the result of the gas-
 
 \subsection{Introduction}
 
-Crystallization plays a fundamental role in many processes occurring in nature, such as cloud composition, and in technological applications
+Crystallization plays a fundamental role in many processes occurring in nature, such as \textcolor{blue}{ice formation in atmospheric clouds}, and in technological applications
 that are at the core of the chemical, pharmaceutical, and food industries.
 Many of the properties of crystals, like the shape, spatial arrangement, polymorph type, and size distribution of the crystallites, depend on the conditions at which
 the nucleation process took place. Controlling the early stages of crystallization is thus of fundamental importance in order to
 obtain in a reproducible manner crystals with the desired properties. 
 
-Under usual conditions, the nucleation stage involves a very small number of molecules, of the order of 10-1000 molecules.
+\textcolor{brown}{Mathieu: When I presented this story, I was often told that our initial focus on nucleation was misleading since our main result is about growth. What about trimming down this part? Or focussing more on growth rather than nucleation? }Under usual conditions, the nucleation stage involves a very small number of molecules, of the order of 10-1000 molecules.
 This has severely limited the possibility to observe the nucleation process directly, and has also posed limits on
 models based on macroscopic thermodynamic properties. 
 The inability to directly observe the nucleation process is also a limit to our understanding of its kinetic pathway. 
@@ -95,30 +95,31 @@ More precisely, the dynamical stabilization is due to percolation of locally fav
 % This type of gels are made by phase separation. Thus, the structure is intrinsically heterogeneous, and the network pore size is usually 
 % much larger than gels made of stable crosslinks, resulting in a high fluid transport ability. 
 
-Unlike the above standard scenario of colloidal gelation, it is known that phase separation can also be arrested by crystallization, if the process takes place below the melting point of a component of a mixture~\cite{tanaka1985new}. Indeed the possibility of a different class of gels, which are stabilized by crystallization, 
+Unlike the above standard scenario of colloidal gelation, it is known that phase separation can also be arrested by crystallization, if the process takes place below the melting point of \textcolor{blue}{one of the two separating phases}~\cite{tanaka1985new}. Indeed the possibility of a different class of gels, which are stabilized by crystallization, 
 was suggested by numerical simulations~\cite{soga1999metastable,fortini2008crystallization,perez2011pathways} and observed in experiments \cite{sabin2012,zhang2012non}. 
 For colloidal systems, we can in principle access structural evolution in real time at a single-particle level; however, there has so far been no confocal microscopy  
 studies on the dynamical process of crystal-gel formation on a microscopic level, which makes the microscopic mechanism of crystal-gel formation elusive. 
 For confocal microscopy experiments on colloid gelation, colloid-polymer mixtures have so far been used as a model system. 
-The main difficulty consists in the preparation protocol of such a colloid-polymer mixture, where before observation of its dynamics shaking or applying shear is necessary to prepare an initial homogeneous state. This introduces turbulent flows at the beginning of the process, and also does not allow the
-observation of the initial stages of crystallization. This initial perturbation may even alter the selection of the final non-equilibrium arrested state.  
+The main difficulty consists in the preparation protocol of such a colloid-polymer mixture where, before observation of its dynamics, shaking or applying shear is necessary to prepare an initial homogeneous state. This introduces turbulent flows at the beginning of the process, and also does not allow the
+observation of the initial stages of crystallization \textcolor{brown}{Is it crystallization of gelation here in this context?}. This initial perturbation may even alter the selection of the final non-equilibrium arrested state.  
 In our experiments we instead succeed in building a novel protocol that allows the time evolution of the system to be observed directly
 under the confocal microscope from the very early stages and in a quiescent situation without introducing fluid flows. 
 
 \textcolor{blue}{
-In this Letter, we show that, for low polymer concentration, the system can undergo a novel crystallization pathway that leads to the formation
-of crystalline droplets. These droplets originate from crystal seeds that form inside the liquid branches of the spinodal aggregate of network morphology, and then grow with three different growth channels.
+In this Letter, we show that the system can undergo a novel crystallization pathway that leads to the formation of interconnected crystalline droplets. 
+These droplets originate from crystal seeds that form inside the liquid branches of the spinodal aggregate of network morphology.
+We show that a necessary condition for the nucleation of crystal seeds is the stress-driven aging of the network which releases the stresses that build-up during the network formation due to hydrodynamic interactions, allowing for an increase in the number of average neighbours. 
+If the average concentration of particles is high enough, this relaxation triggers the nucleation process. 
+Stress-driven aging is possible only at low polymer concentration. 
+Indeed, at higher polymer concentration (stronger interparticle attraction) we observe that, instead of forming crystal gels, the system undergoes the classical gelation process, in which
+phase separation is interrupted by vitrification~\cite{verhaegh1997transient,tanaka1999colloid,Royall2007,lu2008gelation}.
+We then show that the growth of the crystal seeds occurs by three different routes:
 (i) growth within the dense branches of the gel ;
 (ii) Bergeron process, analogous to ice formation in mixed phase clouds, where ice droplets grow at the
 expense of the supercooled liquid droplets due to their lower saturated vapour pressure ;
 (iii) Ostwald ripening.
 Differently from the standard crystal-gel scenario, where crystals only nucleate and grow inside the dense branches of the gel, becoming dynamically arrested, we show that the kinetic pathways involving the gas phase (predominantly the Bergeron process, but also Ostwald ripening) play an important role.
-We show that a necessary condition for the formation of crystal gels is the stress-driven aging of the network, that is possible only at low polymer concentration, and which releases the stresses
-that build-up during the network formation due to hydrodynamic interactions, allowing for an increase in the number of average neighbours. If the average concentration of particles is high enough, this relaxation triggers the nucleation process.
-We reveal that the final crystal-gel network structure has smoother interface than the ordinary gels formed by vitrification because of this novel crystal growth mechanism.  
-On the other side, we also observe that increasing the strength of the interparticle attraction
-(by increasing the polymer concentration), instead of forming crystal gels, the system undergoes the classical gelation process, in which
-phase separation is interrupted by vitrification~\cite{verhaegh1997transient,tanaka1999colloid,Royall2007,lu2008gelation}. 
+We reveal that the final crystal-gel network structure has smoother interface than the ordinary gels formed by vitrification because of this novel crystal growth mechanism.
 }
 
 \subsection{Samples}
@@ -182,10 +183,11 @@ fractal (or effective) dimension is compatible with it).
 \textcolor{blue}
 {
 At intermediate times, after percolation has started, hydrodynamic interactions play a fundamental role~\cite{tanaka2000,tanaka2007spontaneous,furukawa2010key}.
-Without hydrodynamic interactions, as often assumed in simulations, particles have the tendency to aggregate in compact structures and subsequently form thick network structures. This also limits the possibility to form arrested gel states only at relatively high volume fractions. With hydrodynamic interactions, particles first form a transient gel even at very low volume fractions, and only later they increase the number of nearest neighbours to minimize the energy of the structure. Thus, hydrodynamic interactions lead to the formation of gels that are very far from equilibrium and under a strong thermodynamic driving force towards more stable compact structures. The resulting transition from open to more compact networks occurs through the breaking of the bonds that have accumulated more stress. The process was called stress-driven ageing~\cite{tanaka2007spontaneous}, and is characteristic of viscoelastic phase separation \cite{tanaka2000viscoelastic}. Whether the network undergoes such restructuring or not depends on the strength of the bonds, i.e. the polymer concentration.
+Without hydrodynamic interactions, as often assumed in simulations, particles have the tendency to aggregate in compact structures and subsequently form thick network structures. This also limits to relatively high volume fractions the possibility to form arrested gel states. 
+With hydrodynamic interactions, particles first form a transient gel even at very low volume fractions, and the number of nearest neighbours increases only later to minimize the energy of the structure. Thus, hydrodynamic interactions lead to the formation of gels that are very far from equilibrium and under a strong thermodynamic driving force towards more stable compact structures. The resulting transition from open to more compact networks occurs through the breaking of the bonds that have accumulated more stress. This process has been called stress-driven ageing~\cite{tanaka2007spontaneous}, and is characteristic of viscoelastic phase separation \cite{tanaka2000viscoelastic}. Whether the network undergoes such restructuring or not depends on the strength of the bonds, i.e. the polymer concentration.
 In Fig.~\ref{fig:bond_breaking} we plot the bond breaking probability, $p_\text{bond}$, and the average coordination, $\bar{n}$, as a function of the time elapsed since salt injection ($t=0$).
-At high polymer concentrations (panels \textbf{a}, \textbf{b}), $p_\text{break}$ decreases monotonically, until a stationaty state is reached where $\bar{n}<5$.
-At low polymer concentrations (panels \textbf{c}, \textbf{d}), the initial decay of $p_\text{break}$ to a network with $\bar{n}<5$ is followed by a secondary decay to a more compact network with $\bar{n}>6$. The build up of mechanical stress in the first transient network can relax to a more compact network only when when bonds are weak enough, i.e. at low polymer concentrations.
+At high polymer concentrations (panels \textbf{a}, \textbf{b}), $p_\text{break}$ decreases monotonically, until a stationary state is reached where $\bar{n}<5$.
+At low polymer concentrations (panels \textbf{c}, \textbf{d}), the initial decay of $p_\text{break}$ to a network with $\bar{n}<5$ is followed by a secondary decay to a more compact network with $\bar{n}>6$. This means that mechanical stress built up in the first transient network can relax to a more compact network only when bonds are weak enough, i.e. at low polymer concentrations.
 }
 
 \textcolor{blue}{
@@ -489,7 +491,7 @@ The two horizontal straight lines indicate the characteristic volume fractions i
 
 \begin{figure}
  \centering
- \includegraphics[width=16cm]{./bond_breaking_figure.pdf}
+ %\includegraphics[width=16cm]{./bond_breaking_figure.pdf}
  % bond_breaking_figure.pdf: 1553x1066 pixel, 72dpi, 54.79x37.61 cm, bb=0 0 1553 1066
  \caption{{\bf Stress driven aging.} Time evolution of the average coordination of colloidal particles $\bar{n}$ (black continuous line) and the bond-breaking probability $p_\text{break}$ (red dashed line) for state points $(\phi;c_p)$: {\bf a} $(0.14;1.36)$, {\bf b} $(0.33;1.07)$, {\bf c} $(0,14;0.82)$, {\bf d} $(0.33;0.38)$. $p_\text{break}$ is measured as the probability of bonds breaking in a time interval of $\Delta t=10\,s$. For high polymer concentration, panels {\bf a} and {\bf b}, $p_\text{break}$ decreases monotonically until it reaches a stationary state at long times, with $\bar{n}$ saturating at an average of less than $5$ neighbours. For low polymer concentration, panels {\bf c} and {\bf d}, $p_\text{break}$ follows a similar decay at intermediate times, with $\bar{n}$ less than $5$ neighbours, but which is then followed by a second decay to new configuration, where $\bar{n}$ becomes greater than $5$ neighbours.}
  \label{fig:bond_breaking}
