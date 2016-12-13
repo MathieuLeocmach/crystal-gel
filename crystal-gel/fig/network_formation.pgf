@@ -1,0 +1,65 @@
+\begin{figure}
+\begin{tikzpicture}[
+	every axis/.style={
+	%xlabel absolute, every axis x label/.append style={anchor=base, yshift=-1em},
+	%ylabel absolute, every axis y label/.append style={anchor=base, yshift=-1em}
+	}]
+\pgfplotscreateplotcyclelist{samples}{%
+blue,mark=square*,\\%
+cyan,mark=square\\%
+red, thick, mark=*\\%
+red!65!yellow, mark=otimes\\%
+red!30!yellow, mark=oplus\\%
+red!65!black, mark=o\\%
+}
+\begin{axis}[
+	name=phdiag,
+	cycle list name=samples,
+	width=\columnwidth+1em,
+	axis on top,
+	xlabel={$\phi$}, ylabel={$c_p$ (\si{\milli\gram/\gram})},
+	xmin=0,xmax=0.74,
+	ymin=0, ymax=1.9,
+	mark options={solid}
+	]
+	\begin{scope}[dotted, mark repeat=2,mark phase=2,<->]
+	\addplot file {sample0.phd};
+	\addplot file {sample1.phd};
+	\addplot file {sample2.phd};
+	\addplot file {sample3.phd};
+	\addplot file {sample4.phd};
+	\addplot file {sample5.phd};
+	\end{scope}
+	\addplot[black, dashed,no marks] file {gasliquid_sg.phd};% node[diamond, fill, inner sep=2pt] at (current plot begin){};
+	\addplot[black, dashed,no marks] file {gasliquid_sl.phd};
+	\addplot[black, no marks] file {gasliquid_bl.phd};
+	\addplot[black, no marks] file {gasliquid_bg.phd};
+	\addplot[fill=lightgray!50, no marks, draw=none] file {fluidcrystal_f.phd} node[above right] at (rel axis cs:0,0) {Fluid} -- (rel axis cs:0,0) \closedcycle;
+	\addplot[fill=lightgray!50, no marks, draw=none] file {fluidcrystal_x.phd} node[above left] (x) at (rel axis cs:1,0.25) {Crystal}  -| (rel axis cs:1,0) \closedcycle;
+	\draw[->] (x.base) --(rel axis cs:0.98,0.01);
+	\addplot[only marks, mark=triangle] file{fluid_samples.phd};
+
+\end{axis}
+\begin{axis}[
+	anchor=north east,
+	at={(phdiag.north east)},
+	width=0.56\columnwidth,
+	xlabel={$s$}, ylabel={$R_g/\sigma$},
+	xmin=1, xmax=4e3,
+	ymin=0.5, ymax=30,
+	ylabel absolute, every axis y label/.append style={anchor=base, yshift=-1.5em},
+	xmode=log, ymode=log,
+	clip mode=individual,
+	cycle list name=samples,
+	axis background/.style={fill=white},
+	]
+	\addplot file{data/fig1b_sqrt_1.dat};
+	\addplot file{data/fig1b_sqrt_2.dat};
+	\addplot file{data/fig1b_sqrt_3.dat};
+	\addplot file{data/fig1b_sqrt_4.dat};
+	\addplot file{data/fig1b_sqrt_5.dat};
+	\addplot[gray, ultra thick, domain=1:4e3] {0.629*x^(1/2.53)} node [left] at (rel axis cs:1,0.6){$D=2.53$};
+\end{axis}
+%\draw (phdiag.outer north west) --++(\columnwidth,0);
+\end{tikzpicture}
+\end{figure}

@@ -1,10 +1,10 @@
-\documentclass[preprint,amsmath,amssymb,superscriptaddress]{revtex4-1}
+\documentclass[twocolumn,amsmath,amssymb,superscriptaddress]{revtex4-1}
 \usepackage{graphicx,amsmath}
 \usepackage{xcolor}
 \usepackage{xr}
 \externaldocument[S-]{Supplementary}
 \begin{document}
-\draft
+%\draft
 
 
 \title{A novel physical mechanism for the spontaneous formation of porous crystals via viscoelastic phase separation} 
@@ -48,7 +48,8 @@ Many of the properties of crystals, like the shape, spatial arrangement, polymor
 the nucleation process took place. Controlling the early stages of crystallization is thus of fundamental importance in order to
 obtain in a reproducible manner crystals with the desired properties. 
 
-\textcolor{brown}{Mathieu: When I presented this story, I was often told that our initial focus on nucleation was misleading since our main result is about growth. What about trimming down this part? Or focussing more on growth rather than nucleation? }Under usual conditions, the nucleation stage involves a very small number of molecules, of the order of 10-1000 molecules.
+%\textcolor{brown}{Mathieu: When I presented this story, I was often told that our initial focus on nucleation was misleading since our main result is about growth. What about trimming down this part? Or focussing more on growth rather than nucleation?}
+Under usual conditions, the nucleation stage involves a very small number of molecules, of the order of 10-1000 molecules.
 This has severely limited the possibility to observe the nucleation process directly, and has also posed limits on
 models based on macroscopic thermodynamic properties. 
 The inability to directly observe the nucleation process is also a limit to our understanding of its kinetic pathway. 
@@ -123,6 +124,14 @@ We reveal that the final crystal-gel network structure has smoother interface th
 }
 
 \subsection{Samples}
+\begin{figure}
+ \includegraphics{network_formation.pdf}
+ \caption{{\bf Network formation.} 
+Phase diagram. Empty black triangles are experimental point showing a fluid behaviour. The other symbols are the experimental points showing gel behaviour, consistently used in all figures. The dotted lines are the gas-liquid tie lines determined experimentally, with arrow heads indicating measured gas and liquid compositions (see Supplementary Information on the procedure to extract the compositions from confocal images).  Gray areas are theoretical equilibrium fluid and crystal regions. The solid and dashed lines are the metastable gas-liquid binodal and spinodal respectively.
+\textbf{(Inset)} Radius of gyration ($R_g$) as a function of cluster size ($s$) for all state points at percolation time. The gray line represents the fractal dimension of the random gelation universality class.
+ }
+ \label{fig:network_formation}
+\end{figure}
 
 In our experimental setup, the sample cell is put in contact with a reservoir of a salt solution through a semi-permeable membrane (see Methods 
 on the details of our experiments).
@@ -131,7 +140,7 @@ which are then subject to attractive depletion forces, making the system thermod
 %In the following we discuss all the stages of the formation of the crystal gels: phase separation, stress-driven agein and crystallization.
 The experimental data are taken at two different volume fractions ($\phi\approx 0.14$ and $\phi\approx 0.33$) and for different values
 of the polymer concentration, $c_p=0.38,0.48,0.57,1.07$ mg/g for $\phi\approx 0.33$ and $c_p=0.82,1.36$ mg/g for $\phi\approx 0.14$.
-In Fig.~\ref{fig:phase_separation}a, we superimpose the state points with a theoretical phase diagram, which we calculated from generalised free volume theory~\cite{Fleer2008} using the experimental values for the size of the colloids, the radius of gyration of the polymer, and the polymer concentration (see Supplementary Methods).
+In Fig.~\ref{fig:network_formation}, we superimpose the state points with a theoretical phase diagram, which we calculated from generalised free volume theory~\cite{Fleer2008} using the experimental values for the size of the colloids, the radius of gyration of the polymer, and the polymer concentration (see Supplementary Methods).
 For each state point, scans were made at early times (every $10$~s, i.e. $4\tau_{\rm B}$) and at the late stage (every $30$~s) of the gelation process. 
 
 
@@ -161,20 +170,21 @@ For each state point, scans were made at early times (every $10$~s, i.e. $4\tau_
 
 \subsection{Early times: percolation}
 
+
 As described above and also in Methods, salt injection initiates liquid-gas phase separation of the colloidal suspension. 
 All samples share the same early stages of spinodal decomposition. 
 A typical early stage phase ordering process observed at $\phi\approx 0.33$ and $c_p=0.38$ mg/g can be seen in Supplementary Movie 1.
 Due to strong dynamical asymmetry between colloids and the solvent \cite{tanaka1999colloid}, the colloidal particles start aggregating, 
 eventually forming a percolating network. Thus, a dense network (liquid) coexists with freely diffusing monomers (gas).
-In Fig.~\ref{fig:phase_separation}a, the state points which did not phase separate are indicated with open triangles, while
+In Fig.~\ref{fig:network_formation}, the state points which did not phase separate are indicated with open triangles, while
 the other symbols indicate samples undergoing phase separation. The black dashed line is the gas spinodal computed from free volume theory and the 
 black continuous line is the binodal line. They are in good agreement with our experimental points (the small discrepancy at small colloidal volume fractions 
 is common in free volume theory)~\cite{Royall2007,lu2008gelation}.
 The topology of the network is similar to all our samples at the initial stages. 
-This is shown for example in Fig.~\ref{fig:phase_separation}b, where we plot the radius of gyration of colloidal clusters ($R_g$)
+This is shown for example in the inset of Fig.~\ref{fig:network_formation}, where we plot the radius of gyration of colloidal clusters ($R_g$)
 as a function of the cluster size ($s$) at the percolation point. Two particles belong to the same cluster if their distance is
 within the first peak of the radial distribution function. All samples show the same scaling law, $R_{\rm g}\sim s^{1/D}$, which is compatible with
-the random gelation universality class exponent ($D=2.53$) as shown by the dashed line in Fig.~\ref{fig:phase_separation}b
+the random gelation universality class exponent ($D=2.53$) as shown by the dashed line in the inset of Fig.~\ref{fig:network_formation}
 (we do not imply that the formation of the network follows the random gelation universality class, just that our
 fractal (or effective) dimension is compatible with it).
 
@@ -209,7 +219,7 @@ To examine this in more detail, we plot in Fig.~\ref{fig:phase_separation}c the 
 At low wavenumber $q$, the structure factor displays fractal scaling compatible with the Guinier law, $S(q)\sim q^{-D}$.
 But a difference in the fractal (or effective) dimension $D$ between the $\phi\approx 0.33$ and $c_p=0.38$ mg/g state point and other state points starts to become visible. In fact, while states
 with high polymer concentration retain the exponent $D=2.5(3)$, 
-which is the random gel universality class exponent, as we also observed in the early stages of the gelation process (see Fig.~\ref{fig:phase_separation}b),
+which is the random gel universality class exponent, as we also observed in the early stages of the gelation process (see inset of Fig.~\ref{fig:network_formation}),
 the state point with low polymer concentration ($\phi\approx 0.33$ and $c_p=0.38$ mg/g) displays the biggest deviation from that exponent. In the figure we also
 plot the exponent $D=3$, which corresponds to volume growth, which we will show in the following analysis to be the correct exponent for this state. 
 The difference is due to the onset of crystallization in the low-polymer concentration sample. This is already evident in the high $q$ behaviour of
@@ -489,7 +499,7 @@ The two horizontal straight lines indicate the characteristic volume fractions i
 \begin{figure}
  \centering
  \includegraphics[width=16cm]{bond_breaking.pdf}
- \caption{{\bf Stress driven aging.} Time evolution of the average coordination of colloidal particles $\bar{n}$ (black continuous line) and the bond-breaking probability $p_\text{break}$ (red dashed line) for four gel samples. Symbols relates each sample to its position on the phase diagram Fig~\ref{fig:phase_separation}a. $p_\text{break}$ is measured as the probability of bonds breaking in a time interval of $\Delta t=10\,s$. For high polymer concentration, panels {\bf a} and {\bf b}, $p_\text{break}$ decreases monotonically until it reaches a stationary state at long times, with $\bar{n}$ saturating at an average of less than $5$ neighbours. For low polymer concentration, panels {\bf c} and {\bf d}, $p_\text{break}$ follows a similar decay at intermediate times, with $\bar{n}$ less than $5$ neighbours, but which is then followed by a second decay to new configuration, where $\bar{n}$ becomes greater than $5$ neighbours.}
+ \caption{{\bf Stress driven aging.} Time evolution of the average coordination of colloidal particles $\bar{n}$ (black continuous line) and the bond-breaking probability $p_\text{break}$ (red dashed line) for four gel samples. Symbols relates each sample to its position on the phase diagram Fig~\ref{fig:network_formation}. $p_\text{break}$ is measured as the probability of bonds breaking in a time interval of $\Delta t=10\,s$. For high polymer concentration, panels {\bf a} and {\bf b}, $p_\text{break}$ decreases monotonically until it reaches a stationary state at long times, with $\bar{n}$ saturating at an average of less than $5$ neighbours. For low polymer concentration, panels {\bf c} and {\bf d}, $p_\text{break}$ follows a similar decay at intermediate times, with $\bar{n}$ less than $5$ neighbours, but which is then followed by a second decay to new configuration, where $\bar{n}$ becomes greater than $5$ neighbours.}
  \label{fig:bond_breaking}
 \end{figure}
 
