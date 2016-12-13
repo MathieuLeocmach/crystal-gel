@@ -219,8 +219,20 @@ The increase in number of bonds after network reorganization is a necessary cond
 %%%
 \subsection{Late times: dynamic-arrest vs crystallization}
 
+\begin{figure*}
+ \includegraphics{late_structure.pdf}
+ \caption{{\bf Structure at late times.} 
+{\bf a,} Structure factors for the late stages of the gelation process. The gray and black lines represents respectively random gelation and compact fractal dimensions.
+{\bf b,} Late stage of the evolution of the local volume fraction around colloidal particles having 12 nearest neighbours.
+{\bf c,} Local volume fraction around a colloidal particle, as a function of the number of nearest neighbours of the particle for the state points in the very late stage. 
+The two horizontal straight lines indicate the characteristic volume fractions in attractive systems, crystal ($\sim 0.72$) and glass ($\sim 0.64$).
+Samples are shown with the same colour code as in Fig.~\ref{fig:network_formation}. In particular red circles correspond to the crystallizing sample at $\phi=0.33$ and $cp=0.38\,$mg/g.
+ }
+ \label{fig:late_structure}
+\end{figure*}
+
 The samples show significantly different behaviours in the later stages of the phase separation process.
-To examine this in more detail, we plot in Fig.~\ref{fig:phase_separation}c the structure factor for the final stages of the gelation process for all state points.
+To examine this in more detail, we plot in Fig.~\ref{fig:late_structure}a the structure factor for the final stages of the gelation process for all state points.
 %Calculation of the structure factor is done with the Hanning window function, to minimize boundary effects.
 At low wavenumber $q$, the structure factor displays fractal scaling compatible with the Guinier law, $S(q)\sim q^{-D}$.
 But a difference in the fractal (or effective) dimension $D$ between the $\phi\approx 0.33$ and $c_p=0.38$ mg/g state point and other state points starts to become visible. In fact, while states
@@ -229,13 +241,13 @@ which is the random gel universality class exponent, as we also observed in the 
 the state point with low polymer concentration ($\phi\approx 0.33$ and $c_p=0.38$ mg/g) displays the biggest deviation from that exponent. In the figure we also
 plot the exponent $D=3$, which corresponds to volume growth, which we will show in the following analysis to be the correct exponent for this state. 
 The difference is due to the onset of crystallization in the low-polymer concentration sample. This is already evident in the high $q$ behaviour of
-the structure factors (Fig.~\ref{fig:phase_separation}c), where the diffraction planes appear as sharper peaks for $\phi\approx 0.33$ and $c_p=0.38$ mg/g.
+the structure factors (Fig.~\ref{fig:late_structure}a), where the diffraction planes appear as sharper peaks for $\phi\approx 0.33$ and $c_p=0.38$ mg/g.
 
-To gain additional insight, in Supplementary Figure~\ref{S-fig:local_phi12} we plot the late stage (after all samples already underwent gas-liquid phase separation) time evolution of the local volume fraction of closed packed particles (having 12 neighbours). The volume fraction is obtained by computing the Voronoi diagram of each configuration, which uniquely assigns a volume to each colloidal particle. Only the state point at $\phi\approx 0.33$ and $c_p = 0.38\,$mg/g shows an increase, up to an asymptotic value that we identify with the composition of the stable crystal phase $\approx 0.72$. We plot the asymptotic average volume fraction as a function of the number of neighbours in Fig.~\ref{fig:phase_separation}d. Approaching close packing (12 neighbours), we clearly see two families of curves. The state point at $\phi\approx 0.33$ and $c_p=0.38\,$mg/g reaches close packing at the volume fraction $\approx 0.72$. By contrast all other state points, reach close packing at a markedly 
+To gain additional insight, in Fig.~\ref{fig:late_structure}b we plot the late stage (after all samples already underwent gas-liquid phase separation) time evolution of the local volume fraction $\phi_\mathrm{loc}$ of closed packed particles (having 12 neighbours). The volume fraction is obtained by computing the Voronoi diagram of each configuration, which uniquely assigns a volume to each colloidal particle. Only the state point at $\phi\approx 0.33$ and $c_p = 0.38\,$mg/g shows an increase, up to an asymptotic value that we identify with the composition of the stable crystal phase $\approx 0.72$. We plot the asymptotic average volume fraction as a function of the number of neighbours in Fig.~\ref{fig:late_structure}c. Approaching close packing (12 neighbours), we clearly see two families of curves. The state point at $\phi\approx 0.33$ and $c_p=0.38\,$mg/g reaches close packing at the volume fraction $\approx 0.72$. By contrast all other state points, reach close packing at a markedly 
 lower volume fraction, which is indeed close to the volume fraction of the attractive glass state~\cite{pham2002multiple}. This result clearly indicates that a single state point follows a different arrest mechanism, in which phase separation is arrested by crystallization and not by glassiness.
 
 
-%To gain additional insight, in Fig.~\ref{fig:phase_separation}d we plot the average local volume fraction as a function of the number of neighbours.
+%To gain additional insight, in Fig.~\ref{fig:late_structure}c we plot the average local volume fraction as a function of the number of neighbours.
 %\textcolor{blue}{The volume fraction is obtained by computing the Voronoi diagram of each configuration, which uniquely assigns a volume to each colloidal particle.}
 %For all state points, we can see that the average volume fraction of a colloidal
 %particle increases with its number of neighbours. Approaching close packing (12 neighbours), we clearly see two families of curves. \textcolor{blue}{The state point at $\phi\approx 0.33$ and $c_p=0.38\,$mg/g reaches close packing at the
@@ -308,7 +320,7 @@ $\phi\approx 0.33$ and $c_p=0.38$ mg/g. The results show that the crystal growth
 the fractal (or effective) dimension close to random percolation ($D=2.53$), while at large sizes it scales as $D=3$, as in compact crystal growth. This demonstrates that, while 
 small crystalline nuclei are nucleated inside the phase-separated liquid branches, once they reach the transverse size of the liquid branch, the growth 
 follows a volume growth with the formation of isotropic crystal droplets. The same scaling law was suggested in the analysis of the
-structure factors, Fig.~\ref{fig:phase_separation}c, but here it is shown directly by the analysis of the gyration radius. 
+structure factors, Fig.~\ref{fig:late_structure}a, but here it is shown directly by the analysis of the gyration radius. 
 
 Next we analyse in detail the crystallization trajectory, distinguishing between the different processes responsible for the
 crystallization of the phase separated network.
@@ -480,23 +492,6 @@ Correspondence and requests for materials should be addressed to H.T.
 \noindent
 {\bf Competing financial interests}
 The authors declare no competing financial interests
-
-
-\clearpage
-
-\begin{figure*}[!t]
- \centering
- \includegraphics{phase_separation.pdf}
- \caption{{\bf Different routes of viscoelastic phase separation.} 
-{\bf a,} Phase diagram. Empty black triangles are experimental point showing a fluid behaviour. The other symbols are the experimental points showing gel behaviour, consistently used in all panels. The dotted lines are the gas-liquid tie lines determined experimentally, with arrow heads indicating measured gas and liquid compositions (see Supplementary Information on the procedure to extract the compositions from confocal images).  Gray areas are theoretical equilibrium fluid and crystal regions. The solid and dashed lines are the metastable gas-liquid binodal and spinodal respectively.
-{\bf b,} Radius of gyration ($R_g$) as a function of cluster size ($s$) for all state points at percolation. The
- gray line represents the fractal dimension of the random gelation universality class.
-{\bf c,} Structure factors for the late stages of the gelation process. The gray and black lines represents respectively random gelation and compact fractal dimensions.
-{\bf d,} Local volume fraction around a colloidal particle, as a function of the number of nearest neighbours of the particle for the state points in the very late stage. 
-The two horizontal straight lines indicate the characteristic volume fractions in attractive systems, crystal ($\sim 0.72$) and glass ($\sim 0.64$).
- }
- \label{fig:phase_separation}
-\end{figure*}
 
 
 \clearpage
