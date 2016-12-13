@@ -267,22 +267,22 @@ lower volume fraction, which is indeed close to the volume fraction of the attra
 % spinodal liquid. Also this suggests that the growth mechanism of the crystal is not simply due to filling of the spinodal liquid network, as was
 % instead observed in Ref.~\cite{soga1999metastable,fortini2008crystallization,perez2011pathways} for brownian dynamics simulations.
 
-% 
-% 
-% \begin{figure}
-%  \centering
-%  \framebox{Phase diagram\hfill}
-%  \includegraphics[width=8cm]{oldfig/fig3b}
-%  \includegraphics[width=8cm]{oldfig/fig3c}
-%  % crystal_size.eps: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=(atend)
-%  \caption{{\bf Two types of arrest mechanism leading to gel formation.} \textbf{a,} Phase diagram \textbf{b,} Local volume fraction around a colloidal particle, as a function of the number of nearest neighbours of the particle.
-%  Different lines represent the different state points. {\bf c,} Structure factors for the late stages of the gelation process.} 
-%  \label{fig:statepoints}
-% \end{figure}
+\begin{figure}
+ \includegraphics[width=\linewidth]{fig2}
+ % crystal_size.eps: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=(atend)
+\caption{{\bf Percolated network structures.} {\bf a:} gel; {\bf b:} crystal-gel. The gel state is obtained from the state
+point $\phi\approx 0.33$ and $c_p=1.07$ mg/g at $t=400$ min after sample preparation, while the crystal-gel is obtained at the same $\phi$ but
+at lower polymer concentration, $c_p=0.38$ mg/g at $t=468$ min after sample preparation. On the left, the network is represented in a coarse-grained fashion (see Methods). 
+We can clearly see not only the percolated nature of both networks, but also the difference in the smoothness of the network surface between amorphous and crystal gels. 
+On the right, slabs of 4.5 $\mu$m thickness and 41 $\mu$m width are plotted, with particles coloured with the same colour scheme as in Fig.~\ref{fig:transitions} red (crystal), green (gas particles), white (liquid particles). 
+We note that very few liquid particles remain in \textbf{b} and the network is almost crystalline. 
+} 
+\label{fig:network}
+\end{figure}
 
 A direct analysis of the colloidal positions at late times confirms that indeed the new structure obtained at
 $\phi\approx 0.33$ and $c_p=0.38$ mg/g has different morphological properties than usual colloidal gels.
-We directly compare the two structures in Fig.~\ref{fig:network}, where Gaussian filtering is used to depict the network structure as a continuous field.
+We directly compare the two structures in Fig.~\ref{fig:network}, where Gaussian filtering is used to depict the network structure as a continuous field (see Methods).
 Panel a presents the results for high
 polymer concentration gel, $c_p=1.07$ mg/g; panel b presents the results for the low polymer concentration sample, $c_p=0.38$ mg/g.
 The comparison shows that the new arrest mechanism produces a network structure with bigger pores, smoother surfaces, and thicker strands (panel b) compared
@@ -466,6 +466,8 @@ by looking at which frame the cluster size distribution has a more extended powe
 we simply measure the spatial extent of the largest cluster and consider it percolating when it is comparable to the
 size of the field of view of the microscope. Both methods lead to essentially identical percolation time for each state point.
 
+\textcolor{blue}{Coarse-grained representation of the network is obtained by applying a Gaussian filter to the position of the particles (of width equal to the inter-particle distance) and plotting the surface which bounds the highest 20 \% values of the field.}
+
 
 \bibliographystyle{naturemag2}
 \bibliography{biblio}
@@ -493,25 +495,6 @@ Correspondence and requests for materials should be addressed to H.T.
 {\bf Competing financial interests}
 The authors declare no competing financial interests
 
-
-\clearpage
-
-\begin{figure*}[!t]
- \centering
- \includegraphics[width=12cm]{fig2}
- % crystal_size.eps: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=(atend)
-\caption{{\bf Percolated network structures.} {\bf a:} gel; {\bf b:} crystal-gel. The gel state is obtained from the state
-point $\phi\approx 0.33$ and $c_p=1.07$ mg/g at $t=400$ min after sample preparation, while the crystal-gel is obtained at the same $\phi$ but
-at lower polymer concentration, $c_p=0.38$ mg/g at $t=468$ min after sample preparation. On the left, the network is represented as a continuous field that has
-been obtained by applying a Gaussian filter to the position of the particles (of width equal to the inter-particle distance) and
-plotting the surface which bounds the highest 20 \% values of the field. We can clearly see not only the percolated nature of both networks, 
-but also the difference in the smoothness of the network surface between amorphous and crystal gels. 
-On the right, slabs of 4.5 $\mu$m thickness and 41 $\mu$m width are plotted,
-with particles coloured with the same colour scheme as in Fig.~\ref{fig:transitions}: red (crystal), green (gas particles), white (liquid particles). 
-We note that very few liquid particles remain and the network is almost crystalline. 
-} 
-\label{fig:network}
-\end{figure*}
 
 \clearpage
 
