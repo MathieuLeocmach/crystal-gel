@@ -45,11 +45,11 @@ red!65!black, mark=o\\%
 	%no markers,
 	/pgfplots/error bars/y dir=both, /pgfplots/error bars/y explicit,
 	]
-	\addplot table[y error=err]{data/mediaphi_phi0.10_cp0.82.scaled};
-	\addplot table[y error=err]{data/mediaphi_phi0.10_cp1.36.scaled};
-	\addplot table[y error=err]{data/mediaphi_phi0.25_cp0.38.scaled};
-	\addplot table[y error=err]{data/mediaphi_phi0.25_cp0.48.scaled};
-	\addplot table[y error=err]{data/mediaphi_phi0.25_cp0.57.scaled};
+	\addplot table[y error=err, x expr={\thisrowno{0}+0.451}]{data/mediaphi_phi0.10_cp0.82.scaled};
+	\addplot table[y error=err, x expr={\thisrowno{0}+0.756}]{data/mediaphi_phi0.10_cp1.36.scaled};
+	\addplot table[y error=err, x expr={\thisrowno{0}+0.489}]{data/mediaphi_phi0.25_cp0.38.scaled};
+	\addplot table[y error=err, x expr={\thisrowno{0}+0.527}]{data/mediaphi_phi0.25_cp0.48.scaled};
+	\addplot table[y error=err, x expr={\thisrowno{0}+0.179}]{data/mediaphi_phi0.25_cp0.57.scaled};
 
 \nextgroupplot[
 	xlabel={\# neighbours}, ylabel={$\phi_\mathrm{loc}$ [\%]},
