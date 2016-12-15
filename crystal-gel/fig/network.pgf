@@ -1,0 +1,26 @@
+\begin{figure}
+\let\imw\relax
+	\newlength\imw
+	\setlength{\imw}{0.5\linewidth - 2.5em}
+\begin{tikzpicture}
+	\matrix[
+		matrix of nodes, inner sep=0, %column sep=0.01\textwidth, 
+		column sep=1.25em,
+		row sep=0.5em,
+		row 1/.style={font=\footnotesize},
+		] (m){
+		\includegraphics[width=\imw]{presentation/highcpfinal_gaussian.jpg}&
+		\includegraphics[width=\imw]{presentation/lowcpfinal_gaussian.jpg}\\
+		\includegraphics[width=\imw]{presentation/slice_article_highcp_t800.jpg}&
+		\includegraphics[width=\imw]{presentation/slice_article_t890.jpg}\\
+	};
+
+\begin{scope}[every node/.style={anchor=north east, font=\bf}]
+	\node at (m-1-1.north west) {a};
+	\node at (m-1-2.north west) {b};
+	\node at (m-2-1.north west) {c};
+	\node at (m-2-2.north west) {d};
+\end{scope}
+%\draw(m.north east) -- ++(-\linewidth,0);
+\end{tikzpicture}
+\end{figure}

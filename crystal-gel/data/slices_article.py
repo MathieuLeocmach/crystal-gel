@@ -8,7 +8,7 @@ from matplotlib.pyplot import imread, imsave
 #0 -> BCC
 #1 -> HCP
 #2 -> FCC
-label = 'ILM'
+label = '_article'
 
 for sample, times in zip(['', '_highcp'], [[120, 390, 890], [800]]):
     for t in times:
@@ -23,7 +23,7 @@ for sample, times in zip(['', '_highcp'], [[120, 390, 890], [800]]):
             for x,y,z in pos[phase<3]
             ]+[Texture(Pigment(color=(0.694,  0.145,  0.623)))])
         f.write(crystals)
-        for i, c in zip([3,4,5], [(0.847,0.57,0.81), (0.847,0.57,0.81), (1.,  0.455,  0.156)]):
+        for i, c in zip([3,4,5], [(0.5,0.5,0.5), (0.5,0.5,0.5), (1.,  0.455,  0.156)]):
             f.write(Union(*[
                 Sphere( (x,y,z), 5)
                 for x,y,z in pos[phase==i]
