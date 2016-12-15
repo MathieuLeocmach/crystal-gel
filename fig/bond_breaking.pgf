@@ -28,25 +28,25 @@
 	cycle list={black, {mark options={scale=2}}},
 ]
 \nextgroupplot
-	\addplot file{data/panel_a_neigh.dat};
+	\addplot table[x expr={\thisrowno{0}+4.34}]{data/panel_a_neigh.dat};
 	\addplot+[cyan,mark=square] coordinates {(250,3)} node[samp] {\begin{align*}
 \phi&=0.14\\
 c_P&=1.36\\
 \end{align*}};
 \nextgroupplot
-	\addplot file{data/panel_b_neigh.dat};
+	\addplot table[x expr={\thisrowno{0}+8.69}]{data/panel_b_neigh.dat};
 	\addplot+[red!65!yellow, mark=otimes] coordinates {(250,3)} node[samp]{\begin{align*}
 \phi&=0.33\\
 c_P&=1.07\\
 \end{align*}};
 \nextgroupplot
-	\addplot file{data/panel_c_neigh.dat};
+	\addplot table[x expr={\thisrowno{0}+21.73}]{data/panel_c_neigh.dat};
 	\addplot+[blue,mark=square*] coordinates {(250,3)} node[samp]{\begin{align*}
 \phi&=0.14\\
 c_P&=0.82\\
 \end{align*}};
 \nextgroupplot
-	\addplot file{data/panel_d_neigh.dat};
+	\addplot table[x expr={\thisrowno{0}+39.13}]{data/panel_d_neigh.dat};
 	\addplot+[red, thick, mark=*] coordinates {(250,3)} node[samp]{\begin{align*}
 \phi&=0.33\\
 c_P&=0.38\\
@@ -64,13 +64,13 @@ c_P&=0.38\\
 	cycle list={{red!75!black, dashed, thick},},
 ]
 \nextgroupplot
-	\addplot file{data/panel_a_prob.dat};
+	\addplot table[x expr={\thisrowno{0}+4.34}, skip first n=2]{data/panel_a_prob.dat};
 \nextgroupplot
-	\addplot file{data/panel_b_prob.dat};
+	\addplot table[x expr={\thisrowno{0}+8.69}]{data/panel_b_prob.dat};
 \nextgroupplot
-	\addplot file{data/panel_c_prob.dat};
+	\addplot table[x expr={\thisrowno{0}+21.73}, skip first n=62]{data/panel_c_prob.dat};
 \nextgroupplot
-	\addplot file{data/panel_d_prob.dat};
+	\addplot table[x expr={\thisrowno{0}+39.13}]{data/panel_d_prob.dat};
 \end{groupplot}
 \begin{scope}[every node/.style={anchor=north west, font=\bf}]
 	\node at (g c1r1.left of north west) {a};
