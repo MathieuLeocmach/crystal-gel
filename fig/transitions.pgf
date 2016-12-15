@@ -1,0 +1,66 @@
+\begin{figure*}
+\definecolor{ilmcolor}{RGB}{177,37,159}
+\definecolor{ilmorange}{RGB}{255,116,40}
+\colorlet{an}{black}
+\colorlet{gas}{ilmorange!90!-an}%
+\colorlet{crystal}{ilmcolor!90!-an}%
+\colorlet{liquid}{gray}%
+%
+\let\imw\relax
+	\newlength\imw
+	\setlength{\imw}{0.31\linewidth}
+\begin{tikzpicture}
+	\matrix[
+		matrix of nodes, inner sep=0, %column sep=0.01\textwidth, 
+		column sep=0.5*(\linewidth-3*\imw),
+		row sep=0.25em,
+		row 1/.style={font=\footnotesize},
+		] (m){
+		$t=2110\tau_B$ & $t=5630\tau_B$ & $t=12130\tau_B$\\
+		\includegraphics[width=\imw]{presentation/slice_article_t120.jpg}&
+		\includegraphics[width=\imw]{presentation/slice_article_t390.jpg}&
+		\includegraphics[width=\imw]{presentation/slice_article_t890.jpg}\\
+	};
+	\begin{axis}[
+		name=a,
+		anchor=outer north west,
+		at={($(m.south west)+(0,-0.5em)$)},
+		width=0.5\linewidth+3em,
+		height=14em,
+		xlabel=$t/10^3\tau_B$,
+		xmin=0, xmax=12.5,
+		ylabel=$N_i/N$,
+		ymin=0, ymax=1,
+		extra x ticks={2.110, 5.630, 12.130},
+		extra x tick style={grid=major},
+		extra x tick labels={},
+		no marks,
+		legend style={
+			cells={anchor=east},
+			legend pos=outer north east,
+			},
+		]
+		\addplot+[liquid, thick, dashed] table{data/liquid.dat};
+		\addplot+[crystal] table{data/crystal.dat};
+		\addplot+[gas, ultra thick, dotted] table{data/gas.dat};
+		\legend{liquid, crystal, gas}
+	\end{axis}
+	
+	\begin{scope}[shift=(m-2-3.south east), xshift=-9em, yshift=-9.5em]
+		\node[regular polygon, regular polygon sides=3, minimum width=8em] (tri){};
+		\node[circle, minimum width=3.5em, fill=gas, left=1em of tri.corner 2] (gas) {gas};
+		\node[circle, minimum width=3.5em, fill=liquid, right =1em of tri.corner 3] (liq) {liquid};
+		\node[regular polygon, regular polygon sides=6, fill=crystal,minimum width=3.5em, inner sep=0, above=0 of tri.corner 1] (X) {crystal};
+		\draw[->, very thick] ($(tri.corner 2)+(0,0.25em)$) -- ($(liq.west)+(0,0.25em)$) node[midway, above]{54\%}-- (X);
+		\draw[->, very thick, dotted] ($(tri.corner 3)+(0,-0.25em)$) -- ($(gas.east)+(0,-0.25em)$) node[midway, below]{35\%}-- (X);
+		\draw[->, very thick, dashed] (X) edge [in=190,out=-130,loop] node[left]{11\%} ();
+	\end{scope}
+
+	\begin{scope}[every node/.style={anchor=north west, font=\bf}]
+	\node at (m.north west) {a};
+	\node at (a.outer north west) {b};
+	\node at (gas.west|-X.north) {c};
+\end{scope}
+%\draw(a.outer south west) -- ++(\linewidth,0);
+\end{tikzpicture}
+\end{figure*}
