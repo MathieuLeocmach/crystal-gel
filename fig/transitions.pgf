@@ -4,6 +4,7 @@
 \colorlet{an}{black}
 \colorlet{gas}{ilmorange!90!-an}%
 \colorlet{crystal}{ilmcolor!90!-an}%
+\colorlet{surface}{crystal!50!an}%
 \colorlet{liquid}{gray}%
 %
 \let\imw\relax
@@ -40,10 +41,11 @@
 			legend pos=outer north east,
 			},
 		]
-		\addplot+[liquid, thick, dashed] table{data/liquid.dat};
-		\addplot+[crystal] table{data/crystal.dat};
-		\addplot+[gas, ultra thick, dotted] table{data/gas.dat};
-		\legend{liquid, crystal, gas}
+		\addplot+[liquid, very thick, dotted] table[x expr={\coordindex*30/2.3e3+0.48956522}]{data/fraction_liquid};
+		\addplot+[crystal, thick] table[x expr={\coordindex*30/2.3e3+0.48956522}]{data/fraction_crystal};
+		\addplot+[surface, dashed] table[x expr={\coordindex*30/2.3e3+0.48956522}]{data/fraction_surface};
+		\addplot+[gas, ultra thick, loosely dotted] table[x expr={\coordindex*30/2.3e3+0.48956522}]{data/fraction_gas};
+		\legend{liquid, crystal, surface, gas}
 	\end{axis}
 	
 	\begin{scope}[shift=(m-2-3.south east), xshift=-9em, yshift=-9.5em]
@@ -51,6 +53,7 @@
 		\node[circle, minimum width=3.5em, fill=gas, left=1em of tri.corner 2] (gas) {gas};
 		\node[circle, minimum width=3.5em, fill=liquid, right =1em of tri.corner 3] (liq) {liquid};
 		\node[regular polygon, regular polygon sides=6, fill=crystal,minimum width=3.5em, inner sep=0, above=0 of tri.corner 1] (X) {crystal};
+		\filldraw[surface] (X.corner 3) to[out=-110, in=-70, distance=4em] node[sloped,below,an]{surface} (X.corner 6) -- (X.corner 5) -- (X.corner 4) -- cycle;
 		\draw[->, very thick] ($(tri.corner 2)+(0,0.25em)$) -- ($(liq.west)+(0,0.25em)$) node[midway, above]{54\%}-- (X);
 		\draw[->, very thick, dotted] ($(tri.corner 3)+(0,-0.25em)$) -- ($(gas.east)+(0,-0.25em)$) node[midway, below]{35\%}-- (X);
 		\draw[->, very thick, dashed] (X) edge [in=190,out=-130,loop] node[left]{11\%} ();
