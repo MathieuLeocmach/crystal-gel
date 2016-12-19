@@ -199,13 +199,13 @@ fractal (or effective) dimension is compatible with it.
 
 \begin{figure}
  \includegraphics[width=10cm]{bond_breaking.pdf}
- \caption{{\bf Stress driven aging.} Time evolution of the average coordination of colloidal particles $\bar{n}$ (black continuous line) and the bond-breaking probability $p_\text{break}$ (red dashed line) for four gel samples. Symbols relates each sample to its position on the phase diagram \textcolor{blue}{in} Fig.~\ref{fig:network_formation}. $p_\text{break}$ is measured as the probability of bonds breaking in a time interval of $\Delta t=10$ s. For high polymer concentration, panels {\bf a} and {\bf b}, $p_\text{break}$ decreases monotonically until it reaches a stationary state at long times, with $\bar{n}$ saturating at an average of less than $5$ neighbours. For low polymer concentration, panels {\bf c} and {\bf d}, $p_\text{break}$ follows a similar decay at intermediate times, with $\bar{n}$ less than $5$ neighbours, but which is then followed by a second decay to new configuration, where $\bar{n}$ becomes greater than $5$ neighbours.}
+ \caption{{\bf Stress driven aging.} Time evolution of the average coordination of colloidal particles $\bar{n}$ (black continuous line) and the bond-breaking probability $p_\text{break}$ (red dashed line) for four gel samples. Symbols relate each sample to its position on the phase diagram \textcolor{blue}{in} Fig.~\ref{fig:network_formation}. $p_\text{break}$ is measured as the probability of bond breaking in a time interval of $\Delta t=10$ s. For high polymer concentration, panels {\bf a} and {\bf b}, $p_\text{break}$ decreases monotonically until it reaches a stationary state at long times, with $\bar{n}$ saturating at an average of less than $5$ neighbours. For low polymer concentration, panels {\bf c} and {\bf d}, $p_\text{break}$ follows a similar decay at intermediate times, with $\bar{n}$ less than $5$ neighbours, but which is then followed by a second decay to new configuration, where $\bar{n}$ becomes greater than $5$ neighbours.}
  \label{fig:bond_breaking}
 \end{figure}
 
 \textcolor{blue}
 {
-At intermediate times, after percolation has started, hydrodynamic interactions play a fundamental role~\cite{tanaka2000,tanaka2007spontaneous,furukawa2010key}.
+\textcolor{red}{From initial to intermediate times, before percolation is complete}, hydrodynamic interactions play a fundamental role~\cite{tanaka2000,tanaka2007spontaneous,furukawa2010key}.
 Without hydrodynamic interactions, as often assumed in simulations, particles have the tendency to aggregate in compact structures and subsequently form thick network structures. This also limits to relatively high volume fractions the possibility to form arrested gel states. 
 With hydrodynamic interactions, particles first form a transient gel even at very low volume fractions, and the number of nearest neighbours increases only later to minimize the energy of the structure. Thus, hydrodynamic interactions lead to the formation of gels that are very far from equilibrium and under a strong thermodynamic driving force towards more stable compact structures. The resulting transition from open to more compact networks occurs through the breaking of the bonds that have accumulated more stress. This process has been called stress-driven ageing~\cite{tanaka2007spontaneous}, and is characteristic of viscoelastic phase separation \cite{tanaka2000viscoelastic}. Whether the network undergoes such restructuring or not depends on the strength of the bonds, i.e. the polymer concentration.
 In Fig.~\ref{fig:bond_breaking} we plot the bond breaking probability, $p_\text{bond}$, and the average coordination, $\bar{n}$, as a function of the time elapsed since salt injection ($t=0$).
@@ -239,7 +239,7 @@ Samples are shown with the same colour code as in Fig.~\ref{fig:network_formatio
  \label{fig:late_structure}
 \end{figure*}
 
-\textcolor{blue}{The samples shares the same early stages of of the phase separation process, but show significantly different behaviours in the later stages.}
+\textcolor{blue}{The samples share the same early stages of the phase separation process, but show significantly different behaviours in the later stages.}
 To examine this in more detail, we plot in Fig.~\ref{fig:late_structure}a the structure factor for the final stages of the gelation process for all state points.
 %Calculation of the structure factor is done with the Hanning window function, to minimize boundary effects.
 At low wavenumber $q$, the structure factor displays fractal scaling compatible with the Guinier law, $S(q)\sim q^{-D}$.
@@ -278,25 +278,24 @@ lower volume fraction, which is indeed close to the volume fraction of the attra
 \begin{figure}
  \includegraphics[width=10cm]{network}
  % crystal_size.eps: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=(atend)
-\caption{{\bf Percolated network structures.} {\bf a:} gel; {\bf b:} crystal-gel. The gel state is obtained from the state
-point $\phi\approx 0.33$ and $c_p=1.07$ mg/g at $t=400$ min after sample preparation, while the crystal-gel is obtained at the same $\phi$ but
-at lower polymer concentration, $c_p=0.38$ mg/g at $t=468$ min after sample preparation. On the left, the network is represented in a coarse-grained fashion (see Methods). 
-We can clearly see not only the percolated nature of both networks, but also the difference in the smoothness of the network surface between amorphous and crystal gels. 
-On the right, slabs of 4.5 $\mu$m thickness and 41 $\mu$m width are plotted, with particles coloured with the same colour scheme as in Fig.~\ref{fig:transitions}: red (crystal), green (gas particles), white (liquid particles). 
-We note that very few liquid particles remain in \textbf{b} and the network is almost crystalline. 
+\caption{{\bf Percolated network structures.} 
+{\bf a, b:} the network is represented in a coarse-grained fashion (see Methods).
+{\bf c, d:} slabs of 4.5 $\mu$m thickness and 41 $\mu$m width. Particles are drawn to scale and coloured according to their phase. Purple: crystal; gray: liquid; orange: gas. 
+{\bf a, c:} a gel obtained from the state point $\phi\approx 0.33$ and $c_p=1.07$ mg/g at $t=400$ min after sample preparation. 
+{\bf b, d:} a crystal-gel at the same $\phi$ but at lower polymer concentration, $c_p=0.38$ mg/g at $t=468$ min after sample preparation. 
+On the top row we can clearly see not only the percolated nature of both networks, but also the difference in the smoothness of the network surface between amorphous and crystal gels. 
+We note that very few liquid particles remain in \textbf{d} and the network is almost crystalline. 
 } 
 \label{fig:network}
 \end{figure}
 
-A direct analysis of the colloidal positions at late times confirms that indeed the new structure obtained at
-$\phi\approx 0.33$ and $c_p=0.38$ mg/g has different morphological properties than usual colloidal gels.
-We directly compare the two structures in Fig.~\ref{fig:network}, where Gaussian filtering is used to depict the network structure as a continuous field (see Methods).
-Panel a presents the results for high
-polymer concentration gel, $c_p=1.07$ mg/g; panel b presents the results for the low polymer concentration sample, $c_p=0.38$ mg/g.
-The comparison shows that the new arrest mechanism produces a network structure with bigger pores, smoother surfaces \textcolor{blue}{(consistently with $D=3$)}, and thicker strands (panel b) compared
-to the colloidal gel sample (panel a). The right column shows the individual particle positions for slabs with a thickness of 5 particle diameters. 
+A direct analysis of the colloidal positions at late times confirms that indeed the new structure obtained at $\phi\approx 0.33$ and $c_p=0.38$ mg/g has different morphological properties than usual colloidal gels.
+We directly compare the two structures in Fig.~\ref{fig:network}a and b, where Gaussian filtering is used to depict the network structure as a continuous field (see Methods).
+Panel~a presents the results for high polymer concentration gel, $c_p=1.07$ mg/g \textcolor{blue}{that never undergoes stress-driven ageing}; panel~b presents the results for the low polymer concentration sample, $c_p=0.38$ mg/g.
+The comparison shows that the new arrest mechanism produces a \textcolor{blue}{beaded} network structure with bigger pores, smoother surfaces \textcolor{blue}{(consistently with $D=3$)}, and thicker strands (panel b) compared 
+to the colloidal gel sample (panel a). The bottom row shows the individual particle positions for slabs with a thickness of 5 particle diameters. 
 From the figure it is immediately clear that the network strands at low polymer concentration are crystalline. The new arrest mechanism thus
-involve the formation of a crystal-gel network. In order to explain the morphological differences between colloidal gels and crystal-gels,
+involve the formation of a crystal-gel network. In order to explain the morphological differences between colloidal gels \textcolor{blue}{(networks made of thin strands)} and crystal-gels \textcolor{blue}{(networks made of thick crystal beads)},
 we now consider the kinetics of formation in our samples. 
 
 \begin{figure}
@@ -317,7 +316,7 @@ Supplementary Movie 2 shows the late stage (after the initial spinodal decomposi
 With this analysis we reveal that crystallization events indeed start occurring for the state point $\phi\approx 0.33$ and $c_p=0.38$ mg/g, which has the lowest
 polymer concentration of all state points. This is shown in the inset of Fig.~\ref{fig:crystals}, where the \textcolor{blue}{red dashed} line indicates the average size of the crystallites, 
 while the \textcolor{blue}{black} line indicates the average number of crystallites as a function of time. The number of crystallites first rapidly increases as nucleation events
-start occurring inside the liquid network, but eventually starts decreasing as the different crystallites grow and merge with each other.  Supplementary Movie 3 shows a three-dimensional (3D) reconstruction  of the whole phase ordering sequence that emphasizes crystalline particles. Although crystal clusters are isolated in this movie, they are bridged by the dense colloidal liquid phase and involved in the percolated gel network, as can be seen in Fig. \ref{fig:network}b. 
+start occurring inside the liquid network, but eventually starts decreasing as the different crystallites grow and merge with each other.  Supplementary Movie 3 shows a three-dimensional (3D) reconstruction  of the whole phase ordering sequence that emphasizes crystalline particles. Although crystal clusters are isolated in this movie, they are bridged by the dense colloidal liquid phase and involved in the percolated gel network, as can be seen in Fig. \ref{fig:network}b and d. 
 We can see that crystal clusters grow by condensation from the colloidal gas phase. 
 %The average size of the crystals shows an interesting linear growth regime for $100<t<600$. This linear growth regime goes past the time
 %of coalescence of nuclei, so a first speculation is that it could be due to the compensation of the following two effects:
@@ -335,10 +334,10 @@ which speculated two different arrest mechanisms: crystallization at low polymer
 
 \begin{figure*}
  \centering
- \includegraphics[width=12cm]{transitions}
+ \includegraphics[width=16cm]{transitions}
  % snapshots.eps: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=0 -1 2256 735
  \caption{{\bf Crystal gel formation.}  
-{\bf a,} Reconstructions from confocal coordinates at $\phi\approx 0.33$ and $c_p=0.38$ mg/g. The depth of view is 9.0 $\mu$m, while the lateral dimension is 41 $\mu$m. Particles are drawn to scale and coloured according to their phase. Red: crystal; white: liquid; green: gas.
+{\bf a,} Reconstructions from confocal coordinates at $\phi\approx 0.33$ and $c_p=0.38$ mg/g. The depth of view is 9.0 $\mu$m, while the lateral dimension is 41 $\mu$m. Particles are drawn to scale and coloured according to their phase. Purple: crystal; gray: liquid; orange: gas.
 {\bf b,} Fraction of particles for each phase. Gray vertical lines indicate the times shown in panel a. 
 {\bf c,} Each particle during its trajectory changes between three states: gas, liquid and crystal. Direct crystallization (continuous arrow) accounts for 54\% of particles trajectories in which
 gas or liquid particles transition to the crystal state without liquid evaporation or crystal de-sublimation. The Bergeron process (dotted arrow) accounts for 35\% of particle trajectories in which liquid particles
@@ -390,7 +389,7 @@ In Supplementary Information we confirm these results with a detailed analysis o
 to crystalline particles, see Supplementary Figure~\ref{S-fig:probabilities}.
 While the direct freezing of the fluid represents the major contribution to the nuclei growth, the kinetic path via the gas phase (gas$\rightarrow$crystal), also plays a crucial role,
 especially in determining the morphology of the porous crystal, as we discussed above. In this context the Bergeron process~\cite{glickman2000glossary,morrison2012resilience}
-plays a considerably more important role than Ostwald ripening.
+plays a considerably more important role than Ostwald ripening \textcolor{blue}{and is responsible for the beaded network morphology}.
 
 % 
 % Here we mention the simulations closer to our experimental results~\cite{fortini2008crystallization}.
